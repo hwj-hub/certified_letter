@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#a1281f">
+<title>내용증명 작성기 · 상황만 고르면 문장 완성, 우체국 규격 PDF·워드와 발송 비용까지</title>
+<meta name="description" content="내용증명을 상황별로 바로 씁니다. 빌려준 돈, 전세·월세 보증금, 물건값·공사비, 헬스장 해지·환불, 밀린 월세, 손해배상 중 하나를 고르고 빈칸을 채우면 사실관계·요구·기한·법적 조치 문장이 자동으로 완성됩니다. 주택 갱신 거절 통지 기한(만료 2개월 전), 소멸시효, 청약철회 7일·14일 같은 놓치기 쉬운 기준을 점검하고, 인터넷우체국 여백 규격에 맞춘 PDF·워드(docx)·3부 인쇄와 우체국 발송 비용(2026년 7월 요금)까지 계산합니다. 입력한 내용은 서버로 전송되지 않으며 설치도 회원가입도 없이 휴대폰에서도 됩니다.">
+<meta property="og:title" content="내용증명 작성기 · 상황만 고르면 문장 완성">
+<meta property="og:description" content="대여금·보증금·대금·환불·월세·손해배상 내용증명을 빈칸만 채워 완성. 우체국 규격 PDF·워드, 3부 인쇄, 발송 비용 계산까지. 입력 내용은 서버로 전송되지 않습니다.">
+<meta property="og:type" content="website">
+<!-- 링크 미리보기 그림: 스크래퍼는 절대 주소만 읽으므로 배포 주소로 적는다. 그림은 make_thumbnail.py og 가 만든 og-image.png(1200×630) -->
+<meta property="og:image" content="https://hwj-hub.github.io/certified_letter/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="내용증명 작성기 — 상황을 고르고 빈칸을 채우면 내용증명이 완성되고 우체국 발송 비용까지 계산">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%93%AE%3C/text%3E%3C/svg%3E">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  color-scheme:light dark;
+  --bg:#f6f2ef; --card:#fff; --card2:#fbf8f6; --fg:#261b18; --muted:#6f625c; --line:#ece2dd;
+  --accent:#a1281f; --accent2:#d0523e; --afg:#fff;
+  --ok:#0f766e; --okbg:#e6f4f2; --warn:#b45309; --warnbg:#fef4e6; --danger:#c81e1e; --dangerbg:#fdecec;
+  --info:#475569; --infobg:#f1f3f6;
+  --shadow:0 1px 2px rgba(38,27,24,.05),0 8px 24px -14px rgba(38,27,24,.32);
+  --r:16px;
+}
+@media (prefers-color-scheme:dark){
+ :root{
+  --bg:#151010; --card:#221a19; --card2:#1b1514; --fg:#f6eeec; --muted:#b9aaa5; --line:#3b2f2d;
+  --accent:#f08a7a; --accent2:#f6b3a6; --afg:#2a0f0b;
+  --ok:#34d399; --okbg:#0f2a22; --warn:#fbbf24; --warnbg:#2a2110; --danger:#f87171; --dangerbg:#2c1414;
+  --info:#c3ccd8; --infobg:#1f242b;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -16px rgba(0,0,0,.8);
+ }
+}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);line-height:1.55;word-break:keep-all;overflow-wrap:anywhere;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",Roboto,sans-serif;
+  -webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1180px;margin:0 auto;padding:0 14px calc(70px + env(safe-area-inset-bottom))}
+.hide{display:none !important}
+.nw{white-space:nowrap}
+
+/* ══ 광고 슬롯 ══ */
+.ad-slot{display:flex;align-items:center;justify-content:center;margin:10px auto;overflow:hidden}
+.ad-top{width:320px;height:50px;max-width:100%}
+.ad-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);
+  border-radius:8px;background:var(--card2);color:var(--muted);font-size:11px;letter-spacing:.08em;font-weight:600}
+
+header{text-align:center;padding:14px 0 2px}
+.logo{display:inline-flex;align-items:center;gap:9px;font-size:22px;font-weight:800;letter-spacing:-.02em}
+.logo .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+.tag{font-size:14.5px;font-weight:600;color:var(--muted);margin:8px 0 0}
+.tag b{color:var(--fg)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.badge{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--okbg);color:var(--ok);border:1px solid transparent}
+.badge.gray{background:var(--card2);color:var(--muted);border-color:var(--line)}
+
+.toolbar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+
+/* ── 두 칸 배치 · 넓은 화면에서 미리보기를 옆에 붙인다 ── */
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 16px}
+@media (min-width:980px){
+  .layout{grid-template-columns:minmax(0,1fr) 430px;align-items:start}
+  .side{position:sticky;top:8px;max-height:100vh;overflow:auto;padding-bottom:10px;scrollbar-width:thin}
+  .side .pv-pages{max-height:calc(100vh - 330px);min-height:320px;overflow:auto}
+}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-top:14px}
+.card h2{font-size:12px;font-weight:800;color:var(--muted);margin:0 0 12px;letter-spacing:.07em;
+  display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card h2 .n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;margin-right:6px;
+  background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);letter-spacing:0;font-size:11.5px}
+.card h2 .opt{font-size:10.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;letter-spacing:.02em;white-space:nowrap}
+
+/* ── 상황 고르기 ── */
+.tpls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:600px){.tpls{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:980px) and (max-width:1100px){.tpls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tpl{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:var(--card2);
+  color:var(--fg);font:inherit;padding:11px 12px;border-radius:13px;cursor:pointer;min-height:76px;transition:.15s}
+.tpl:hover{border-color:var(--accent)}
+.tpl .i{font-size:19px;line-height:1.1}
+.tpl b{font-size:14px;font-weight:800;letter-spacing:-.01em;line-height:1.35}
+.tpl small{font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.4}
+.tpl.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--card));box-shadow:0 0 0 1px var(--accent) inset}
+.tpl.on b{color:var(--accent)}
+
+/* ── 폼 ── */
+.row{margin-top:14px}
+.lab{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:13.5px;font-weight:800;margin-bottom:7px}
+.lab .hint{font-weight:500;color:var(--muted);font-size:12px;text-align:right}
+input[type=text],input[type=tel],input[type=date],select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--card2);
+  border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:46px;width:100%;min-width:0}
+input[type=date]{-webkit-appearance:none;appearance:none;display:block}
+input::placeholder,textarea::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
+textarea{resize:vertical;line-height:1.6}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.grid2{display:flex;gap:10px;flex-wrap:wrap}
+.grid2>div{flex:1 1 180px;min-width:0}
+.grid2>div.wide{flex:2 1 240px}
+.grid3{display:flex;gap:8px;flex-wrap:wrap}
+.grid3>input{flex:1 1 110px}
+.grid3>input:nth-child(2){flex:2 1 170px}
+.seg{display:flex;gap:5px;flex-wrap:wrap}
+.seg button{flex:1 1 0;border:1px solid var(--line);background:var(--card2);color:var(--muted);font:inherit;
+  font-size:13.5px;font-weight:800;padding:9px 8px;border-radius:10px;cursor:pointer;min-height:46px;transition:.15s;min-width:72px}
+.seg button:hover{border-color:var(--accent)}
+.seg button.on{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.seg button .s{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:1px;line-height:1.4}
+.seg button.on .s{color:var(--accent)}
+.seg.col button{flex:1 1 100%;text-align:left;padding:9px 12px}
+.chk{display:flex;align-items:flex-start;gap:9px;font-size:14px;font-weight:700;cursor:pointer;padding:8px 0;margin-top:4px}
+.chk input{width:20px;height:20px;accent-color:var(--accent);flex:0 0 auto;margin:2px 0 0}
+.chk .d{display:block;font-size:12.5px;font-weight:600;color:var(--muted);line-height:1.6;margin-top:1px}
+.chks2{display:flex;flex-wrap:wrap;gap:0 18px}
+.chks2 .chk{flex:0 1 auto;margin-top:0;padding:6px 0}
+.unit{display:flex;gap:8px;align-items:center}
+.unit input{flex:1 1 auto}
+.unit span{flex:0 0 auto;font-size:14px;font-weight:800;color:var(--muted)}
+.unit.big input{font-size:21px;font-weight:800;letter-spacing:-.01em;text-align:right;font-variant-numeric:tabular-nums;min-height:52px}
+.unit.big span{font-size:16px}
+.money{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.kor{margin-top:6px;font-size:13px;font-weight:700;color:var(--accent);min-height:0;line-height:1.55}
+.kor:empty{display:none}
+.kor small{color:var(--muted);font-weight:600;font-size:12px}
+.sub{border-left:3px solid color-mix(in srgb,var(--accent) 30%,transparent);padding-left:12px;margin-left:2px}
+.calcline{margin:9px 0 0;font-size:12.5px;font-weight:700;color:var(--muted);line-height:1.65}
+.calcline b{color:var(--fg);font-variant-numeric:tabular-nums}
+.calcline:empty{display:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chips button{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:12.5px;font-weight:700;
+  padding:6px 11px;border-radius:999px;cursor:pointer;min-height:36px}
+.chips button:hover,.chips button.on{border-color:var(--accent);color:var(--accent)}
+.party{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:12px;background:var(--card2)}
+.party .grid2{margin-top:8px}
+.party .grid2:first-of-type{margin-top:0}
+.party input{background:var(--card)}
+.party .seg button{background:var(--card);min-height:40px;padding:6px 8px;font-size:13px}
+.ph{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;margin-bottom:9px}
+.ph em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;background:var(--card)}
+.ph .rm{margin-left:auto;border:0;background:transparent;color:var(--muted);font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;min-height:36px;padding:0 6px}
+.ph .rm:hover{color:var(--danger)}
+.addp{margin-top:10px}
+.fine{font-size:12px;font-weight:600;color:var(--muted);line-height:1.65;margin:9px 0 0}
+.fine b{color:var(--fg)}
+.itemrow{display:flex;gap:8px;margin-top:8px}
+.itemrow input:first-child{flex:1.3 1 0}
+.itemrow .unit{flex:1 1 0;min-width:0}
+
+.mini{border:1px solid var(--line);background:var(--card);color:var(--fg);font:inherit;font-size:13px;font-weight:700;
+  padding:9px 14px;border-radius:999px;cursor:pointer;min-height:42px;transition:.15s}
+.mini:hover{border-color:var(--accent)}
+.btn{flex:1 1 130px;border:1px solid var(--line);background:var(--card2);color:var(--fg);font:inherit;font-size:14px;font-weight:800;
+  padding:11px 12px;border-radius:12px;cursor:pointer;min-height:48px;transition:.15s;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-align:center}
+.btn:hover:not(:disabled){border-color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:progress}
+.btn.pri{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;box-shadow:var(--shadow)}
+@media (prefers-color-scheme:dark){.btn.pri{color:var(--afg)}}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.actions .btn.pri{flex-basis:100%}
+.prow{display:flex;align-items:center;gap:8px;flex:1 1 100%;flex-wrap:wrap}
+.prow .btn{flex:1 1 140px}
+.prow .seg{flex:1 1 170px}
+.prow .seg button{min-height:48px;font-size:13px;min-width:0}
+
+/* ── 본문 편집 ── */
+#bodyEdit{font-size:15px;line-height:1.75;min-height:280px}
+#subject{resize:none;overflow:hidden;line-height:1.5;font-weight:700}
+.edited{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;border-radius:11px;padding:9px 11px;
+  background:var(--warnbg);color:var(--warn);font-size:12.5px;font-weight:700;line-height:1.6}
+.edited span{flex:1 1 200px}
+.edited .mini{min-height:38px;padding:7px 12px;font-size:12.5px}
+.linkbtn{border:0;background:transparent;color:var(--accent);font:inherit;font-size:12px;font-weight:800;cursor:pointer;padding:4px 0;min-height:28px}
+.kbd{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:11.5px;border:1px solid var(--line);border-radius:5px;padding:0 5px;background:var(--card2);color:var(--fg)}
+
+/* ── 서명 목록 ── */
+.signs{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.sg{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:var(--card2);flex-wrap:wrap}
+.sg .who{flex:1 1 120px;min-width:0;font-size:13.5px;font-weight:800}
+.sg .who small{display:block;font-size:11.5px;font-weight:600;color:var(--muted)}
+.sg .th{flex:0 0 auto;width:86px;height:42px;border-radius:8px;border:1px dashed var(--line);background:#fff;display:grid;place-items:center;overflow:hidden}
+.sg .th img{max-width:80px;max-height:38px;display:block}
+.sg .th span{font-size:10.5px;color:#8a7f73;font-weight:700}
+.sg .bt{display:flex;gap:6px;flex:0 0 auto}
+.sg .bt .mini{min-height:40px;padding:8px 12px}
+
+/* ── 미리보기 ── */
+.pv h2 .pvinfo{letter-spacing:.02em;font-weight:700}
+.pv-pages{display:flex;flex-direction:column;gap:12px;background:color-mix(in srgb,var(--muted) 14%,var(--card2));border-radius:12px;padding:12px;
+  border:1px solid var(--line)}
+.pv-pages canvas{display:block;width:100%;height:auto;background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.18),0 6px 18px -10px rgba(0,0,0,.35);cursor:zoom-in}
+
+/* ── 발송 비용 ── */
+.fee{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card2)}
+.fee div{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--muted);border-top:1px solid var(--line)}
+.fee div:first-child{border-top:0}
+.fee div b{color:var(--fg);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fee div.tot{background:color-mix(in srgb,var(--accent) 8%,var(--card));color:var(--fg);font-size:14px;font-weight:800}
+.fee div.tot b{font-size:18px;color:var(--accent)}
+.fee div small{font-size:11.5px;font-weight:600}
+
+/* ── 점검 ── */
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.checks li{position:relative;border-radius:11px;padding:9px 11px 9px 34px;font-size:12.5px;font-weight:600;line-height:1.65}
+.checks li b{font-weight:800}
+.checks li::before{position:absolute;left:10px;top:9px;width:17px;height:17px;border-radius:50%;display:grid;place-items:center;
+  font-size:10.5px;font-weight:900;line-height:1}
+.checks li.ok{background:var(--okbg);color:var(--ok)}
+.checks li.ok::before{content:"✓";background:var(--ok);color:var(--okbg)}
+.checks li.info{background:var(--infobg);color:var(--info)}
+.checks li.info::before{content:"i";background:var(--info);color:var(--infobg)}
+.checks li.warn{background:var(--warnbg);color:var(--warn)}
+.checks li.warn::before{content:"!";background:var(--warn);color:var(--warnbg)}
+.checks li.bad{background:var(--dangerbg);color:var(--danger)}
+.checks li.bad::before{content:"✕";background:var(--danger);color:var(--dangerbg)}
+
+/* ── 안내 ── */
+.steps{list-style:none;margin:0;padding:0;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:12px;font-size:14px;font-weight:600;line-height:1.7;counter-increment:st}
+.steps li:last-child{margin-bottom:0}
+.steps li::before{content:counter(st);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;
+  font-size:12px;font-weight:800;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.steps li b{font-weight:800}
+.steps li .d{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.gtabs{display:flex;gap:6px;margin-bottom:14px}
+.gtabs button{flex:1 1 0;border:1px solid var(--line);background:var(--card2);color:var(--muted);font:inherit;font-size:13.5px;font-weight:800;
+  padding:9px 8px;border-radius:10px;cursor:pointer;min-height:46px}
+.gtabs button.on{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.env{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.env div{border:1px dashed var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;font-weight:600;color:var(--muted);line-height:1.6;background:var(--card2)}
+.env div b{display:block;color:var(--fg);font-size:13px}
+details{border-top:1px solid var(--line);padding:12px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;padding:10px 0;margin:-10px 0}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋ ";color:var(--accent);font-weight:800}
+details[open] summary::before{content:"－ "}
+details p{margin:8px 0 0;font-size:13.5px;color:var(--muted);line-height:1.8}
+details p b{color:var(--fg)}
+
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px;line-height:1.8}
+footer b{color:var(--fg)}
+
+/* ══ 주의 문구 ══ */
+.nbx{border:1px solid var(--warn);border-radius:14px;background:var(--warnbg);padding:14px 15px;margin-top:14px}
+.nbx-h{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:800;color:var(--warn);margin:0 0 10px}
+.nbx-h .ic{flex:0 0 auto;width:19px;height:19px;border-radius:6px;background:var(--warn);color:var(--warnbg);
+  font-size:12px;font-weight:800;display:grid;place-items:center;line-height:1}
+.nbx ul{list-style:none;margin:0;padding:0}
+.nbx li{position:relative;padding-left:12px;margin-bottom:7px;font-size:12px;font-weight:600;line-height:1.68;color:var(--warn)}
+.nbx li:last-child{margin-bottom:0}
+.nbx li::before{content:"·";position:absolute;left:1px;top:-1px;font-weight:800}
+.nbx li b{font-weight:800}
+.nbx .nbx-f{margin:11px 0 0;padding-top:10px;border-top:1px solid color-mix(in srgb,var(--warn) 32%,transparent);
+  font-size:12px;font-weight:700;line-height:1.72;color:var(--warn)}
+.nbx .nbx-f b{font-weight:800}
+
+/* ── 모달 (서명 · 크게 보기) ── */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(15,10,6,.6);display:flex;align-items:flex-end;justify-content:center;
+  padding:0}
+@media (min-width:640px){.modal{align-items:center;padding:20px}}
+.sheet{background:var(--card);border-radius:18px 18px 0 0;width:100%;max-width:560px;padding:14px 14px calc(14px + env(safe-area-inset-bottom));
+  box-shadow:0 -10px 40px -10px rgba(0,0,0,.5)}
+@media (min-width:640px){.sheet{border-radius:18px}}
+.sh-h{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:15px;margin-bottom:10px}
+.sh-h b{font-weight:800}
+.x{border:0;background:var(--card2);color:var(--fg);width:40px;height:40px;border-radius:50%;font-size:16px;cursor:pointer}
+.padwrap{position:relative;border:1px dashed color-mix(in srgb,var(--muted) 60%,transparent);border-radius:12px;background:#fff;overflow:hidden;touch-action:none}
+#pad{display:block;width:100%;height:220px;touch-action:none;cursor:crosshair}
+.padhint{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:12.5px;font-weight:700;color:#a39a8f;pointer-events:none}
+.padline{position:absolute;left:8%;right:8%;bottom:40px;border-bottom:1px solid #e5ddd2;pointer-events:none}
+.sh-a{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sh-a .btn{flex:1 1 100px}
+.viewer{position:absolute;inset:0;display:flex;flex-direction:column;background:#5b534b}
+.vbar{display:flex;align-items:center;gap:8px;padding:8px 10px calc(8px);background:var(--card);border-bottom:1px solid var(--line)}
+.vbar b{flex:1 1 auto;font-size:14px;font-weight:800}
+.vpages{flex:1 1 auto;overflow:auto;padding:14px;-webkit-overflow-scrolling:touch}
+.vpages canvas{display:block;margin:0 auto 14px;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+
+/* ── 모바일 하단 바 ── */
+#mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(115%);transition:transform .22s;
+  background:var(--card);border-top:1px solid var(--line);box-shadow:0 -8px 22px -14px rgba(0,0,0,.55);
+  padding:9px 14px calc(9px + env(safe-area-inset-bottom))}
+#mbar.on{transform:none}
+#mbar .in{max-width:700px;margin:0 auto;display:flex;align-items:center;gap:10px}
+#mbar .k{flex:1 1 auto;min-width:0;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.03em}
+#mbar .k b{display:block;font-size:13.5px;font-weight:800;color:var(--fg);letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#mbar .go{flex:0 0 auto;font:inherit;font-size:13px;font-weight:800;color:#fff;padding:10px 15px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));min-height:42px}
+@media (prefers-color-scheme:dark){#mbar .go{color:var(--afg)}}
+@media (min-width:980px){#mbar{display:none}}
+
+#toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:#261b18;color:#fff;font-size:13.5px;font-weight:700;line-height:1.5;
+  padding:10px 16px;border-radius:14px;width:max-content;opacity:0;pointer-events:none;transition:.25s;z-index:99;max-width:92vw;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-color-scheme:dark){#toast{background:#f6eeec;color:#2a0f0b}}
+
+#printArea{display:none}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff !important}
+  body>*:not(#printArea){display:none !important}
+  #printArea{display:block !important}
+  #printArea img{display:block;width:210mm;height:297mm;page-break-after:always;break-after:page}
+  #printArea img:last-child{page-break-after:auto;break-after:auto}
+}
+
+@media (max-width:430px){
+  .lab{flex-direction:column;align-items:stretch;gap:2px}
+  .lab .hint{text-align:left}
+  .card{padding:14px}
+  .seg button{font-size:13px;min-width:0}
+  .tag{font-size:14px}
+  .tpl{padding:10px}
+  .tpl b{font-size:13.5px}
+  .env{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  광고 슬롯 · 상단 320 × 50 · 카카오 애드핏                     ║
+     ║  단위 ID: DAN-XXXXXXXXXXXXXXXX  ← 이 도구 전용 단위로 교체      ║
+     ║  ※ 티스토리 포스팅 본문에 같은 단위를 또 넣으면                  ║
+     ║     한 화면에 두 번 노출되어 애드핏 정책 위반입니다.             ║
+     ║     본문에 광고를 넣으려면 다른 단위를 발급해 쓰세요.            ║
+     ║  · 광고를 빼려면 아래 ins·script 두 줄만 지우면 됩니다          ║
+     ║  · 광고 스크립트는 입력한 이름·주소에 접근하지 않습니다          ║
+     ║  · 주소는 반드시 https:// 로 (file:// 로 열 때 //t1... 은 깨짐) ║
+     ║  · 애드센스로 바꿀 때도 이 div 안의 두 줄만 교체하면 됩니다      ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<div class="ad-slot ad-top" id="ad-top">
+  <ins class="kakao_ad_area" style="display:none;"
+    data-ad-unit="DAN-XXXXXXXXXXXXXXXX"
+    data-ad-width="320"
+    data-ad-height="50"></ins>
+  <script type="text/javascript" src="https://t1.kakaocdn.net/kas/static/ba.min.js" async></script>
+</div>
+<!-- ══ 광고 슬롯 끝 ══ -->
+
+<header>
+  <div class="logo"><span class="ico">📮</span><span>내용증명 작성기</span></div>
+  <p class="tag">상황만 고르면 <b>내용증명 문장</b>이 완성됩니다 · <b>우체국 규격 PDF·워드</b>와 <b>발송 비용</b>까지</p>
+  <div class="badges">
+    <span class="badge">🔒 입력 내용이 서버로 전송되지 않음</span>
+    <span class="badge gray">인터넷우체국 여백 규격</span>
+    <span class="badge gray">PDF · 워드 · 3부 인쇄</span>
+    <span class="badge gray">무료 · 설치·가입 없음</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="mini" id="btnSample" type="button">✨ 예시로 채워 보기</button>
+  <button class="mini" id="btnReset" type="button">↺ 처음부터 다시</button>
+</div>
+
+<div class="layout">
+<main id="form">
+
+<!-- 1. 상황 고르기 -->
+<section class="card">
+  <h2><span><span class="n">1</span>어떤 일로 보내나요</span></h2>
+  <div class="tpls" id="tpls">
+    <button type="button" class="tpl" data-tpl="loan"><span class="i">💸</span><b>빌려준 돈 받기</b><small>대여금 반환 청구</small></button>
+    <button type="button" class="tpl" data-tpl="deposit"><span class="i">🏠</span><b>전세·월세 보증금 받기</b><small>계약 종료 통지 · 반환 요구</small></button>
+    <button type="button" class="tpl" data-tpl="payment"><span class="i">🧾</span><b>물건값·공사비 받기</b><small>밀린 대금·용역비 청구</small></button>
+    <button type="button" class="tpl" data-tpl="refund"><span class="i">💳</span><b>계약 해지·환불</b><small>헬스장·온라인 구매</small></button>
+    <button type="button" class="tpl" data-tpl="rent"><span class="i">📅</span><b>밀린 월세 · 해지</b><small>집주인이 세입자에게</small></button>
+    <button type="button" class="tpl" data-tpl="damage"><span class="i">🛠️</span><b>손해배상 청구</b><small>누수·파손·사고 피해</small></button>
+    <button type="button" class="tpl" data-tpl="free"><span class="i">✍️</span><b>직접 쓰기</b><small>빈 양식에 자유롭게</small></button>
+  </div>
+</section>
+
+<!-- 2. 있었던 일 -->
+<section class="card" id="sitCard">
+  <h2><span><span class="n">2</span><span id="sitTitle">있었던 일</span></span></h2>
+
+  <!-- 빌려준 돈 -->
+  <div data-for="loan">
+    <div class="grid2">
+      <div>
+        <div class="lab"><span>빌려준 날</span></div>
+        <input type="date" data-k="loan.lendDate">
+      </div>
+      <div>
+        <div class="lab"><span>건넨 방법</span></div>
+        <div class="seg" data-seg="loan.method">
+          <button type="button" data-v="transfer">계좌이체</button>
+          <button type="button" data-v="cash">현금</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>빌려준 금액</span><span class="hint">숫자만 입력하세요</span></div>
+      <div class="unit big"><input type="text" inputmode="numeric" autocomplete="off" data-money="loan.amount" placeholder="0" aria-label="빌려준 금액"><span>원</span></div>
+      <div class="kor" data-kor="loan.amount"></div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>갚기로 한 날</span></div>
+      <div class="seg" data-seg="loan.dueType">
+        <button type="button" data-v="date">날짜를 정했어요</button>
+        <button type="button" data-v="none">정하지 않았어요</button>
+      </div>
+      <div class="row" id="loanDueBox"><input type="date" data-k="loan.dueDate" aria-label="갚기로 한 날"></div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>이미 돌려받은 돈</span><span class="hint">없으면 비워 두세요</span></div>
+      <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="loan.repaid" placeholder="0" aria-label="이미 돌려받은 돈"><span>원</span></div>
+      <p class="calcline" id="loanRemain"></p>
+    </div>
+    <label class="chk"><input type="checkbox" data-k="loan.rateOn"><span>이자를 정했어요<span class="d">약속한 이자도 함께 요구합니다</span></span></label>
+    <div class="sub" id="loanRateBox">
+      <div class="unit"><input type="text" inputmode="decimal" autocomplete="off" data-k="loan.rate" placeholder="예: 5" aria-label="연 이자율"><span>% (연)</span></div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>갖고 있는 증거</span><span class="hint">문서에 함께 적습니다</span></div>
+      <div class="chks2">
+        <label class="chk"><input type="checkbox" data-k="loan.ev.iou"><span>차용증</span></label>
+        <label class="chk"><input type="checkbox" data-k="loan.ev.bank"><span>계좌이체 내역</span></label>
+        <label class="chk"><input type="checkbox" data-k="loan.ev.msg"><span>문자·카톡 대화</span></label>
+        <label class="chk"><input type="checkbox" data-k="loan.ev.rec"><span>통화 녹음</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- 보증금 -->
+  <div data-for="deposit">
+    <div class="seg" data-seg="deposit.kind">
+      <button type="button" data-v="home">주택<span class="s">아파트·빌라·원룸</span></button>
+      <button type="button" data-v="shop">상가·사무실<span class="s">사업자등록 대상 건물</span></button>
+    </div>
+    <div class="row">
+      <div class="lab"><span>지금 상황</span></div>
+      <div class="seg col" data-seg="deposit.status">
+        <button type="button" data-v="expire">곧 계약이 끝나요<span class="s">갱신하지 않겠다고 알리고 끝나는 날 보증금을 돌려 달라고 요청</span></button>
+        <button type="button" data-v="ended">계약이 끝났는데 보증금을 못 받았어요<span class="s">기한을 정해 보증금 반환을 청구</span></button>
+        <button type="button" data-v="implied">계약이 연장된 상태에서 나가려고 해요<span class="s">해지를 통지 — 받은 날부터 3개월 뒤 계약이 끝남</span></button>
+      </div>
+    </div>
+    <div class="row" id="depRenewBox">
+      <div class="lab"><span>어떻게 연장됐나요</span></div>
+      <div class="seg" data-seg="deposit.renew">
+        <button type="button" data-v="implied">아무 말 없이 자동 연장<span class="s">묵시적 갱신</span></button>
+        <button type="button" data-v="request">내가 갱신을 요구해 연장<span class="s">계약갱신요구권</span></button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>집(건물) 주소</span></div>
+      <input type="text" data-k="deposit.addr" maxlength="90" autocomplete="off" placeholder="예: 서울특별시 ○○구 ○○로 00, 000동 000호">
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>계약한 날</span></div>
+        <input type="date" data-k="deposit.contractDate">
+      </div>
+      <div>
+        <div class="lab"><span>보증금</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="deposit.deposit" placeholder="0" aria-label="보증금"><span>원</span></div>
+        <div class="kor" data-kor="deposit.deposit"></div>
+      </div>
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>계약 시작일</span></div>
+        <input type="date" data-k="deposit.start">
+      </div>
+      <div>
+        <div class="lab"><span>계약 만료일</span><span class="hint" id="depEndHint"></span></div>
+        <input type="date" data-k="deposit.end">
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>월세</span><span class="hint">전세면 비워 두세요</span></div>
+      <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="deposit.rent" placeholder="0" aria-label="월세"><span>원</span></div>
+    </div>
+    <div class="row" id="depMovedBox">
+      <div class="lab"><span>집은 비웠나요</span></div>
+      <div class="seg" data-seg="deposit.moved">
+        <button type="button" data-v="1">이미 이사 나갔어요</button>
+        <button type="button" data-v="0">아직 살고 있어요</button>
+      </div>
+    </div>
+    <div class="row" id="depMoveBox">
+      <div class="lab"><span id="depMoveLab">이사한 날</span><span class="hint">선택</span></div>
+      <input type="date" data-k="deposit.moveDate">
+    </div>
+  </div>
+
+  <!-- 대금 -->
+  <div data-for="payment">
+    <div class="seg" data-seg="payment.kind">
+      <button type="button" data-v="goods">물건 납품</button>
+      <button type="button" data-v="work">공사</button>
+      <button type="button" data-v="service">용역·작업</button>
+    </div>
+    <div class="row">
+      <div class="lab"><span id="payDescLab">무엇을 납품했나요</span></div>
+      <input type="text" data-k="payment.desc" maxlength="60" autocomplete="off" id="payDesc">
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span id="payDoneLab">납품한 날</span></div>
+        <input type="date" data-k="payment.doneDate">
+      </div>
+      <div>
+        <div class="lab"><span>대금을 받기로 한 날</span><span class="hint">선택</span></div>
+        <input type="date" data-k="payment.dueDate">
+      </div>
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>대금 총액</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="payment.total" placeholder="0" aria-label="대금 총액"><span>원</span></div>
+        <div class="kor" data-kor="payment.total"></div>
+      </div>
+      <div>
+        <div class="lab"><span>이미 받은 돈</span><span class="hint">선택</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="payment.paid" placeholder="0" aria-label="이미 받은 돈"><span>원</span></div>
+      </div>
+    </div>
+    <p class="calcline" id="payRemain"></p>
+    <div class="row">
+      <div class="lab"><span>갖고 있는 증거</span><span class="hint">문서에 함께 적습니다</span></div>
+      <div class="chks2">
+        <label class="chk"><input type="checkbox" data-k="payment.ev.contract"><span>계약서</span></label>
+        <label class="chk"><input type="checkbox" data-k="payment.ev.estimate"><span>견적서</span></label>
+        <label class="chk"><input type="checkbox" data-k="payment.ev.invoice"><span>세금계산서</span></label>
+        <label class="chk"><input type="checkbox" data-k="payment.ev.statement"><span>거래명세서</span></label>
+        <label class="chk"><input type="checkbox" data-k="payment.ev.msg"><span>문자·카톡 대화</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- 환불 -->
+  <div data-for="refund">
+    <div class="seg col" data-seg="refund.basis">
+      <button type="button" data-v="ongoing">헬스장·필라테스·PT처럼 기간·횟수로 이용하는 계약<span class="s">중도 해지 — 계약 기간 중 언제든 할 수 있어요</span></button>
+      <button type="button" data-v="online">인터넷·홈쇼핑·SNS에서 산 물건<span class="s">청약철회 — 받은 날부터 7일 안</span></button>
+      <button type="button" data-v="visit">방문판매·전화 권유로 산 물건<span class="s">청약철회 — 계약서 받은 날부터 14일 안</span></button>
+    </div>
+    <div class="row">
+      <div class="lab"><span>상품·서비스</span></div>
+      <input type="text" data-k="refund.service" maxlength="50" autocomplete="off" id="refService">
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>계약·결제한 날</span></div>
+        <input type="date" data-k="refund.contractDate">
+      </div>
+      <div>
+        <div class="lab"><span id="refStartLab">이용 시작일</span><span class="hint">선택</span></div>
+        <input type="date" data-k="refund.startDate">
+      </div>
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>결제 금액</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="refund.paid" placeholder="0" aria-label="결제 금액"><span>원</span></div>
+      </div>
+      <div>
+        <div class="lab"><span>결제 방법</span></div>
+        <div class="seg" data-seg="refund.payMethod">
+          <button type="button" data-v="card">카드</button>
+          <button type="button" data-v="transfer">계좌이체</button>
+          <button type="button" data-v="cash">현금</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="refAmtBox">
+      <div class="lab"><span>돌려받을 금액</span><span class="hint">모르면 비워 두세요</span></div>
+      <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="refund.refundAmt" placeholder="0" aria-label="돌려받을 금액"><span>원</span></div>
+      <p class="fine">비워 두면 「이용한 만큼과 정당한 위약금을 뺀 금액」을 업체가 기준대로 계산해 돌려 달라고 씁니다.</p>
+    </div>
+    <div class="row">
+      <div class="lab"><span>이유</span><span class="hint">선택</span></div>
+      <input type="text" data-k="refund.reason" maxlength="60" autocomplete="off" id="refReason">
+    </div>
+  </div>
+
+  <!-- 월세 -->
+  <div data-for="rent">
+    <div class="seg" data-seg="rent.kind">
+      <button type="button" data-v="home">주택</button>
+      <button type="button" data-v="shop">상가·사무실</button>
+    </div>
+    <div class="row">
+      <div class="lab"><span>보낼 내용</span></div>
+      <div class="seg col" data-seg="rent.mode">
+        <button type="button" data-v="demand">밀린 월세를 내라고 요구<span class="s">기한까지 안 내면 계약을 해지한다고 예고</span></button>
+        <button type="button" data-v="terminate">계약을 해지하고 집을 비워 달라고 통보<span class="s">주택은 2개월분, 상가는 3개월분 이상 밀렸을 때</span></button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>집(건물) 주소</span></div>
+      <input type="text" data-k="rent.addr" maxlength="90" autocomplete="off" placeholder="예: 서울특별시 ○○구 ○○로 00, 000호">
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>계약 시작일</span></div>
+        <input type="date" data-k="rent.start">
+      </div>
+      <div>
+        <div class="lab"><span>계약 만료일</span></div>
+        <input type="date" data-k="rent.end">
+      </div>
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>보증금</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="rent.deposit" placeholder="0" aria-label="보증금"><span>원</span></div>
+      </div>
+      <div>
+        <div class="lab"><span>월세</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="rent.rent" placeholder="0" aria-label="월세"><span>원</span></div>
+      </div>
+    </div>
+    <div class="grid2 row">
+      <div>
+        <div class="lab"><span>월세 내는 날</span></div>
+        <div class="unit"><span>매월</span><input type="text" inputmode="numeric" autocomplete="off" data-k="rent.payDay" aria-label="월세 내는 날"><span>일</span></div>
+      </div>
+      <div>
+        <div class="lab"><span>밀린 월세 합계</span></div>
+        <div class="unit"><input type="text" inputmode="numeric" autocomplete="off" class="money" data-money="rent.unpaid" placeholder="0" aria-label="밀린 월세 합계"><span>원</span></div>
+      </div>
+    </div>
+    <p class="calcline" id="rentLine"></p>
+    <div class="row">
+      <div class="lab"><span>밀린 기간</span><span class="hint">선택</span></div>
+      <input type="text" data-k="rent.period" maxlength="40" autocomplete="off" placeholder="예: 2026년 6월분부터 8월분까지">
+    </div>
+  </div>
+
+  <!-- 손해배상 -->
+  <div data-for="damage">
+    <div class="grid2">
+      <div>
+        <div class="lab"><span>일이 있었던 날</span></div>
+        <input type="date" data-k="damage.date">
+      </div>
+      <div>
+        <div class="lab"><span>장소</span><span class="hint">선택</span></div>
+        <input type="text" data-k="damage.place" maxlength="50" autocomplete="off" placeholder="예: 발신인 집(○○아파트 000호)">
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>무슨 일이 있었나요</span><span class="hint">사실만 짧게</span></div>
+      <textarea data-k="damage.what" rows="3" maxlength="400" placeholder="예: 수신인이 사는 윗집 욕실 배관에서 물이 새어 발신인 집 욕실 천장과 벽지가 젖었습니다."></textarea>
+    </div>
+    <div class="row">
+      <div class="lab"><span>책임의 근거</span></div>
+      <div class="seg" data-seg="damage.basis">
+        <button type="button" data-v="tort">잘못·사고로 생긴 피해<span class="s">불법행위 · 민법 제750조</span></button>
+        <button type="button" data-v="contract">약속을 안 지켜 생긴 피해<span class="s">채무불이행 · 민법 제390조</span></button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab"><span>손해 내역</span><span class="hint">항목과 금액</span></div>
+      <div id="dmgItems"></div>
+      <p class="calcline" id="dmgTotal"></p>
+    </div>
+    <div class="row">
+      <div class="lab"><span>갖고 있는 증거</span><span class="hint">문서에 함께 적습니다</span></div>
+      <div class="chks2">
+        <label class="chk"><input type="checkbox" data-k="damage.ev.photo"><span>사진·영상</span></label>
+        <label class="chk"><input type="checkbox" data-k="damage.ev.estimate"><span>견적서·영수증</span></label>
+        <label class="chk"><input type="checkbox" data-k="damage.ev.diag"><span>진단서</span></label>
+        <label class="chk"><input type="checkbox" data-k="damage.ev.msg"><span>문자·카톡 대화</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- 직접 쓰기 -->
+  <div data-for="free">
+    <p class="fine" style="margin-top:0">제목과 본문을 <b>5번 칸</b>에 직접 쓰세요. 줄 맨 앞에 <span class="kbd">1.</span> <span class="kbd">2.</span> 처럼 번호를 붙이면 번호 문단으로, <span class="kbd">-</span> 를 붙이면 들여쓴 항목으로 정리됩니다. 보내는 사람·받는 사람과 작성일은 아래 칸에서 채우면 문서 머리와 끝에 들어갑니다.</p>
+  </div>
+</section>
+
+<!-- 3. 보내는 사람 · 받는 사람 -->
+<section class="card">
+  <h2><span><span class="n">3</span>보내는 사람 · 받는 사람</span></h2>
+  <div id="senders"></div>
+  <button class="mini addp" id="addSender" type="button">＋ 보내는 사람 추가</button>
+  <div id="recips"></div>
+  <button class="mini addp" id="addRecip" type="button">＋ 받는 사람 추가</button>
+  <p class="fine">이름·주소는 <b>봉투에 쓸 것과 똑같이</b> 적으세요. 문서와 봉투가 다르면 우체국에서 접수하지 않습니다. 받는 사람의 주소는 계약서·등기부등본에 적힌 주소가 가장 확실합니다.</p>
+</section>
+
+<!-- 4. 기한 · 계좌 · 조치 -->
+<section class="card" id="demandCard">
+  <h2><span><span class="n">4</span><span id="demandTitle">기한 · 받을 계좌 · 조치</span></span></h2>
+  <div id="dlBox">
+    <div class="lab"><span id="dlLab">이행 기한</span><span class="hint" id="dlHint"></span></div>
+    <input type="date" id="deadline" aria-label="이행 기한">
+    <div class="chips" id="dlChips">
+      <button type="button" data-d="7">7일 뒤</button><button type="button" data-d="10">10일</button>
+      <button type="button" data-d="14">14일</button><button type="button" data-d="21">21일</button><button type="button" data-d="30">30일</button>
+    </div>
+  </div>
+  <div class="row" id="acctBox">
+    <div class="lab"><span>받을 계좌</span><span class="hint">발신인 명의 · 선택</span></div>
+    <div class="grid3">
+      <input type="text" data-k="bank" placeholder="은행" autocomplete="off" aria-label="은행">
+      <input type="text" data-k="acct" placeholder="계좌번호" inputmode="numeric" autocomplete="off" aria-label="계좌번호">
+      <input type="text" data-k="holder" placeholder="예금주" autocomplete="off" aria-label="예금주">
+    </div>
+  </div>
+  <div class="row" id="actBox">
+    <div class="lab"><span>기한을 넘기면</span><span class="hint">문서에 알릴 조치</span></div>
+    <div class="chks2" data-for="loan">
+      <label class="chk"><input type="checkbox" data-k="loan.act.order"><span>지급명령 신청</span></label>
+      <label class="chk"><input type="checkbox" data-k="loan.act.suit"><span>민사소송</span></label>
+      <label class="chk"><input type="checkbox" data-k="loan.act.seize"><span>재산 가압류</span></label>
+    </div>
+    <div class="chks2" data-for="deposit">
+      <label class="chk"><input type="checkbox" data-k="deposit.act.reg"><span>임차권등기명령 신청</span></label>
+      <label class="chk"><input type="checkbox" data-k="deposit.act.suit"><span>보증금 반환 소송·지급명령</span></label>
+      <label class="chk"><input type="checkbox" data-k="deposit.act.dmg"><span>이사·대출 손해도 청구</span></label>
+    </div>
+    <div class="chks2" data-for="payment">
+      <label class="chk"><input type="checkbox" data-k="payment.act.order"><span>지급명령 신청</span></label>
+      <label class="chk"><input type="checkbox" data-k="payment.act.suit"><span>민사소송</span></label>
+      <label class="chk"><input type="checkbox" data-k="payment.act.seize"><span>재산 가압류</span></label>
+    </div>
+    <div class="chks2" data-for="refund">
+      <label class="chk"><input type="checkbox" data-k="refund.act.kca"><span>한국소비자원 피해구제 신청</span></label>
+      <label class="chk"><input type="checkbox" data-k="refund.act.suit"><span>민사소송</span></label>
+    </div>
+    <div class="chks2" data-for="rent">
+      <label class="chk"><input type="checkbox" data-k="rent.act.evict"><span>명도소송(건물 인도 소송)</span></label>
+      <label class="chk" id="rentDeductChk"><input type="checkbox" data-k="rent.act.deduct"><span>밀린 월세는 보증금에서 공제</span></label>
+    </div>
+    <div class="chks2" data-for="damage">
+      <label class="chk"><input type="checkbox" data-k="damage.act.order"><span>지급명령 신청</span></label>
+      <label class="chk"><input type="checkbox" data-k="damage.act.suit"><span>민사소송</span></label>
+    </div>
+  </div>
+  <label class="chk" id="greetChk"><input type="checkbox" data-k="greet"><span>첫 문단에 인사말 넣기<span class="d">「귀하의 건승을 기원합니다」 — 빼면 바로 본론으로 시작합니다</span></span></label>
+  <label class="chk"><input type="checkbox" data-k="contact"><span>발신인 연락처를 문서에 적기<span class="d">원만하게 해결하려면 연락받을 번호를 남기는 편이 좋습니다</span></span></label>
+  <div class="row">
+    <div class="lab"><span>첨부 서류</span><span class="hint">선택 · 한 줄에 하나</span></div>
+    <textarea data-k="attach" id="attachBox" rows="2" maxlength="300" placeholder="예: 차용증 사본 1부"></textarea>
+    <p class="fine">첨부한 종이도 내용증명 매수에 들어갑니다. 3부 모두 똑같이 넣어야 하고 1장마다 수수료 650원이 더 붙습니다.</p>
+  </div>
+</section>
+
+<!-- 5. 제목 · 본문 -->
+<section class="card" id="bodyCard">
+  <h2><span><span class="n">5</span>제목 · 본문</span><span class="opt">바로 고칠 수 있어요</span></h2>
+  <div class="lab"><span>제목</span><span class="hint" id="subjHint"></span></div>
+  <textarea id="subject" rows="1" maxlength="60" autocomplete="off" spellcheck="false" aria-label="제목"></textarea>
+  <div class="row">
+    <div class="lab"><span>본문</span><span class="hint">줄 앞 <span class="kbd">1.</span> 번호 문단 · <span class="kbd">-</span> 들여쓴 항목</span></div>
+    <textarea id="bodyEdit" rows="14" spellcheck="false" aria-label="본문"></textarea>
+    <div class="edited hide" id="editedBar"><span>직접 고친 본문을 쓰고 있어요. 위 칸을 바꿔도 본문은 그대로입니다.</span><button class="mini" id="bodyReset" type="button">↺ 자동 문장으로 되돌리기</button></div>
+    <p class="fine">＿＿ 표시는 아직 채우지 않은 칸입니다. 손으로 채우면 3부가 모두 똑같아야 하므로 입력한 뒤 인쇄하는 편이 안전합니다.</p>
+  </div>
+</section>
+
+<!-- 6. 작성일 · 서명 -->
+<section class="card">
+  <h2><span><span class="n">6</span>작성일 · 서명</span><span class="opt">선택</span></h2>
+  <div class="grid2">
+    <div>
+      <div class="lab"><span>작성일</span></div>
+      <input type="date" data-k="writeDate">
+    </div>
+    <div>
+      <div class="lab"><span>글꼴</span><span class="hint hide" id="serifHint">이 기기엔 명조 글꼴이 없어요</span></div>
+      <div class="seg" data-seg="font">
+        <button type="button" data-v="serif">명조체</button>
+        <button type="button" data-v="sans">고딕체</button>
+      </div>
+    </div>
+  </div>
+  <p class="fine">서명·도장이 없어도 접수되지만 넣어 두면 누가 보냈는지 분명해집니다. 인쇄한 뒤 (인) 자리에 도장을 찍는다면 <b>3부 모두</b> 찍으세요.</p>
+  <div class="signs" id="signList"></div>
+</section>
+
+</main>
+
+<aside class="side" id="side">
+  <section class="card pv" id="pvCard">
+    <h2><span>미리보기</span><span class="pvinfo" id="pvInfo">A4</span></h2>
+    <div class="pv-pages" id="pvPages" title="눌러서 크게 보기"></div>
+    <div class="actions">
+      <button class="btn pri" id="btnPdf" type="button">📄 PDF로 저장</button>
+      <div class="prow">
+        <button class="btn" id="btnPrint" type="button">🖨️ 인쇄</button>
+        <div class="seg" data-seg="copies">
+          <button type="button" data-v="set"><span id="copiesN">3부</span><span class="s" id="copiesS">원본 + 등본 2</span></button>
+          <button type="button" data-v="1">1부</button>
+        </div>
+      </div>
+      <button class="btn" id="btnDocx" type="button">📝 워드 파일</button>
+      <button class="btn" id="btnImg" type="button">🖼️ 이미지</button>
+      <button class="btn hide" id="btnShare" type="button">📤 공유</button>
+    </div>
+    <p class="fine">PDF·워드는 <b>인터넷우체국 여백 규격</b>(위 20·아래 40·좌우 15mm 이상, 쪽 번호 없음)에 맞췄습니다. 우체국 창구에 낼 때는 <b>한 면만 3부</b> 인쇄하세요.</p>
+  </section>
+  <section class="card">
+    <h2><span>우체국 발송 비용</span><span class="pvinfo">2026. 7. 1. 요금</span></h2>
+    <div class="fee" id="fee"></div>
+    <div class="chks2">
+      <label class="chk"><input type="checkbox" data-k="dlv"><span>배달증명<span class="d">받은 날짜까지 증명</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="express"><span>익일특급<span class="d">다음 날 배달</span></span></label>
+    </div>
+    <p class="fine">봉투 무게에 따라 우편요금이 조금 달라질 수 있습니다. 인터넷우체국으로 접수하면 인쇄·봉투 제작수수료가 더해집니다.</p>
+  </section>
+  <section class="card">
+    <h2><span>점검 결과</span><span class="pvinfo" id="chkInfo"></span></h2>
+    <ul class="checks" id="checks"></ul>
+  </section>
+</aside>
+</div>
+
+<!-- 보내는 법 -->
+<section class="card" id="guide">
+  <h2><span>내용증명, 이렇게 보냅니다</span></h2>
+  <div class="gtabs" id="gtabs">
+    <button type="button" data-g="post" class="on">🏤 우체국 창구</button>
+    <button type="button" data-g="web">💻 인터넷우체국</button>
+  </div>
+  <div data-g="post">
+    <ol class="steps">
+      <li><b>한 면만 3부 인쇄합니다.</b><span class="d">원본 1부는 받는 사람에게 가고, 등본 2부는 우체국과 내가 1부씩 보관합니다. 양면에 인쇄하면 2장으로 계산됩니다. 받는 사람이 여럿이면 사람 수만큼 원본을 더 준비하세요.</span></li>
+      <li><b>봉투에 보내는 사람·받는 사람을 문서와 똑같이 씁니다.</b><span class="d">이름이나 주소가 문서와 다르면 접수되지 않습니다. 봉투는 봉하지 말고 가져가세요 — 우체국 직원이 원본과 등본을 대조한 뒤 직원 앞에서 넣고 봉합니다.</span></li>
+      <li><b>창구에서 「내용증명으로 보내 주세요」라고 말합니다.</b><span class="d">받은 날짜까지 증명하려면 배달증명을 함께 신청하세요. 오타를 발견하면 고친 글자 수를 여백에 적고 도장을 찍어야 하니 도장을 챙기면 좋습니다.</span></li>
+      <li><b>돌려받은 등본과 영수증을 보관합니다.</b><span class="d">영수증의 등기번호로 배달 결과를 조회할 수 있습니다. 등본을 잃어버려도 보낸 다음 날부터 3년 안에는 우체국에서 다시 증명받거나 열람할 수 있습니다.</span></li>
+    </ol>
+    <div class="env">
+      <div><b>봉투 왼쪽 위</b>보내는 사람 주소 · 이름 (문서의 발신인과 똑같이)</div>
+      <div><b>봉투 오른쪽 아래</b>받는 사람 주소 · 이름 · 우편번호 (문서의 수신인과 똑같이)</div>
+    </div>
+  </div>
+  <div data-g="web" class="hide">
+    <ol class="steps">
+      <li><b>이 도구에서 PDF나 워드 파일로 저장합니다.</b><span class="d">인터넷우체국은 A4 세로에 위 20mm·아래 40mm·좌우 15mm 이상의 여백을 요구하고, 쪽 번호나 꼬리말이 있으면 파일을 올릴 수 없습니다. 이 도구의 파일은 그 기준에 맞춰 만들었습니다.</span></li>
+      <li><b>PC로 인터넷우체국 → 우편 → 증명서비스 → 내용증명에 들어갑니다.</b><span class="d">문서 편집 프로그램을 설치해야 해서 휴대폰으로는 접수하기 어렵습니다. PDF·한글·워드 파일을 올릴 수 있습니다.</span></li>
+      <li><b>받는 사람 주소를 입력하고 파일을 붙여 결제합니다.</b><span class="d">우체국이 대신 인쇄해 봉투에 넣으므로 제작수수료가 조금 더 붙습니다. 접수한 뒤 1시간 안에만 인터넷에서 취소할 수 있습니다.</span></li>
+      <li><b>배달이 끝나면 결과를 확인하고 등본 파일을 보관합니다.</b><span class="d">「나의 내용증명」에서 배달 결과를 보고, 배달이나 반송 처리가 끝난 뒤 발송인용 등본 파일을 받을 수 있습니다.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span>자주 묻는 질문</span></h2>
+  <details>
+    <summary>내용증명을 보내면 법적 효력이 생기나요?</summary>
+    <p>내용증명은 <b>「언제, 누구에게, 어떤 내용의 문서를 보냈는지」를 우체국이 증명</b>해 주는 우편일 뿐, 판결처럼 상대에게 돈을 내게 하는 힘은 없습니다. 대신 나중에 다툼이 생겼을 때 요구·통지를 했다는 확실한 증거가 됩니다. 계약 해제·해지나 갱신 거절처럼 <b>상대에게 도달해야 효력이 생기는 통지</b>(민법 제111조)를 증명하는 데 특히 쓸모가 있고, 돈을 달라는 요구(최고)는 소멸시효를 잠시 멈추게 하지만 <b>6개월 안에 소송·지급명령·가압류</b> 등을 하지 않으면 그 효과가 사라집니다(민법 제174조).</p>
+  </details>
+  <details>
+    <summary>몇 부를 준비해야 하나요? 양면 인쇄해도 되나요?</summary>
+    <p><b>원본 1부와 등본 2부, 모두 3부</b>입니다(우편법 시행규칙 제48조). 원본은 받는 사람에게 가고 등본은 우체국과 보낸 사람이 1부씩 보관합니다. 내 등본이 필요 없으면 등본 1부만 내도 됩니다. 받는 사람이 여럿이고 내용이 같으면 사람마다 원본 1부씩과 받는 사람 전원의 이름·주소가 적힌 등본 2부를 냅니다. 수수료는 장 수로 계산하고 <b>양면에 쓰면 2장</b>으로 봅니다(같은 규칙 제53조).</p>
+  </details>
+  <details>
+    <summary>비용은 얼마나 드나요?</summary>
+    <p>2026년 7월 1일 요금 기준으로 <b>1장짜리를 1명에게 보내면 4,200원</b>입니다(우편요금 500원 + 등기 2,400원 + 내용증명 1,300원). 1장이 늘 때마다 650원이 더 붙고, 받은 날짜를 증명하는 <b>배달증명</b>은 1,600원에 회송 우편요금 470원이 더해집니다. 다음 날 배달하는 익일특급은 1,000원입니다. 봉투 무게에 따라 우편요금이 달라질 수 있어 창구 금액과 조금 다를 수 있습니다.</p>
+  </details>
+  <details>
+    <summary>상대가 우편물을 안 받으면 어떻게 되나요?</summary>
+    <p>상대가 정당한 이유 없이 <b>받기를 거절</b>하면, 판례는 상대가 그 내용을 알 수 있는 상태에 놓였을 때 통지가 도달한 것으로 봅니다(대법원 2008. 6. 12. 선고 2008다19973 판결). 반면 집에 아무도 없어 <b>반송</b>되면 도달했다고 보기 어렵습니다. 이때는 직장 등 다른 주소로 다시 보내고, 문자·이메일로도 같은 내용을 보내 기록을 남기세요. 상대의 주소를 끝내 알 수 없으면 법원의 공시송달 절차를 이용할 수 있습니다(민법 제113조).</p>
+  </details>
+  <details>
+    <summary>인터넷우체국으로 보내도 되나요?</summary>
+    <p>됩니다. PC에서 인터넷우체국의 내용증명 메뉴에 들어가 편집 프로그램을 설치한 뒤 <b>PDF나 워드 파일을 첨부</b>하면 우체국이 인쇄해 보내 줍니다. 파일은 A4 세로에 위 20mm·아래 40mm·좌우 15mm 이상 여백이 있어야 하고 <b>쪽 번호·꼬리말이 있으면 올라가지 않는데</b>, 이 도구의 PDF·워드 파일은 이 기준에 맞춰 만들어집니다. 받는 사람이 여럿인 동문 내용증명은 우체국 창구 이용을 권합니다.</p>
+  </details>
+  <details>
+    <summary>보내고 나서 틀린 곳을 발견했어요.</summary>
+    <p>접수한 뒤에는 이름·주소나 본문을 고쳐 달라고 할 수 없습니다(우편법 시행규칙 제50조 제3항). 틀린 내용이 중요하면 <b>바로잡은 내용증명을 새로 보내세요</b>. 접수 전에 손으로 고칠 때는 3부 모두 똑같이 고치고, 여백에 「정정 ○자」처럼 고친 글자 수를 적은 뒤 도장·지장·서명을 해야 하며, 원래 글자는 알아볼 수 있게 남겨야 합니다. 가장 깔끔한 방법은 고쳐서 다시 인쇄하는 것입니다.</p>
+  </details>
+  <details>
+    <summary>내용증명을 보냈는데도 돈을 안 주면요?</summary>
+    <p>법원에 <b>지급명령</b>을 신청하는 방법이 간단합니다(대한민국 법원 전자소송). 상대가 지급명령을 받고 2주 안에 이의하지 않으면 확정판결과 같은 효력이 생기고, 이의하면 소송으로 넘어갑니다. 상대가 재산을 빼돌릴 걱정이 있으면 <b>가압류</b>를, 보증금을 못 받고 이사해야 하면 <b>임차권등기명령</b>을 먼저 신청하세요. 청구 금액이 3,000만원 이하면 비교적 간단한 소액사건 절차로 진행됩니다.</p>
+  </details>
+  <details>
+    <summary>세게 써야 효과가 있지 않나요?</summary>
+    <p>내용증명은 나중에 <b>법원에 증거로 제출될 문서</b>입니다. 날짜·금액·약속처럼 확인할 수 있는 사실과 요구 사항을 담담하게 적는 편이 유리합니다. 상대의 가족·직장에 알리겠다거나 인터넷에 올리겠다는 식의 표현은 <b>협박·공갈·명예훼손</b> 문제가 될 수 있고, 공공의 질서나 선량한 풍속에 반하는 문서는 우체국이 아예 취급하지 않습니다(우편법 시행규칙 제46조). 이 도구는 그런 표현이 보이면 점검 결과에서 알려 드립니다.</p>
+  </details>
+  <details>
+    <summary>입력한 개인정보는 어디에 저장되나요?</summary>
+    <p>모든 처리는 이 페이지 안에서만 이루어지고 <b>서버로 전송되지 않습니다.</b> 새로고침해도 내용이 사라지지 않도록 <b>이 탭에만</b> 임시로 보관하며, 탭을 닫으면 지워집니다. 공용 PC에서는 작성을 마친 뒤 「처음부터 다시」를 누르고 탭을 닫아 주세요.</p>
+  </details>
+</section>
+
+<!-- ══ 주의 문구 ══ -->
+<div class="nbx">
+  <div class="nbx-h"><span class="ic">!</span><span>보내기 전에 확인하세요</span></div>
+  <ul>
+    <li><b>이 도구는 일반적인 내용증명 문장을 만들어 주는 도구이며, 법률 자문이 아닙니다.</b> 사정에 따라 필요한 주장·기한·법 조항이 다를 수 있으니
+      금액이 크거나 소송이 예상되면 변호사·법무사나 <b>대한법률구조공단(국번 없이 132)</b>에 상담하세요.</li>
+    <li><b>점검 결과와 발송 비용은 2026년 9월 법령과 2026년 7월 1일 우편요금표를 바탕으로 한 참고 정보입니다.</b>
+      실제 창구 요금과 법원의 판단은 개별 사정에 따라 달라질 수 있습니다.</li>
+    <li><b>사실과 다른 내용이나 상대를 위협·모욕하는 표현은 오히려 불리합니다.</b> 협박·명예훼손 같은 책임이 생길 수 있고,
+      다른 사람의 이름으로 보내면 문서 위조가 될 수 있습니다. 서명·도장 이미지는 <b>본인 것만</b> 넣으세요.</li>
+    <li><b>인쇄하기 전에 이름·주소·금액·날짜·계좌번호를 반드시 다시 확인하세요.</b> 우체국에 접수한 뒤에는 고칠 수 없습니다.</li>
+  </ul>
+  <p class="nbx-f">이 도구는 <b>있는 그대로 제공되며</b>, 만든 문서의 내용이나 사용 결과로 발생한 분쟁·손해에 대해
+    <b>제작자와 운영자는 법적 책임을 지지 않습니다.</b></p>
+</div>
+
+<footer>
+  <b>내용증명 작성기</b> · 대여금 · 보증금 · 대금 · 해지·환불 · 월세 · 손해배상 · 직접 쓰기<br>
+  PDF는 기기 글꼴의 윤곽선을 따 넣어 확대해도 깨지지 않고, 글자 복사·검색이 됩니다 · 워드는 Office Open XML(.docx)<br>
+  입력한 내용은 어디에도 전송되지 않으며, 페이지를 연 뒤에는 인터넷 없이도 동작합니다 · 외부 라이브러리 없음
+</footer>
+</div>
+
+<!-- 서명 창 -->
+<div class="modal hide" id="signModal" role="dialog" aria-modal="true" aria-labelledby="signTitle">
+  <div class="sheet">
+    <div class="sh-h"><b id="signTitle">서명하기</b><button class="x" id="signClose" type="button" aria-label="닫기">✕</button></div>
+    <div class="padwrap"><canvas id="pad"></canvas><div class="padline"></div><span class="padhint" id="padHint">여기에 손가락이나 마우스로 서명하세요</span></div>
+    <div class="sh-a">
+      <button class="btn" id="padClear" type="button">지우기</button>
+      <button class="btn" id="padLoad" type="button">🖼️ 도장·서명 그림</button>
+      <button class="btn pri" id="padOk" type="button">넣기</button>
+    </div>
+    <input type="file" id="padFile" accept="image/*" hidden>
+    <p class="fine">그림을 불러오면 흰 바탕은 투명하게 바꿉니다. 본인의 서명·도장만 넣으세요.</p>
+  </div>
+</div>
+
+<!-- 크게 보기 -->
+<div class="modal hide" id="viewModal" role="dialog" aria-modal="true" aria-label="크게 보기">
+  <div class="viewer">
+    <div class="vbar"><b>크게 보기</b><button class="mini" id="viewZoom" type="button">확대</button><button class="x" id="viewClose" type="button" aria-label="닫기">✕</button></div>
+    <div class="vpages" id="viewPages"></div>
+  </div>
+</div>
+
+<div id="mbar"><div class="in"><div class="k">미리보기 · 저장<b id="mbarTxt">A4 내용증명</b></div><button class="go" id="mbarGo" type="button">문서 보기 ↓</button></div></div>
+<div id="printArea"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+/* ════════════════════════════════════════════════════════════
+   내용증명 작성기 — 라이브러리 없이 순수 JS
+
+   [흐름]
+     입력(S) → TPL[상황].subject()/body(): 상황별 문장을 평문으로 만든다(줄머리 "1. " 번호 문단 · "- " 들여쓴 항목)
+     → 사용자가 제목·본문을 고치면 그 글(S.custom[상황])을 쓴다 — 입력칸을 바꿔도 덮어쓰지 않는다
+     → buildDoc(): 제목 · 발신인/수신인 표 · 본문 · 첨부 · 날짜와 서명 → layoutDoc(): A4 쪽 나누기 → 그리기 명령(ops)
+     → 미리보기(canvas) · 이미지(PNG) · PDF · 인쇄는 같은 ops 를 그린다 / 워드(docx) 는 블록에서 바로 만든다
+
+   [PDF 글자] 차용증 작성기(loan_agreement)와 같은 방식 — 기기 글꼴을 크게 그려 윤곽선을 따 Type3 글꼴로 넣는다.
+     확대해도 깨지지 않고 ToUnicode 로 글자 복사·검색이 된다.
+
+   [규격] 우편법 시행규칙(2025. 8. 18. 시행) 제46~55조 — 원본 1 + 등본 2, A4, 문서·봉투 이름·주소 일치, 정정 표시, 양면은 2매
+     인터넷우체국 내용증명 — A4 세로, 여백 최소 위 20·아래 40·왼쪽 15·오른쪽 15mm, 쪽 번호·꼬리말이 있으면 업로드 불가
+   [요금] 우정사업본부 국내 통상우편 요금(2026. 7. 1.)·특수취급 수수료(2026. 5. 11.)
+     규격 5g 초과 25g까지 500원 · 50g까지 520원 · 규격 외 50g까지 590원(50g마다 120원) · 등기 2,400원
+     내용증명 등본 첫 1매 1,300원 · 1매 초과마다 650원 · 동문 내용문서 1통 초과마다 1,300원
+     배달증명(발송 시) 1,600원 + 회송 통상우편요금(5g 470원) · 익일특급 1,000원
+   [점검 근거] 2026년 9월 기준
+     민법 제111조(도달주의)·제162조·제163조·제174조(최고 뒤 6개월)·제390조·제603조 제2항·제640조(차임 2기 연체)·제750조·제766조
+     주택임대차보호법 제3조의3(임차권등기명령)·제6조(임차인 통지 만료 2개월 전까지)·제6조의2(해지 3개월)·제6조의3
+     상가건물 임대차보호법 제6조·제10조·제10조의8(3기 연체) · 대법원 2024. 6. 27. 선고 2023다307024(상가 임차인 갱신 거절 통지)
+     방문판매법 제8조(14일)·제9조·제31조·제32조 · 전자상거래법 제17조(7일)·제18조 — 서면 청약철회는 보낸 날 효력
+     대법원 2008. 6. 12. 선고 2008다19973(정당한 이유 없는 수령 거절 → 알 수 있는 상태가 된 때 도달)
+   ════════════════════════════════════════════════════════════ */
+/* ── 짧은 도우미 ───────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = s => String(s).replace(/[&<>"']/g, c => ESC[c]);
+let toastT = 0;
+function toast(msg, ms) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), ms || 2600);
+}
+const won = n => (Math.round(n) || 0).toLocaleString('ko-KR');
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const digits = s => String(s == null ? '' : s).replace(/[^\d]/g, '');
+const num = s => { const v = parseFloat(String(s == null ? '' : s).replace(/,/g, '')); return isFinite(v) ? v : NaN; };
+const fmtRate = r => String(Math.round(r * 1000) / 1000);
+/* 배경 탭에서도 느려지지 않는 양보(타이머는 배경 탭에서 1초로 늘어난다) */
+const _ych = new MessageChannel(); const _yq = [];
+_ych.port1.onmessage = () => { const f = _yq.shift(); if (f) f(); };
+const yieldUI = () => new Promise(r => { _yq.push(r); _ych.port2.postMessage(0); });
+
+/* ── 날짜 (문자열 YYYY-MM-DD 로만 다룬다 — 시간대 오차를 피하려고) ── */
+function parseD(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || '');
+  if (!m) return null;
+  const y = +m[1], mo = +m[2], d = +m[3];
+  if (mo < 1 || mo > 12 || d < 1 || d > 31 || y < 1900 || y > 2200) return null;
+  return { y, m: mo, d };
+}
+const iso = (y, m, d) => y + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+function todayISO() { const t = new Date(); return iso(t.getFullYear(), t.getMonth() + 1, t.getDate()); }
+/* k개월 뒤 같은 날(없는 날이면 그달 말일) */
+function addMonths(s, k, day) {
+  const p = parseD(s); if (!p) return '';
+  let mm = p.m - 1 + k;
+  const y = p.y + Math.floor(mm / 12);
+  mm = ((mm % 12) + 12) % 12;
+  const last = new Date(y, mm + 1, 0).getDate();
+  return iso(y, mm + 1, Math.min(day || p.d, last));
+}
+const dayNo = s => { const p = parseD(s); return p ? Date.UTC(p.y, p.m - 1, p.d) / 864e5 : NaN; };
+const daysBetween = (a, b) => dayNo(b) - dayNo(a);
+function kDate(s) { const p = parseD(s); return p ? `${p.y}년 ${p.m}월 ${p.d}일` : ''; }
+/* 기간을 "1년 2개월 3일" 로 */
+function spanText(a, b) {
+  if (!parseD(a) || !parseD(b) || dayNo(b) <= dayNo(a)) return '';
+  let m = 0;
+  while (m < 1200 && dayNo(addMonths(a, m + 1)) <= dayNo(b)) m++;
+  const d = daysBetween(addMonths(a, m), b);
+  const y = Math.floor(m / 12), mo = m % 12;
+  return [y ? y + '년' : '', mo ? mo + '개월' : '', d ? d + '일' : ''].filter(Boolean).join(' ');
+}
+
+/* ── 조사 (받침) ── */
+function jong(str) {                // 0 받침 없음 · 1 받침 · 2 ㄹ 받침
+  let s = String(str).trim();
+  for (let k = 0; k < 4; k++) {      // 끝의 괄호 설명은 건너뛴다: 자동차(00가0000) → 자동차
+    s = s.replace(/[\s’”'"」』]+$/, '');
+    const i = /\)$/.test(s) ? s.lastIndexOf('(') : -1;
+    if (i > 0) { s = s.slice(0, i); continue; }
+    break;
+  }
+  s = s.replace(/[\s)\]}」』’”'"]+$/, '');
+  if (!s) return 0;
+  const c = s.charCodeAt(s.length - 1);
+  if (c >= 0xAC00 && c <= 0xD7A3) { const j = (c - 0xAC00) % 28; return j === 0 ? 0 : j === 8 ? 2 : 1; }
+  const ch = s[s.length - 1];
+  if (/[0-9]/.test(ch)) return ({ '0': 1, '1': 2, '3': 1, '6': 1, '7': 2, '8': 2 })[ch] || 0;
+  if (/[lL]/.test(ch)) return 2;
+  if (/[mnMN]/.test(ch)) return 1;
+  return 0;
+}
+const JO = {
+  을: w => jong(w) ? '을' : '를',
+  이: w => jong(w) ? '이' : '가',
+  은: w => jong(w) ? '은' : '는',
+  과: w => jong(w) ? '과' : '와',
+  으로: w => jong(w) === 1 ? '으로' : '로'
+};
+
+/* ── 금액 → 한글·한자 (위·변조를 막으려고 십·백·천 앞의 '일'도 쓴다: 일천만) ── */
+function korAmount(n, hanja) {
+  n = Math.floor(n);
+  const D = hanja ? ['', '壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖'] : ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+  const U = hanja ? ['', '拾', '佰', '仟'] : ['', '십', '백', '천'];
+  const B = hanja ? ['', '萬', '億', '兆'] : ['', '만', '억', '조'];
+  if (!(n > 0)) return hanja ? '零' : '영';
+  let out = '', g = 0;
+  while (n > 0 && g < B.length) {
+    const part = n % 10000;
+    if (part) {
+      let s = '';
+      for (let k = 3; k >= 0; k--) { const d = Math.floor(part / Math.pow(10, k)) % 10; if (d) s += D[d] + U[k]; }
+      out = s + B[g] + out;
+    }
+    n = Math.floor(n / 10000); g++;
+  }
+  return out;
+}
+function amountPhrase(n, style) {
+  if (!(n > 0)) return '';
+  return style === 'hanja' ? `金 ${korAmount(n, true)}圓整(₩${won(n)})` : `금 ${korAmount(n)}원정(₩${won(n)})`;
+}
+/* 화면용 짧은 표기: 1억 2,345만 6,789원 */
+function shortWon(n) {
+  n = Math.floor(n); if (!(n > 0)) return '0원';
+  const eok = Math.floor(n / 1e8), man = Math.floor(n % 1e8 / 1e4), rest = n % 1e4;
+  return [eok ? eok.toLocaleString('ko-KR') + '억' : '', man ? man.toLocaleString('ko-KR') + '만' : '', rest ? rest.toLocaleString('ko-KR') : ''].filter(Boolean).join(' ') + '원';
+}
+/* ════════════════════════════════════════════════════════════
+   글꼴 · 글자 폭 · 윤곽선
+   ════════════════════════════════════════════════════════════ */
+const FACES = {
+  serif: '"Batang","바탕","BatangChe","AppleMyungjo","Noto Serif KR","Noto Serif CJK KR","Source Han Serif K","Nanum Myeongjo","NanumMyeongjo",serif',
+  sans: '"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR","Nanum Gothic","NanumGothic",sans-serif'
+};
+const fkey = (face, bold) => (face === 'sans' ? 'sans' : 'serif') + (bold ? '-b' : '');
+function fcss(key, px) {
+  const bold = key.slice(-2) === '-b';
+  return (bold ? 'bold ' : '') + px + 'px ' + FACES[bold ? key.slice(0, -2) : key];
+}
+let _mctx = null;
+function mctx() {
+  if (!_mctx) { const c = document.createElement('canvas'); c.width = 8; c.height = 8; _mctx = c.getContext('2d'); }
+  return _mctx;
+}
+/* 이 기기에 한글 명조 글꼴이 있나 — 명조·고딕으로 '명' 을 그려 화소가 다르면 있다 */
+let SERIF_OK = true;
+function detectSerif() {
+  try {
+    const c = document.createElement('canvas'); c.width = 56; c.height = 56;
+    const x = c.getContext('2d', { willReadFrequently: true });
+    const draw = f => { x.clearRect(0, 0, 56, 56); x.font = '44px ' + f; x.fillText('명', 4, 46); return x.getImageData(0, 0, 56, 56).data; };
+    const a = draw(FACES.serif), b = draw(FACES.sans);
+    let diff = 0;
+    for (let i = 3; i < a.length; i += 4) if (Math.abs(a[i] - b[i]) > 60) diff++;
+    return diff > 40;
+  } catch (e) { return true; }
+}
+/* 글자 폭 (em) — 1/1000 em 로 반올림해 PDF 의 Widths 와 똑같이 맞춘다 */
+const _adv = new Map();
+function adv(key, ch) {
+  const k = key + '|' + ch;
+  let v = _adv.get(k);
+  if (v === undefined) {
+    const c = mctx(); c.font = fcss(key, 200);
+    v = Math.round(c.measureText(ch).width / 200 * 1000) / 1000;
+    _adv.set(k, v);
+  }
+  return v;
+}
+
+/* 알파 격자 → 닫힌 윤곽선들 (픽셀 좌표). 안쪽을 오른쪽에 두고 도는 방향으로 일관되게 만든다 */
+function marchAlpha(A, W, H, T) {
+  const HN = W * H;
+  const next = new Int32Array(2 * HN).fill(-1);
+  const px = new Float32Array(2 * HN), py = new Float32Array(2 * HN);
+  const cr = [0, 0, 0, 0], ct = [0, 0, 0, 0];
+  for (let y = 0; y < H - 1; y++) {
+    const r0 = y * W, r1 = r0 + W;
+    for (let x = 0; x < W - 1; x++) {
+      const tl = A[r0 + x], tr = A[r0 + x + 1], br = A[r1 + x + 1], bl = A[r1 + x];
+      const it = tl > T, ir = tr > T, ib = br > T, il = bl > T;
+      if (it === ir && ir === ib && ib === il) continue;
+      let n = 0;
+      if (it !== ir) { const e = r0 + x; px[e] = x + 0.5 + (T - tl) / (tr - tl); py[e] = y + 0.5; cr[n] = e; ct[n++] = it ? 1 : 0; }
+      if (ir !== ib) { const e = HN + r0 + x + 1; px[e] = x + 1.5; py[e] = y + 0.5 + (T - tr) / (br - tr); cr[n] = e; ct[n++] = ir ? 1 : 0; }
+      if (ib !== il) { const e = r1 + x; px[e] = x + 0.5 + (T - bl) / (br - bl); py[e] = y + 1.5; cr[n] = e; ct[n++] = ib ? 1 : 0; }
+      if (il !== it) { const e = HN + r0 + x; px[e] = x + 0.5; py[e] = y + 0.5 + (T - tl) / (bl - tl); cr[n] = e; ct[n++] = il ? 1 : 0; }
+      if (n === 2) {
+        if (ct[0]) next[cr[0]] = cr[1]; else next[cr[1]] = cr[0];
+      } else if (n === 4) {
+        const connected = (tl + tr + br + bl) / 4 > T;
+        for (let k = 0; k < 4; k++) if (ct[k]) next[cr[k]] = cr[connected ? (k + 1) % 4 : (k + 3) % 4];
+      }
+    }
+  }
+  const loops = [];
+  for (let e0 = 0; e0 < 2 * HN; e0++) {
+    if (next[e0] < 0) continue;
+    const pts = [];
+    let e = e0, guard = 0;
+    while (e >= 0 && guard++ < 1e6) {
+      const nx = next[e];
+      if (nx < 0) break;
+      pts.push(px[e], py[e]);
+      next[e] = -1;
+      e = nx;
+      if (e === e0) break;
+    }
+    if (pts.length >= 6) loops.push(pts);
+  }
+  return loops;
+}
+/* 더글러스-포이커 (닫힌 다각형) */
+function simplifyLoop(p, eps) {
+  const n = p.length / 2;
+  if (n <= 4) return p;
+  let far = 0, fd = -1;
+  for (let i = 1; i < n; i++) { const d = (p[2 * i] - p[0]) ** 2 + (p[2 * i + 1] - p[1]) ** 2; if (d > fd) { fd = d; far = i; } }
+  const keep = new Uint8Array(n); keep[0] = 1; keep[far] = 1;
+  const e2 = eps * eps;
+  const stack = [[0, far], [far, n]];
+  while (stack.length) {
+    const [a, b] = stack.pop();
+    if (b - a < 2) continue;
+    const ax = p[2 * a], ay = p[2 * a + 1], bi = b % n, bx = p[2 * bi], by = p[2 * bi + 1];
+    const dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy;
+    let best = -1, bd = -1;
+    for (let i = a + 1; i < b; i++) {
+      const qx = p[2 * i] - ax, qy = p[2 * i + 1] - ay;
+      let d;
+      if (L2 < 1e-12) d = qx * qx + qy * qy;
+      else { const c = qx * dy - qy * dx; d = c * c / L2; }
+      if (d > bd) { bd = d; best = i; }
+    }
+    if (bd > e2) { keep[best] = 1; stack.push([a, best], [best, b]); }
+  }
+  const out = [];
+  for (let i = 0; i < n; i++) if (keep[i]) out.push(p[2 * i], p[2 * i + 1]);
+  return out;
+}
+const TRACE_EM = 256;
+const _trace = new Map();
+let _tcanvas = null;
+/* 글자 하나 → { adv, bbox:[x0,y0,x1,y1], path } — 좌표는 1/1000 em, y 는 위쪽이 + */
+function traceGlyph(key, ch) {
+  const ck = key + '|' + ch;
+  let g = _trace.get(ck);
+  if (g) return g;
+  g = { adv: Math.round(adv(key, ch) * 1000), bbox: [0, 0, 0, 0], path: '' };
+  if (!/\s/.test(ch)) {
+    const E = TRACE_EM, pad = 4;
+    if (!_tcanvas) _tcanvas = document.createElement('canvas');
+    const c0 = mctx(); c0.font = fcss(key, E);
+    const m = c0.measureText(ch);
+    const left = Math.ceil(Math.max(0, m.actualBoundingBoxLeft || 0)) + pad;
+    const right = Math.ceil(Math.max(m.width, m.actualBoundingBoxRight || m.width)) + pad;
+    const asc = Math.ceil(Math.max(m.actualBoundingBoxAscent || E, 1)) + pad;
+    const desc = Math.ceil(Math.max(m.actualBoundingBoxDescent || E * 0.3, 0)) + pad;
+    const W = Math.min(2048, left + right + 2), H = Math.min(2048, asc + desc + 2);
+    const c = _tcanvas; c.width = W; c.height = H;
+    const ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = fcss(key, E);
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#000';
+    ctx.fillText(ch, left, asc);
+    const d = ctx.getImageData(0, 0, W, H).data;
+    const A = new Uint8Array(W * H);
+    for (let i = 0, j = 3; i < A.length; i++, j += 4) A[i] = d[j];
+    const loops = marchAlpha(A, W, H, 127.5);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    const parts = [];
+    const S = 1000 / E;
+    for (const lp of loops) {
+      const q = simplifyLoop(lp, 0.35);
+      if (q.length < 6) continue;
+      let area = 0;
+      for (let i = 0, n = q.length / 2; i < n; i++) { const j = (i + 1) % n; area += q[2 * i] * q[2 * j + 1] - q[2 * j] * q[2 * i + 1]; }
+      if (Math.abs(area) < 1.2) continue;
+      let s = '';
+      for (let i = 0; i < q.length; i += 2) {
+        const X = Math.round((q[i] - left) * S), Y = Math.round((asc - q[i + 1]) * S);
+        if (X < x0) x0 = X; if (X > x1) x1 = X; if (Y < y0) y0 = Y; if (Y > y1) y1 = Y;
+        s += X + ' ' + Y + (i ? ' l\n' : ' m\n');
+      }
+      parts.push(s + 'h\n');
+    }
+    if (parts.length) { g.path = parts.join('') + 'f\n'; g.bbox = [x0, y0, x1, y1]; }
+  }
+  _trace.set(ck, g);
+  return g;
+}
+/* ════════════════════════════════════════════════════════════
+   입력 상태
+   ════════════════════════════════════════════════════════════ */
+const person = () => ({ name: '', phone: '', addr: '' });
+const recip = () => ({ kind: 'person', name: '', rep: '', addr: '' });
+function defaults() {
+  const t = todayISO();
+  return {
+    v: 1, tpl: 'loan', font: '', writeDate: t,
+    deadline: addDays(t, 14), dlDays: 14,          // dlDays 가 숫자면 작성일이 바뀔 때 기한도 따라 움직인다(날짜를 직접 고르면 null)
+    greet: true, contact: true, attach: '',
+    bank: '', acct: '', holder: '',
+    senders: [person()], recips: [recip()],
+    loan: {
+      lendDate: '', method: 'transfer', amount: 0, dueType: 'date', dueDate: '', repaid: 0, rateOn: false, rate: '',
+      ev: { iou: false, bank: true, msg: false, rec: false }, act: { order: true, suit: true, seize: false }
+    },
+    deposit: {
+      kind: 'home', status: 'expire', renew: 'implied', addr: '', contractDate: '', start: '', end: '', deposit: 0, rent: 0, moved: false, moveDate: '',
+      act: { reg: true, suit: true, dmg: false }
+    },
+    payment: {
+      kind: 'goods', desc: '', doneDate: '', dueDate: '', total: 0, paid: 0,
+      ev: { contract: false, estimate: false, invoice: false, statement: false, msg: false }, act: { order: true, suit: true, seize: false }
+    },
+    refund: {
+      basis: 'ongoing', service: '', contractDate: '', startDate: '', paid: 0, payMethod: 'card', refundAmt: 0, reason: '',
+      act: { kca: true, suit: false }
+    },
+    rent: {
+      kind: 'home', mode: 'demand', addr: '', start: '', end: '', deposit: 0, rent: 0, payDay: '', unpaid: 0, period: '',
+      act: { evict: true, deduct: true }
+    },
+    damage: {
+      date: '', place: '', what: '', basis: 'tort',
+      items: [{ name: '수리비', amt: 0 }, { name: '', amt: 0 }, { name: '', amt: 0 }],
+      ev: { photo: true, estimate: true, diag: false, msg: false }, act: { order: false, suit: true }
+    },
+    custom: {},                                     // { 상황: { subject, body } } — 사용자가 직접 고친 제목·본문(null 이면 자동)
+    copies: 'set', dlv: false, express: false,     // set = 받는 사람마다 원본 1 + 등본 2 한 벌
+    sign: { s0: null, s1: null }
+  };
+}
+let S = defaults();
+
+/* ── 날짜·글자 도우미 ── */
+function addDays(s, n) {
+  const p = parseD(s); if (!p) return '';
+  const d = new Date(Date.UTC(p.y, p.m - 1, p.d + n));
+  return iso(d.getUTCFullYear(), d.getUTCMonth() + 1, d.getUTCDate());
+}
+const fmtN = n => String(Math.round(n * 10) / 10);
+const BLANK = '＿＿＿＿';
+const dOr = s => parseD(s) ? kDate(s) : '＿＿＿＿년 ＿＿월 ＿＿일';
+/* 「금」과 금액 사이는 줄이 바뀌지 않는 띄어쓰기로 — 줄 끝에 「금」만 매달리지 않게 */
+const mOr = n => n > 0 ? amountPhrase(n, 'hangul').replace(/^금 /, '금\u00A0') : '금\u00A0＿＿＿＿＿＿원';
+const wOr = n => n > 0 ? `금\u00A0${won(n)}원` : '금\u00A0＿＿＿＿원';
+const tOr = v => { v = String(v == null ? '' : v).trim(); return v || BLANK; };
+const trimS = v => String(v == null ? '' : v).trim();
+function joinKo(a) {
+  a = a.filter(Boolean);
+  if (a.length <= 1) return a[0] || '';
+  if (a.length === 2) return a[0] + JO.과(a[0]) + ' ' + a[1];
+  return a.slice(0, -1).join(', ') + ', ' + a[a.length - 1];
+}
+const withJ = (w, j) => w + JO[j](w);
+function actText(list) { return list.length ? list.join(', ') + ' 등 법적 절차' : '법적 절차'; }
+function acct(s) {
+  const b = trimS(s.bank), a = trimS(s.acct), h = trimS(s.holder);
+  if (!b && !a) return { to: '발신인에게', line: '' };
+  const holder = h || trimS((s.senders[0] || {}).name) || BLANK;
+  return { to: '아래 계좌로', line: `입금 계좌: ${b || BLANK} ${a || BLANK} (예금주 ${holder})` };
+}
+function contactLine(s) {
+  const ph = trimS((s.senders[0] || {}).phone);
+  if (!s.contact || !ph) return '';
+  return `원만한 해결을 위하여 문의할 내용이 있으면 발신인(연락처 ${ph})에게 연락해 주시기 바랍니다.`;
+}
+function greetLine(s) {
+  const co = s.recips.length > 0 && s.recips.every(r => r.kind === 'company');
+  return co ? '귀사의 무궁한 발전을 기원합니다.' : '귀하의 건승을 기원합니다.';
+}
+/* 문단 목록 → 번호 붙은 평문. 문단이 배열이면 [본문, 들여쓴 항목…] */
+function numbered(s, paras) {
+  const out = [];
+  let k = 0;
+  const all = (s.greet ? [greetLine(s)] : []).concat(paras, [contactLine(s)]);
+  for (const p of all) {
+    const arr = (Array.isArray(p) ? p : [p]).filter(x => x !== false && x != null);
+    if (!arr.length || !arr[0]) continue;
+    out.push(`${++k}. ${arr[0]}`);
+    for (const sub of arr.slice(1)) if (sub) out.push(`  - ${sub}`);
+  }
+  return out.join('\n');
+}
+const rateStr = r => { const v = num(r); return v > 0 ? fmtRate(v) : BLANK; };
+const evList = (ev, names) => Object.keys(names).filter(k => ev[k]).map(k => names[k]);
+
+/* ════════════════════════════════════════════════════════════
+   상황별 문장 — 제목 · 본문(평문: 줄머리 "1. " 번호 문단, "- " 들여쓴 항목)
+   ════════════════════════════════════════════════════════════ */
+const FREE_BODY = '1. 귀하의 건승을 기원합니다.\n2. (있었던 일 — 날짜·금액·약속한 내용을 구체적으로 적습니다)\n3. (요구하는 내용과 기한을 적습니다)\n4. (기한까지 지키지 않으면 어떻게 할지 적습니다)';
+const TPL = {
+  loan: {
+    name: '빌려준 돈 받기', sit: '빌려준 돈',
+    subject: () => '대여금 반환 청구의 건',
+    body(s) {
+      const L = s.loan, P = [];
+      const amt = L.amount > 0 ? L.amount : 0;
+      const rep = amt ? Math.min(L.repaid > 0 ? L.repaid : 0, amt) : 0;
+      const remain = amt - rep;
+      const how = L.method === 'cash' ? '현금으로' : '계좌이체로';
+      let p = `발신인은 ${dOr(L.lendDate)} 수신인에게 ${withJ(mOr(amt), '을')} ${how} 빌려주었습니다.`;
+      p += L.dueType === 'none' ? ' 당시 갚을 날은 따로 정하지 않았습니다.' : ` 수신인은 이 돈을 ${dOr(L.dueDate)}까지 갚기로 약속하였습니다.`;
+      if (L.rateOn) p += ` 이자는 연 ${rateStr(L.rate)}%로 정하였습니다.`;
+      const ev = evList(L.ev, { iou: '차용증', bank: '계좌이체 내역', msg: '문자·메신저 대화 기록', rec: '통화 녹음' });
+      if (ev.length) p += ` 이 사실은 ${joinKo(ev)}${JO.으로(ev[ev.length - 1])} 확인할 수 있습니다.`;
+      P.push(p);
+      p = L.dueType === 'none' ? '발신인은 그동안 여러 차례 돌려 달라고 요청하였으나, 수신인은 지금까지 ' : '그러나 수신인은 약속한 날이 지난 지금까지 ';
+      p += rep > 0 ? `금 ${won(rep)}원만 갚았을 뿐 나머지 ${withJ(mOr(remain), '을')} 갚지 않고 있습니다.` : '빌린 돈을 갚지 않고 있습니다.';
+      P.push(p);
+      const A = acct(s);
+      const what = L.rateOn ? `${mOr(remain)}${JO.과(mOr(remain))} 약정한 이자를` : withJ(mOr(remain), '을');
+      P.push([`이에 발신인은 수신인에게 ${rep > 0 ? '남은 원금' : '빌려준 원금'} ${what} ${dOr(s.deadline)}까지 ${A.to} 갚아 주실 것을 요구합니다.`, A.line]);
+      const acts = [L.act.order && '지급명령 신청', L.act.suit && '민사소송 제기', L.act.seize && '재산 가압류'].filter(Boolean);
+      const late = L.dueType === 'none' ? '위 기한의 다음 날부터' : '갚기로 한 날의 다음 날부터';
+      P.push(`위 기한까지 갚지 않으시면 발신인은 부득이 ${actText(acts)}를 밟을 수밖에 없으며, 이 경우 ${L.rateOn ? '원금과 이자는' : '원금은'} 물론 ${late} 다 갚는 날까지의 지연손해금과 절차에 드는 비용까지 청구하게 됨을 알려 드립니다.`);
+      return numbered(s, P);
+    }
+  },
+  deposit: {
+    name: '전세·월세 보증금 받기', sit: '임대차계약',
+    subject: s => ({ expire: '임대차계약 종료 통지 및 보증금 반환 요청의 건', ended: '임대차보증금 반환 청구의 건', implied: '임대차계약 해지 통지 및 보증금 반환 요청의 건' })[s.deposit.status],
+    body(s) {
+      const D = s.deposit, P = [], home = D.kind !== 'shop';
+      const obj = home ? '주택' : '건물';
+      P.push([`발신인(임차인)과 수신인(임대인)은 ${dOr(D.contractDate)} 아래 ${home ? '주택' : '상가건물'}에 관하여 임대차계약을 맺었습니다.`,
+        `임대차 목적물: ${tOr(D.addr)}`, `임대차 기간: ${dOr(D.start)}부터 ${dOr(D.end)}까지`,
+        `임대차보증금: ${mOr(D.deposit)}${D.rent > 0 ? `, 월 차임: 금 ${won(D.rent)}원` : ''}`]);
+      const A = acct(s), dep = withJ(mOr(D.deposit), '을');
+      if (D.status === 'expire') {
+        P.push(`발신인은 위 임대차계약을 갱신하지 않고 기간이 끝나는 ${dOr(D.end)}에 종료하고자 이 통지를 보냅니다.${parseD(D.moveDate) ? ` 발신인은 ${kDate(D.moveDate)} 이사할 예정입니다.` : ''}`);
+        P.push([`따라서 수신인은 계약이 끝나는 날 발신인이 ${withJ(obj, '을')} 비워 넘겨 드리는 것과 동시에 임대차보증금 ${dep} ${A.to} 돌려주시기 바랍니다.`, A.line]);
+      } else if (D.status === 'implied') {
+        const byRequest = home && D.renew === 'request';
+        const law = !home ? '상가건물 임대차보호법 제10조 제5항' : byRequest ? '주택임대차보호법 제6조의3 제4항, 제6조의2' : '주택임대차보호법 제6조의2';
+        P.push(`위 임대차계약은 ${byRequest ? '발신인의 계약갱신 요구에 따라 갱신되었습니다' : '기간이 끝난 뒤 묵시적으로 갱신되었습니다'}. 발신인은 ${law}에 따라 이 통지로 위 임대차계약의 해지를 알립니다. 해지는 수신인이 이 통지를 받은 날부터 3개월이 지나면 효력이 생깁니다.`);
+        P.push([`따라서 수신인은 해지의 효력이 생기는 날 발신인이 ${withJ(obj, '을')} 비워 넘겨 드리는 것과 동시에 임대차보증금 ${dep} ${A.to} 돌려주시기 바랍니다.`, A.line]);
+      } else {
+        const moved = !!D.moved;
+        const did = moved
+          ? `발신인은 ${parseD(D.moveDate) ? kDate(D.moveDate) + ' ' : ''}${withJ(obj, '을')} 비워 수신인에게 넘겨 드렸으나`
+          : `발신인은 ${withJ(obj, '을')} 비워 드릴 준비를 마쳤으나`;
+        P.push(`위 임대차계약은 ${dOr(D.end)} 기간 만료로 끝났습니다. ${did}, 수신인은 지금까지 임대차보증금을 돌려주지 않고 있습니다.`);
+        P.push([`이에 발신인은 수신인에게 ${moved ? '' : `${withJ(obj, '을')} 넘겨 드리는 것과 동시에 `}임대차보증금 ${dep} ${dOr(s.deadline)}까지 ${A.to} 돌려주실 것을 요구합니다.`, A.line]);
+      }
+      const acts = [D.act.reg && '임차권등기명령 신청', D.act.suit && '보증금 반환 소송(지급명령) 제기'].filter(Boolean);
+      let p = `보증금을 제때 돌려받지 못하면 발신인은 부득이 ${actText(acts)}를 밟을 수밖에 없으며, 이 경우 보증금과 함께 반환이 늦어진 기간의 지연손해금${D.act.reg ? '과 임차권등기명령에 드는 비용' : ''} 등을 청구하게 됨을 알려 드립니다.`;
+      if (D.act.dmg) p += ' 또한 보증금 반환이 늦어져 발신인이 새로 계약한 집의 계약금을 잃거나 대출 이자 같은 비용을 더 부담하게 되면 그 손해의 배상도 청구할 것임을 미리 알려 드립니다.';
+      P.push(p);
+      return numbered(s, P);
+    }
+  },
+  payment: {
+    name: '물건값·공사비 받기', sit: '거래 내용',
+    subject: s => ({ goods: '물품대금 지급 청구의 건', work: '공사대금 지급 청구의 건', service: '용역대금 지급 청구의 건' })[s.payment.kind],
+    body(s) {
+      const Y = s.payment, P = [];
+      const verb = { goods: '납품하였고', work: '마쳤고', service: '마쳤고' }[Y.kind];
+      const noun = { goods: '물품대금', work: '공사대금', service: '용역대금' }[Y.kind];
+      const total = Y.total > 0 ? Y.total : 0;
+      let p = `발신인은 수신인의 의뢰에 따라 ${dOr(Y.doneDate)} ${withJ(tOr(Y.desc), '을')} ${verb}, 그 대금은 ${withJ(mOr(total), '으로')} 정하였습니다.`;
+      if (parseD(Y.dueDate)) p += ` 수신인은 이 대금을 ${kDate(Y.dueDate)}까지 지급하기로 약속하였습니다.`;
+      const ev = evList(Y.ev, { contract: '계약서', estimate: '견적서', invoice: '세금계산서', statement: '거래명세서', msg: '문자·메신저 대화 기록' });
+      if (ev.length) p += ` 이 거래는 ${joinKo(ev)}${JO.으로(ev[ev.length - 1])} 확인할 수 있습니다.`;
+      P.push(p);
+      const paid = total ? Math.min(Y.paid > 0 ? Y.paid : 0, total) : 0, remain = total - paid;
+      P.push(`그러나 수신인은 ${parseD(Y.dueDate) ? '지급하기로 한 날이 지난 ' : ''}지금까지 ${paid > 0 ? `그중 금 ${won(paid)}원만 지급하였을 뿐 나머지 ${withJ(mOr(remain), '을')}` : '대금을'} 지급하지 않고 있습니다.`);
+      const A = acct(s);
+      P.push([`이에 발신인은 수신인에게 미지급 ${noun} ${withJ(mOr(remain), '을')} ${dOr(s.deadline)}까지 ${A.to} 지급해 주실 것을 요구합니다.`, A.line]);
+      const acts = [Y.act.order && '지급명령 신청', Y.act.suit && '민사소송 제기', Y.act.seize && '재산 가압류'].filter(Boolean);
+      P.push(`위 기한까지 지급하지 않으시면 발신인은 부득이 ${actText(acts)}를 밟을 수밖에 없으며, 이 경우 미지급 대금은 물론 지연손해금과 절차에 드는 비용까지 청구하게 됨을 알려 드립니다.`);
+      return numbered(s, P);
+    }
+  },
+  refund: {
+    name: '계약 해지·환불', sit: '계약 내용',
+    subject: s => s.refund.basis === 'ongoing' ? '계약 해지 통지 및 환급 요청의 건' : '청약철회 통지 및 환급 요청의 건',
+    body(s) {
+      const R = s.refund, P = [], ongoing = R.basis === 'ongoing';
+      const pay = { card: '카드로', transfer: '계좌이체로', cash: '현금으로' }[R.payMethod];
+      let p = `발신인은 ${dOr(R.contractDate)} 수신인과 ${tOr(R.service)} ${ongoing ? '이용' : '구매'} 계약을 맺고 대금 ${withJ(mOr(R.paid), '을')} ${pay} 지급하였습니다.`;
+      if (parseD(R.startDate)) p += ongoing ? ` 이용은 ${kDate(R.startDate)}부터 시작하였습니다.` : ` 발신인은 ${kDate(R.startDate)} 상품을 받았습니다.`;
+      P.push(p);
+      const why = trimS(R.reason), card = R.payMethod === 'card', A = acct(s);
+      const cardTxt = card ? ' 카드로 결제한 대금은 결제를 취소하는 방식으로 처리하여 주십시오.' : '';
+      if (ongoing) {
+        P.push([`발신인은 더 이상 이용하지 않기로 하고, 방문판매 등에 관한 법률 제31조에 따라 이 통지로 위 계약을 해지합니다.`, why && `해지 사유: ${why}`]);
+        const amt = R.refundAmt > 0 ? `발신인이 계산한 환급금 ${withJ(amountPhrase(R.refundAmt, 'hangul'), '을')}` : '이미 이용한 부분의 대금과 정당한 위약금을 뺀 나머지 금액을';
+        P.push([`따라서 수신인은 같은 법 제32조와 소비자분쟁해결기준에 따라 ${amt} ${dOr(s.deadline)}까지 ${card ? '' : A.to + ' '}환급해 주시기 바랍니다.${cardTxt}`, !card && A.line]);
+      } else {
+        const online = R.basis === 'online';
+        P.push([`발신인은 ${online ? '전자상거래 등에서의 소비자보호에 관한 법률 제17조' : '방문판매 등에 관한 법률 제8조'}에 따라 이 통지로 위 계약의 청약을 철회합니다.`, why && `철회 사유: ${why}`]);
+        P.push([`따라서 수신인은 같은 법 ${online ? '제18조' : '제9조'}에 따라 발신인이 돌려보낸 상품을 받은 날부터 3영업일 안에 대금 ${withJ(mOr(R.paid), '을')} ${card ? '' : A.to + ' '}환급해 주시기 바랍니다.${cardTxt}`, !card && A.line]);
+      }
+      const acts = [R.act.kca && '한국소비자원 피해구제 신청', R.act.suit && '민사소송 제기'].filter(Boolean);
+      P.push(`환급이 이루어지지 않으면 발신인은 ${acts.length ? joinKo(acts) + ' 등 필요한 절차' : '필요한 절차'}를 밟을 것임을 알려 드립니다.`);
+      return numbered(s, P);
+    }
+  },
+  rent: {
+    name: '밀린 월세 · 해지', sit: '임대차계약',
+    subject: s => s.rent.mode === 'terminate' ? '임대차계약 해지 통지 및 건물 인도 요청의 건' : '밀린 차임 지급 요청의 건',
+    body(s) {
+      const T = s.rent, P = [], home = T.kind !== 'shop';
+      const obj = home ? '주택' : '건물';
+      const day = clamp(parseInt(digits(T.payDay), 10) || 0, 0, 31);
+      P.push([`발신인(임대인)과 수신인(임차인)은 아래 ${home ? '주택' : '상가건물'}에 관하여 임대차계약을 맺었습니다.`,
+        `임대차 목적물: ${tOr(T.addr)}`, `임대차 기간: ${dOr(T.start)}부터 ${dOr(T.end)}까지`,
+        `임대차보증금: ${mOr(T.deposit)}, 월 차임: ${wOr(T.rent)}${day ? `(매월 ${day}일 지급)` : ''}`]);
+      const n = T.rent > 0 && T.unpaid > 0 ? T.unpaid / T.rent : 0;
+      const nTxt = n > 0 && Math.abs(n - Math.round(n)) < 1e-9 ? ` ${Math.round(n)}개월분` : '';
+      const period = trimS(T.period);
+      P.push(`그런데 수신인은 ${period ? period + '의 ' : ''}차임${nTxt} 합계 ${withJ(mOr(T.unpaid), '을')} 지금까지 내지 않고 있습니다.`);
+      const law = home ? '민법 제640조' : '상가건물 임대차보호법 제10조의8';
+      if (T.mode === 'terminate') {
+        const k = home ? 2 : 3;
+        P.push(`수신인이 내지 않은 차임은 ${k}기의 차임액 이상에 이르렀으므로, 발신인은 ${law}에 따라 이 통지로 위 임대차계약을 해지합니다.`);
+        P.push(`따라서 수신인은 ${dOr(s.deadline)}까지 ${withJ(obj, '을')} 비워 발신인에게 넘겨 주시기 바랍니다.${T.act.deduct ? ` 밀린 차임과 원상회복에 드는 비용 등은 임대차보증금에서 공제하고, 남은 금액은 ${withJ(obj, '을')} 넘겨받을 때 돌려드리겠습니다.` : ''}`);
+        if (T.act.evict) P.push(`위 기한까지 ${withJ(obj, '을')} 넘겨 주지 않으면 발신인은 부득이 명도소송(건물 인도 소송) 등 법적 절차를 밟을 수밖에 없으며, 그 비용과 인도가 늦어진 기간의 차임 상당액도 청구하게 됨을 알려 드립니다.`);
+      } else {
+        const A = acct(s), k = home ? 2 : 3;
+        P.push([`이에 발신인은 수신인에게 밀린 차임 ${withJ(mOr(T.unpaid), '을')} ${dOr(s.deadline)}까지 ${A.to} 지급할 것을 요구합니다.`, A.line]);
+        // 지금 연체가 해지 기준(주택 2기·상가 3기)에 못 미치면 "기준에 이르면 해지"로 쓴다 — 기준 전에는 해지할 수 없다
+        const when = n >= k ? '위 기한까지 지급하지 않으면' : `위 기한까지 지급하지 않아 밀린 차임이 ${k}기의 차임액에 이르면`;
+        P.push(`${when} 발신인은 ${law}에 따라 위 임대차계약을 해지하고, ${obj}의 인도와 함께 밀린 차임과 손해배상을 청구${T.act.evict ? '하며, 인도하지 않으면 명도소송을 제기' : ''}할 것임을 알려 드립니다.`);
+      }
+      return numbered(s, P);
+    }
+  },
+  damage: {
+    name: '손해배상 청구', sit: '피해 내용',
+    subject: () => '손해배상 청구의 건',
+    body(s) {
+      const G = s.damage, P = [];
+      let what = trimS(G.what).replace(/\s*\n+\s*/g, ' ');
+      if (what && !/[.!?。]$/.test(what)) what += '.';
+      const place = trimS(G.place);
+      P.push(`${dOr(G.date)}${place ? ' ' + place + '에서' : ''} 다음과 같은 일이 있었습니다. ${what || BLANK}`);
+      const items = dmgItems(G);
+      const total = items.reduce((a, it) => a + it.amt, 0);
+      const ev = evList(G.ev, { photo: '사진·영상', estimate: '견적서·영수증', diag: '진단서', msg: '문자·메신저 대화 기록' });
+      P.push([`이 일로 발신인은 아래와 같은 손해를 입었습니다.${ev.length ? ` 손해 내용은 ${joinKo(ev)}${JO.으로(ev[ev.length - 1])} 확인할 수 있습니다.` : ''}`,
+        ...(items.length ? items.map(it => `${tOr(it.name)}: ${wOr(it.amt)}`) : [`${BLANK}: ${wOr(0)}`]), `합계: ${mOr(total)}`]);
+      const basis = G.basis === 'contract'
+        ? '위 손해는 수신인이 약속한 의무를 지키지 않아 생긴 것이므로, 수신인은 민법 제390조에 따라 이를 배상할 책임이 있습니다.'
+        : '위 손해는 수신인의 고의 또는 과실로 생긴 것이므로, 수신인은 민법 제750조에 따라 이를 배상할 책임이 있습니다.';
+      const A = acct(s);
+      P.push([`${basis} 이에 발신인은 수신인에게 손해배상금 ${withJ(mOr(total), '을')} ${dOr(s.deadline)}까지 ${A.to} 지급해 주실 것을 요구합니다.`, A.line]);
+      const acts = [G.act.order && '지급명령 신청', G.act.suit && '민사소송 제기'].filter(Boolean);
+      P.push(`손해 금액이나 배상 방법에 다른 의견이 있으시면 위 기한 안에 알려 주시기 바랍니다. 기한까지 아무런 답변이나 배상이 없으면 발신인은 부득이 ${actText(acts)}를 밟을 수밖에 없음을 알려 드립니다.`);
+      return numbered(s, P);
+    }
+  },
+  free: {
+    name: '직접 쓰기', sit: '직접 쓰기',
+    subject: () => '',
+    body: () => FREE_BODY
+  }
+};
+function dmgItems(G) {
+  return G.items.map(it => ({ name: trimS(it.name), amt: it.amt > 0 ? it.amt : 0 })).filter(it => it.name || it.amt);
+}
+
+/* 지금 쓰는 제목·본문 — 직접 고친 것이 있으면 그것 */
+function autoSubject(s) { return TPL[s.tpl].subject(s) || ''; }
+function autoBody(s) { return TPL[s.tpl].body(s); }
+function curText(s) {
+  const c = s.custom[s.tpl] || {};
+  const aS = autoSubject(s), aB = autoBody(s);
+  return {
+    subject: c.subject != null ? c.subject : aS, body: c.body != null ? c.body : aB,
+    autoSubject: aS, autoBody: aB, subjEdited: c.subject != null, bodyEdited: c.body != null
+  };
+}
+function needsDeadline(s) {
+  if (s.tpl === 'deposit') return s.deposit.status === 'ended';
+  if (s.tpl === 'refund') return s.refund.basis === 'ongoing';
+  return s.tpl !== 'free';
+}
+function needsAcct(s) {
+  if (s.tpl === 'free') return false;
+  if (s.tpl === 'rent') return s.rent.mode === 'demand';
+  if (s.tpl === 'refund') return s.refund.payMethod !== 'card';
+  return true;
+}
+
+/* ════════════════════════════════════════════════════════════
+   우체국 발송 비용 — 창구 접수 기준
+   · 통상우편: A4 1장 약 5g + 봉투 약 5g 로 무게를 어림한다(규격 봉투 50g 까지)
+   · 받는 사람마다 우편요금·등기·배달증명·익일특급이 붙고, 내용증명 수수료는 한 번(동문이면 1통 초과마다 1,300원)
+   ════════════════════════════════════════════════════════════ */
+function feeCalc(pages, nR, dlv, exp) {
+  pages = Math.max(1, pages); nR = Math.max(1, nR);
+  const w = 5 + 5 * pages;
+  const post = w <= 25 ? 500 : w <= 50 ? 520 : 590 + 120 * Math.ceil((w - 50) / 50);
+  const reg = 2400;
+  const cert = 1300 + 650 * (pages - 1) + 1300 * (nR - 1);
+  const dl = dlv ? 1600 + 470 : 0;
+  const ex = exp ? 1000 : 0;
+  return { w, post, reg, cert, dl, ex, nR, pages, total: (post + reg + dl + ex) * nR + cert };
+}
+
+/* ════════════════════════════════════════════════════════════
+   점검 — {lv: ok|info|warn|bad, h: html}
+   ════════════════════════════════════════════════════════════ */
+const THREAT = ['죽여', '죽인다', '죽을줄', '가만두지', '가만히있지않', '박살', '폭로', '퍼뜨리', '퍼트리', '인터넷에올리', 'sns에올리', '신상공개', '신상을공개', '신상털', '직장에알리', '회사에알리', '가족에게알리', '망신을', '각오하'];
+function limitation(add, base, years, label, lawTxt, always) {
+  if (!parseD(base)) return;
+  const exp = addMonths(base, years * 12);
+  const left = daysBetween(parseD(S.writeDate) ? S.writeDate : todayISO(), exp);
+  if (left < 0) add('bad', `${label} 소멸시효(${years}년)가 <b>${kDate(exp)}</b>에 이미 끝났을 수 있습니다(${lawTxt}). 그 사이 일부를 받았거나 상대가 빚을 인정한 적이 있으면 달라지므로 전문가와 상담하세요.`);
+  else if (left < 365) add('warn', `${label} 소멸시효(${years}년)가 <b>${kDate(exp)}</b> 무렵 끝날 수 있습니다(${lawTxt}). 내용증명만으로는 시효가 멈추지 않고, 받은 날부터 <b>6개월 안에</b> 지급명령·소송·가압류 등을 해야 합니다(민법 제174조).`);
+  else if (always) add('info', `${label} 소멸시효는 ${years}년입니다(${lawTxt}) — <b>${kDate(exp)}</b> 무렵까지. 내용증명을 보낸 뒤 6개월 안에 지급명령·소송 등을 하면 시효가 멈춥니다(민법 제174조).`);
+}
+function checks(s, ctx) {
+  const out = [];
+  const add = (lv, h) => out.push({ lv, h });
+  const body = ctx.body, flat = body.replace(/\s+/g, '').toLowerCase();
+
+  if (s.senders.some(p => !trimS(p.name) || !trimS(p.addr))) add('bad', '<b>보내는 사람의 이름·주소</b>가 비어 있습니다. 우체국은 문서와 봉투의 이름·주소가 같아야 접수합니다(우편법 시행규칙 제51조).');
+  if (s.recips.some(r => !trimS(r.name) || !trimS(r.addr))) add('bad', '<b>받는 사람의 이름·주소</b>가 비어 있습니다. 주소가 틀리면 반송되어 통지가 도달하지 않습니다.');
+  const blanks = (body.match(/＿{2,}/g) || []).length + (ctx.subject.match(/＿{2,}/g) || []).length;
+  if (blanks) add('warn', `본문에 아직 채우지 않은 <b>빈칸 ${blanks}곳</b>(＿＿)이 있습니다. 위 입력칸을 채우거나 5번 칸에서 직접 고치세요.`);
+  if (/\((있었던 일|요구하는 내용|기한까지 지키지)/.test(body)) add('warn', '본문에 괄호 속 <b>안내 문구</b>가 남아 있습니다. 실제 내용으로 바꿔 주세요.');
+  if (!trimS(ctx.subject)) add('warn', '<b>제목</b>이 비어 있습니다. 예: 「대여금 반환 청구의 건」');
+  if (needsDeadline(s) && !ctx.bodyEdited) {
+    if (!parseD(s.deadline)) add('warn', '<b>기한</b>이 비어 있습니다. 언제까지 해 달라는지 날짜를 정해야 요구가 분명해집니다.');
+    else {
+      const gap = parseD(s.writeDate) ? daysBetween(s.writeDate, s.deadline) : NaN;
+      if (gap < 7) add('warn', `기한이 작성일로부터 <b>${gap}일</b> 뒤입니다. 등기는 접수 다음 날부터 배달까지 보통 3일쯤 걸리므로, 받는 사람이 준비할 수 있게 <b>7일 이상</b> 여유를 두세요.`);
+      else if (gap >= 7) add('ok', `기한 <b>${kDate(s.deadline)}</b> — 작성일로부터 ${gap}일 뒤입니다.`);
+    }
+  }
+  const threat = THREAT.find(w => flat.includes(w));
+  if (threat) add('warn', '상대를 위협하거나 사생활·신상을 알리겠다는 표현이 보입니다. 그런 표현은 <b>협박·명예훼손</b> 문제가 될 수 있고 우체국이 취급을 거절할 수도 있으니, 사실과 요구만 적으세요.');
+
+  // 상황별
+  if (s.tpl === 'loan') {
+    const L = s.loan;
+    if (!(L.amount > 0)) add('bad', '<b>빌려준 금액</b>을 넣어 주세요.');
+    else if (L.repaid >= L.amount) add('bad', '이미 돌려받은 돈이 빌려준 금액과 같거나 많습니다. 금액을 확인하세요.');
+    if (!parseD(L.lendDate)) add('warn', '<b>빌려준 날</b>을 넣어 주세요.');
+    if (L.dueType === 'none') add('info', '갚을 날을 정하지 않았다면 이 내용증명이 <b>상당한 기간을 정해 돌려 달라는 요구</b>가 됩니다(민법 제603조 제2항). 기한을 너무 짧게 잡지 마세요.');
+    else if (!parseD(L.dueDate)) add('warn', '<b>갚기로 한 날</b>을 넣어 주세요.');
+    else if (parseD(s.writeDate) && dayNo(L.dueDate) > dayNo(s.writeDate)) add('warn', `갚기로 한 날(${kDate(L.dueDate)})이 아직 오지 않았습니다. 그 전에는 갚으라고 요구하기 어렵습니다.`);
+    if (L.rateOn && num(L.rate) > 20) add('warn', '약정 이자가 <b>연 20%</b>를 넘습니다. 넘는 부분은 무효입니다(이자제한법 제2조).');
+    if (L.method === 'cash' && !L.ev.iou) add('warn', '<b>현금</b>으로 빌려주고 차용증도 없다면 빌려준 사실을 증명하기 어렵습니다. 주고받은 문자·녹음을 모아 두세요.');
+    limitation(add, L.dueType === 'date' && parseD(L.dueDate) ? L.dueDate : L.lendDate, 10, '빌려준 돈의', '민법 제162조, 상인 사이의 거래는 5년', false);
+    add('info', '내용증명만으로는 상대 재산을 압류할 수 없습니다. 기한이 지나면 <b>지급명령</b>(전자소송)이나 소송을 검토하세요.');
+  } else if (s.tpl === 'deposit') {
+    const D = s.deposit, home = D.kind !== 'shop';
+    if (!(D.deposit > 0)) add('bad', '<b>보증금</b>을 넣어 주세요.');
+    if (!trimS(D.addr)) add('warn', '<b>집(건물) 주소</b>를 적어야 어떤 계약인지 분명해집니다.');
+    const arrive = addDays(parseD(s.writeDate) ? s.writeDate : todayISO(), 4);
+    const regLaw = home ? '주택임대차보호법 제3조의3' : '상가건물 임대차보호법 제6조';
+    if (D.status === 'expire') {
+      if (!parseD(D.end)) add('warn', '<b>계약 만료일</b>을 넣으면 통지 기한을 계산합니다.');
+      else if (dayNo(D.end) < dayNo(s.writeDate)) add('warn', '계약 만료일이 이미 지났습니다. 지금 상황을 <b>「계약이 끝났는데 보증금을 못 받았어요」</b>나 <b>「계약이 연장된 상태에서 나가려고 해요」</b>로 바꿔 보세요.');
+      else if (home) {
+        const last = addMonths(D.end, -2);
+        if (dayNo(arrive) > dayNo(last)) add('warn', `주택 임차인은 계약이 끝나기 <b>2개월 전(${kDate(last)})까지</b> 갱신하지 않겠다는 통지가 <b>도착</b>해야 합니다(주택임대차보호법 제6조 제1항). 지금 보내면 늦어 같은 조건으로 연장된 것으로 볼 수 있습니다. 그렇게 되어도 임차인은 언제든 해지를 알릴 수 있고 <b>받은 날부터 3개월 뒤</b> 끝납니다(제6조의2).`);
+        else add('ok', `주택 임차인의 통지는 계약 만료 2개월 전인 <b>${kDate(last)}</b>까지 도착하면 됩니다(주택임대차보호법 제6조 제1항). 지금 보내면 <b>${daysBetween(arrive, last)}일</b> 여유가 있습니다.`);
+      } else {
+        if (dayNo(arrive) > dayNo(D.end)) add('warn', `만료일(${kDate(D.end)}) 전에 통지가 도착하지 않을 수 있습니다. 상가 임차인은 만료일 전에만 알리면 기간 만료로 끝나지만(대법원 2024. 6. 27. 선고 2023다307024 판결), 늦으면 1년 연장된 것으로 볼 수 있습니다. 문자·이메일로도 함께 알리세요.`);
+        else add('ok', `상가 임차인은 만료일(${kDate(D.end)}) 전에 갱신하지 않겠다는 통지가 도착하면 기간 만료로 계약이 끝납니다(대법원 2024. 6. 27. 선고 2023다307024 판결).`);
+      }
+      add('info', `만료일에 보증금을 받지 못한 채 이사해야 한다면 <b>임차권등기명령</b>을 신청해 등기가 된 것을 확인한 뒤 이사하세요. 먼저 이사하면 대항력·우선변제권을 잃을 수 있습니다(${regLaw}).`);
+    } else if (D.status === 'implied') {
+      add('info', `해지는 임대인이 통지를 받은 날부터 <b>3개월</b> 뒤 효력이 생깁니다. 지금 보내면 <b>${kDate(addMonths(arrive, 3))}</b> 무렵입니다(${home ? (D.renew === 'request' ? '주택임대차보호법 제6조의3 제4항' : '주택임대차보호법 제6조의2') : '상가건물 임대차보호법 제10조 제5항'}). 배달증명을 함께 신청하면 받은 날을 증명할 수 있습니다.`);
+      if (!home) add('info', '상가 임차인이 <b>계약갱신 요구권</b>을 써서 갱신한 계약은 이 조항(언제든 해지)이 적용되지 않습니다. 그런 경우라면 계약서의 해지 조항을 확인하거나 전문가와 상담하세요.');
+    } else {
+      if (!parseD(D.end)) add('warn', '<b>계약 만료일</b>을 넣어 주세요.');
+      if (!D.moved) add('warn', `아직 살고 있다면 이사하기 전에 <b>임차권등기명령</b>을 신청해 등기가 된 것을 확인하세요. 먼저 이사하면 대항력·우선변제권을 잃을 수 있습니다(${regLaw} 제5항).`);
+      else add('info', '이미 이사했다면 <b>임차권등기가 되어 있는지</b> 확인하세요. 등기 전에 이사했다면 대항력·우선변제권이 없어져 경매 등에서 순위가 밀릴 수 있습니다.');
+      add('info', `임차권등기명령에 든 비용과 보증금 반환이 늦어진 기간의 지연손해금은 임대인에게 청구할 수 있습니다(${regLaw} 제8항).`);
+    }
+    if (!home && D.deposit > 0) {
+      const conv = D.deposit + (D.rent > 0 ? D.rent * 100 : 0);
+      if (conv > 370000000) add('info', `환산보증금(보증금 + 월세×100)이 <b>${esc(shortWon(conv))}</b>입니다. 지역 기준(서울 9억원, 과밀억제권역·부산 6억 9천만원, 광역시 등 5억 4천만원, 그 밖 3억 7천만원)을 넘으면 상가건물 임대차보호법의 <b>묵시적 갱신·임차권등기명령</b> 규정이 적용되지 않고 민법을 따릅니다(같은 법 제2조, 시행령 제2조).`);
+    }
+    if (s.recips.length === 1) add('info', '집주인이 여러 명(공동명의)이면 <b>받는 사람에 모두</b> 넣어 보내세요.');
+  } else if (s.tpl === 'payment') {
+    const Y = s.payment;
+    if (!(Y.total > 0)) add('bad', '<b>대금 총액</b>을 넣어 주세요.');
+    else if (Y.paid >= Y.total) add('bad', '이미 받은 돈이 대금 총액과 같거나 많습니다. 금액을 확인하세요.');
+    if (!trimS(Y.desc)) add('warn', '<b>무엇을 ' + ({ goods: '납품', work: '공사', service: '작업' })[Y.kind] + '했는지</b> 적어야 어떤 거래인지 분명해집니다.');
+    const base = parseD(Y.dueDate) ? Y.dueDate : Y.doneDate;
+    if (Y.kind === 'goods') limitation(add, base, 3, '물품대금의', '민법 제163조 제6호 — 상인이 판매한 상품의 대가', true);
+    else if (Y.kind === 'work') limitation(add, base, 3, '공사대금의', '민법 제163조 제3호', true);
+    else add('info', '용역대금의 소멸시효는 계약 내용에 따라 3년·5년(상행위)·10년으로 달라질 수 있습니다. 오래된 대금이라면 내용증명을 보낸 뒤 6개월 안에 지급명령 등을 검토하세요.');
+    add('info', '기한까지 주지 않으면 법원에 <b>지급명령</b>을 신청할 수 있습니다. 계약서·세금계산서·문자 같은 자료를 모아 두세요.');
+  } else if (s.tpl === 'refund') {
+    const R = s.refund;
+    if (!(R.paid > 0)) add('warn', '<b>결제 금액</b>을 넣어 주세요.');
+    if (!trimS(R.service)) add('warn', '<b>상품·서비스 이름</b>을 적어 주세요.');
+    if (s.recips.some(r => r.kind !== 'company')) add('info', '받는 사람이 업체라면 받는 사람 칸에서 <b>회사</b>를 고르고 상호와 대표자를 적으세요. 결제 영수증·사업자 정보에 적힌 주소가 확실합니다.');
+    if (R.basis === 'ongoing') {
+      add('info', '1개월 이상 계속 공급받는 계약(계속거래)은 <b>계약 기간 중 언제든</b> 해지할 수 있고, 업체는 해지로 생긴 손실을 크게 넘는 위약금을 받을 수 없습니다(방문판매법 제31조·제32조). 학원 교습비는 학원법의 반환 기준이 따로 있습니다.');
+    } else {
+      const online = R.basis === 'online', days = online ? 7 : 14, law = online ? '전자상거래법 제17조' : '방문판매법 제8조';
+      const base = parseD(R.startDate) ? R.startDate : R.contractDate;
+      if (parseD(base) && parseD(s.writeDate)) {
+        const last = addDays(base, days);
+        if (dayNo(s.writeDate) > dayNo(last)) add('warn', `${online ? '받은 날' : '계약서를 받은 날'}부터 <b>${days}일</b>이 지났습니다(${kDate(last)}까지). 단순 변심 철회는 어렵고, 상품이 <b>광고·계약 내용과 다르면</b> 받은 날부터 3개월, 그 사실을 안 날부터 30일 안에 철회할 수 있습니다(${law} 제3항). 이유를 구체적으로 적으세요.`);
+        else add('ok', `청약철회 기한은 <b>${kDate(last)}</b>까지입니다. 서면으로 철회하면 <b>보낸 날</b> 효력이 생기므로(${law} 제4항) 그날까지 우체국에 접수하면 됩니다.`);
+      } else add('warn', `<b>${online ? '물건 받은 날' : '계약서를 받은 날'}</b>을 넣으면 ${days}일 기한을 계산합니다.`);
+      add('info', online ? '단순 변심으로 철회하면 <b>돌려보내는 배송비는 소비자</b>가 내지만, 판매자는 위약금이나 손해배상을 청구할 수 없습니다(전자상거래법 제18조 제9항).' : '방문판매·전화권유판매의 청약철회는 <b>돌려보내는 비용을 판매자</b>가 부담합니다(방문판매법 제9조 제9항).');
+    }
+    add('info', '업체가 응하지 않으면 <b>1372 소비자상담센터</b>에 상담하거나 한국소비자원에 피해구제를 신청할 수 있습니다.');
+  } else if (s.tpl === 'rent') {
+    const T = s.rent, home = T.kind !== 'shop', k = home ? 2 : 3;
+    if (!(T.rent > 0)) add('bad', '<b>월세</b>를 넣어 주세요.');
+    if (!(T.unpaid > 0)) add('bad', '<b>밀린 월세 합계</b>를 넣어 주세요.');
+    const n = T.rent > 0 && T.unpaid > 0 ? T.unpaid / T.rent : 0;
+    const law = home ? '민법 제640조' : '상가건물 임대차보호법 제10조의8';
+    if (T.mode === 'terminate' && n > 0) {
+      if (n < k) add('bad', `해지하려면 밀린 월세가 <b>${k}기(월세 ${k}개월분, ${won(T.rent * k)}원) 이상</b>이어야 합니다(${law}). 지금은 ${fmtN(n)}개월분이라 해지가 인정되지 않을 수 있으니 <b>「밀린 월세를 내라고 요구」</b>로 보내세요.`);
+      else add('ok', `밀린 월세가 ${fmtN(n)}개월분으로 해지 기준(${k}기) 이상입니다. 다만 통지가 <b>도착하기 전에</b> 일부를 내서 기준 아래로 줄면 해지할 수 없으니 배달증명을 함께 신청하세요.`);
+    }
+    if (T.mode === 'demand' && n >= k) add('info', `밀린 월세가 이미 해지 기준(${k}기) 이상입니다. 바로 해지하려면 「계약을 해지하고 집을 비워 달라고 통보」를 고르세요.`);
+    if (T.mode === 'demand' && n > 0 && n < k) add('info', `밀린 월세가 아직 해지 기준(${k}기)에 못 미칩니다. 그래서 문서에는 「밀린 월세가 ${k}기에 이르면 해지한다」고 적었습니다 — 기준에 이르기 전에는 해지할 수 없습니다(${law}).`);
+    if (home && n >= 2) add('info', '월세를 2기 이상 밀린 임차인은 계약갱신요구권을 쓸 수 없고, 계약이 자동으로 연장되지도 않습니다(주택임대차보호법 제6조 제3항·제6조의3 제1항 제1호).');
+    if (!home && n >= 3) add('info', '월세를 3기 이상 밀린 사실이 있는 상가 임차인의 계약갱신 요구는 거절할 수 있습니다(상가건물 임대차보호법 제10조 제1항 제1호).');
+    add('info', '임차인이 나가지 않을 때 강제로 내보내려면 <b>명도소송</b>으로 판결을 받아야 합니다. 임대인이 직접 짐을 빼거나 문을 잠그면 오히려 처벌받을 수 있습니다.');
+  } else if (s.tpl === 'damage') {
+    const G = s.damage, total = dmgItems(G).reduce((a, it) => a + it.amt, 0);
+    if (!(total > 0)) add('bad', '<b>손해 금액</b>을 넣어 주세요.');
+    if (!trimS(G.what)) add('warn', '<b>무슨 일이 있었는지</b> 적어 주세요.');
+    if (!parseD(G.date)) add('warn', '<b>일이 있었던 날</b>을 넣어 주세요.');
+    if (G.basis === 'tort') limitation(add, G.date, 3, '손해배상 청구권의', '민법 제766조 제1항 — 손해와 가해자를 안 날부터 3년', true);
+    add('info', '손해 금액은 <b>사진·견적서·영수증</b>으로 증명해야 인정받기 쉽습니다. 수리하기 전 사진을 꼭 남기세요.');
+  }
+
+  // 공통 안내
+  if (s.recips.length > 1) add('info', `받는 사람이 <b>${s.recips.length}명</b>입니다. 사람마다 원본 1부씩과, 받는 사람 모두의 이름·주소가 적힌 등본 2부를 냅니다(동문 내용증명 · 모두 ${s.recips.length + 2}부).`);
+  if (ctx.pages > 1) add('info', `문서가 <b>${ctx.pages}쪽</b>입니다. 1장이 늘 때마다 수수료 650원이 붙습니다. 3부 모두 장 순서를 맞춰 준비하세요.`);
+  if (trimS(s.attach)) add('info', '첨부 서류도 내용증명 매수에 들어갑니다. 3부 모두 똑같이 넣고, 원본 대신 <b>사본</b>을 첨부하세요.');
+  add('ok', '여백을 인터넷우체국 기준(위 20·아래 40·좌우 15mm 이상)보다 넓게 잡고 쪽 번호를 넣지 않았습니다. PDF를 그대로 올리거나 인쇄해 창구에 낼 수 있습니다.');
+  const order = { bad: 0, warn: 1, ok: 2, info: 3 };
+  return out.map((x, i) => Object.assign(x, { i })).sort((a, b) => order[a.lv] - order[b.lv] || a.i - b.i);
+}
+/* ════════════════════════════════════════════════════════════
+   쪽 나누기 — 단위는 pt, 원점은 왼쪽 위, 글자 y 는 기준선
+   ops: t(글자) · l(선) · r(사각형) · i(서명 그림)
+   ════════════════════════════════════════════════════════════ */
+/* 여백은 인터넷우체국 업로드 기준(A4 세로, 최소 위 20·아래 40·왼쪽 15·오른쪽 15mm)보다 조금씩 넓게 잡는다.
+   아래 40mm 는 우체국이 발송 연월일·증명 문구를 찍는 자리다. 쪽 번호·꼬리말을 넣으면 업로드가 거절되므로 넣지 않는다 */
+const MM = 72 / 25.4;
+const PG = { W: 595.28, H: 841.89, L: 20 * MM, R: 20 * MM, T: 22 * MM, B: 42 * MM };
+const CW = PG.W - PG.L - PG.R;
+/* 글자 크기·줄 간격·여백 배율 — 크기를 줄여 쪽 수가 줄어들 때만 줄인다(내용증명 수수료는 쪽마다 붙는다) */
+const FITS = [{ bz: 11, lh: 1.75, g: 1 }, { bz: 10.5, lh: 1.66, g: 0.78 }, { bz: 10, lh: 1.58, g: 0.58 }];
+
+class Lay {
+  constructor(face, fit) { this.face = face; this.fit = fit || FITS[0]; this.pages = []; this.add(); }
+  add() { this.pg = { ops: [] }; this.pages.push(this.pg); this.y = PG.T; }
+  need(h) { if (this.y + h > PG.H - PG.B && this.y > PG.T + 0.5) this.add(); }
+  key(b) { return fkey(this.face, b); }
+  w(s, z, b) { const k = this.key(b); let t = 0; for (const ch of s) t += adv(k, ch); return t * z; }
+  txt(x, y, s, z, b, c, sp) { if (s) this.pg.ops.push(sp == null ? { o: 't', x, y, s, z, b: !!b, c: c || 0 } : { o: 't', x, y, s, z, b: !!b, c: c || 0, sp }); }
+  line(x1, y1, x2, y2, w, c) { this.pg.ops.push({ o: 'l', x1, y1, x2, y2, w: w || 0.6, c: c || 0 }); }
+  rect(x, y, w, h, fill, stroke, lw) { this.pg.ops.push({ o: 'r', x, y, w, h, f: fill == null ? null : fill, s: stroke == null ? null : stroke, lw: lw || 0.6 }); }
+  img(x, y, w, h, ref) { this.pg.ops.push({ o: 'i', x, y, w, h, ref }); }
+}
+
+/* 줄 나누기 — 띄어쓰기에서 나누고(한국어 문서 관례), 가운뎃점(·) 뒤에서도 띄어쓰기 없이 나눌 수 있다(glue).
+   한 낱말이 한 줄보다 길 때만 글자 단위로 자른다 */
+function wrap(L, runs, z, maxW, ind1, ind2) {
+  const words = [];
+  let cur = null, glue = false;
+  const flush = () => { if (cur) { words.push(cur); cur = null; } };
+  for (const r of runs) {
+    if (r.blank) { if (!cur) { cur = { segs: [], w: 0, glue }; glue = false; } const w = r.blank * z; cur.segs.push({ blank: r.blank, w }); cur.w += w; continue; }
+    for (const p of String(r.s).split(/( +)/)) {
+      if (!p) continue;
+      if (p[0] === ' ') { flush(); glue = false; continue; }
+      const pieces = [];
+      let acc = '';
+      for (const c of p) { acc += c; if (c === '·') { pieces.push(acc); acc = ''; } }
+      if (acc) pieces.push(acc);
+      pieces.forEach((pc, k) => {
+        if (k > 0) { flush(); glue = true; }
+        if (!cur) { cur = { segs: [], w: 0, glue }; glue = false; }
+        const w = L.w(pc, z, r.b);
+        const last = cur.segs[cur.segs.length - 1];
+        if (last && !last.blank && last.b === !!r.b) { last.s += pc; last.w += w; } else cur.segs.push({ s: pc, b: !!r.b, w });
+        cur.w += w;
+      });
+      if (p[p.length - 1] === '·') { flush(); glue = true; }    // "압류·" 뒤 조각이 다음 run 에서 이어질 때도 나눌 수 있게
+    }
+  }
+  flush();
+  const sp = L.w(' ', z, false);
+  const lines = [];
+  let line = { words: [], w: 0, ind: ind1 };
+  const push = () => { lines.push(line); line = { words: [], w: 0, ind: ind2 }; };
+  for (let wd of words) {
+    for (let guard = 0; wd && guard < 500; guard++) {
+      const cap = maxW - line.ind;
+      const add = (line.words.length && !wd.glue ? sp : 0) + wd.w;
+      if (line.w + add <= cap + 0.01) { line.words.push(wd); line.w += add; wd = null; break; }
+      if (line.words.length) { push(); continue; }
+      const parts = splitWord(L, wd, z, cap);
+      line.words.push(parts[0]); line.w += parts[0].w; push();
+      wd = parts[1];
+    }
+  }
+  if (line.words.length) lines.push(line);
+  if (lines.length) lines[lines.length - 1].last = true;
+  return lines;
+}
+function splitWord(L, wd, z, cap) {
+  const ch = [];
+  for (const sg of wd.segs) {
+    if (sg.blank) ch.push({ blank: sg.blank, w: sg.w });
+    else for (const c of sg.s) ch.push({ c, b: sg.b, w: adv(L.key(sg.b), c) * z });
+  }
+  let acc = 0, k = 0;
+  while (k < ch.length && acc + ch[k].w <= cap + 0.01) { acc += ch[k].w; k++; }
+  if (k === 0) k = 1;
+  while (k > 1 && k < ch.length && ch[k].c && /[.,)\]}」』%·:;!?원]/.test(ch[k].c)) k--;   // 줄머리에 오면 어색한 글자
+  const mk = arr => {
+    const segs = []; let w = 0;
+    for (const x of arr) {
+      const last = segs[segs.length - 1];
+      if (x.blank) segs.push({ blank: x.blank, w: x.w });
+      else if (last && !last.blank && last.b === x.b) { last.s += x.c; last.w += x.w; }
+      else segs.push({ s: x.c, b: x.b, w: x.w });
+      w += x.w;
+    }
+    return { segs, w };
+  };
+  const head = mk(ch.slice(0, k));
+  head.glue = wd.glue;
+  return [head, k < ch.length ? mk(ch.slice(k)) : null];
+}
+/* 줄들을 그린다 — 마지막 줄이 아니면 띄어쓰기를 늘려 양쪽 맞춤(너무 벌어지면 왼쪽 맞춤) */
+function drawLines(L, lines, x0, maxW, z, lh, justify, color) {
+  const sp = L.w(' ', z, false);
+  for (const ln of lines) {
+    L.need(lh);
+    const base = L.y + (lh - z) / 2 + z * 0.86;
+    let gap = sp;
+    const n = ln.words.filter((w, i) => i > 0 && !w.glue).length;     // 실제 띄어쓰기 수
+    if (justify && !ln.last && n > 0) {
+      const g = (maxW - ln.ind - ln.w) / n;
+      if (g > 0 && g < z * 0.5) gap = sp + g;
+    }
+    let x = x0 + ln.ind;
+    // 낱말 사이 띄어쓰기도 글자로 넣는다(sp = 그 띄어쓰기의 실제 폭) — PDF 에서 복사할 때 띄어쓰기가 살아 있게
+    ln.words.forEach((wd, wi) => {
+      const next = ln.words[wi + 1];
+      const more = !!next && !next.glue;
+      wd.segs.forEach((sg, si) => {
+        const tail = more && si === wd.segs.length - 1;
+        if (sg.blank) {
+          L.line(x + 1, base + z * 0.2, x + sg.w - 1, base + z * 0.2, 0.5);
+          if (tail) L.txt(x + sg.w, base, ' ', z, false, color, gap);
+        } else L.txt(x, base, tail ? sg.s + ' ' : sg.s, z, sg.b, color, tail ? gap : null);
+        x += sg.w;
+      });
+      if (more) x += gap;
+    });
+    L.y += lh;
+  }
+}
+const spaced = n => { n = String(n || '').trim(); return /^[가-힣]{2,4}$/.test(n) ? n.split('').join(' ') : n; };
+/* 서명 그림 — 가운데 (cx, cy) 에 가로 92pt · 세로 42pt 상자 안으로 맞춘다 */
+function signImage(L, key, cx, cy) {
+  const sg = S.sign[key];
+  if (!sg || !sg.w || !sg.h) return;
+  const bw = 92, bh = 42;
+  const k = Math.min(bw / sg.w, bh / sg.h);
+  const w = sg.w * k, h = sg.h * k;
+  L.img(cx - w / 2, cy - h / 2, w, h, key);
+}
+/* ════════════════════════════════════════════════════════════
+   문서 블록 — 제목 · 발신/수신 표 · 본문 · 첨부 · 날짜와 서명
+   본문은 평문을 줄머리 규칙으로 나눈다: "1. " 번호 문단 · "- " 또는 "가. " 들여쓴 항목 · 빈 줄 · 그 밖은 일반 문단
+   ════════════════════════════════════════════════════════════ */
+const T = (s, b) => ({ s: String(s), b: !!b });
+const NB = '\u00A0';                              // 번호와 글자 사이 — 양쪽 맞춤 때 늘어나지 않는 띄어쓰기
+function parseBody(text) {
+  const out = [];
+  for (const raw of String(text || '').replace(/\r\n?/g, '\n').split('\n')) {
+    const line = raw.replace(/[\s\u3000]+$/, '');
+    if (!line.trim()) { if (out.length && out[out.length - 1].t !== 'gap') out.push({ t: 'gap' }); continue; }
+    let m;
+    if ((m = /^\s{0,3}(\d{1,2})\.\s+(\S.*)$/.exec(line))) out.push({ t: 'num', mk: m[1] + '.', s: m[2] });
+    else if ((m = /^\s*[-–·•]\s+(\S.*)$/.exec(line))) out.push({ t: 'sub', mk: '-', s: m[1] });
+    else if ((m = /^\s*([가나다라마바사아자차카타파하])\.\s+(\S.*)$/.exec(line))) out.push({ t: 'sub', mk: m[1] + '.', s: m[2] });
+    else out.push({ t: /^[\s\u3000]{2,}/.test(line) ? 'cont' : 'para', s: line.trim() });
+  }
+  while (out.length && out[out.length - 1].t === 'gap') out.pop();
+  return out;
+}
+function recipName(p) {
+  const nm = trimS(p.name);
+  return p.kind === 'company' && trimS(p.rep) ? `${nm || BLANK} (대표 ${trimS(p.rep)})` : nm;
+}
+function buildDoc(s) {
+  const t = curText(s);
+  const blocks = [];
+  blocks.push({ k: 'title', text: '내 용 증 명' });
+  const people = s.senders.map(p => ({ role: '발 신 인', lab: '성명', name: trimS(p.name), phone: s.contact ? trimS(p.phone) : '', addr: trimS(p.addr) }))
+    .concat(s.recips.map(p => ({ role: '수 신 인', lab: p.kind === 'company' ? '상호' : '성명', name: recipName(p), phone: '', addr: trimS(p.addr) })));
+  blocks.push({ k: 'parties', people, subject: t.subject });
+  blocks.push({ k: 'body', items: parseBody(t.body) });
+  const att = String(s.attach || '').split(/\r?\n/).map(x => x.trim()).filter(Boolean).slice(0, 10);
+  if (att.length) blocks.push({ k: 'attach', items: att });
+  blocks.push({ k: 'end', date: s.writeDate, senders: s.senders });
+  return { blocks, title: '내용증명', subject: t.subject, body: t.body, text: t, people, att };
+}
+
+/* ── 쪽 배치 ── */
+const LAYOUT = {
+  title(L, b) {
+    const G = L.fit.g, z = 24;
+    const w = L.w(b.text, z, true);
+    L.txt((PG.W - w) / 2, L.y + z, b.text, z, true);
+    L.y += z + 20 * G;
+  },
+  parties(L, b) {
+    const G = L.fit.g, z = 10.5, lh = z * 1.45, pad = 7;
+    const cRole = 62, cLab = 48, cLab2 = 48, cVal2 = 116;
+    const x0 = PG.L, xL = x0 + cRole, xV = xL + cLab;
+    const valW = CW - cRole - cLab, cVal1 = valW - cLab2 - cVal2;
+    const cell = (s, w, bold) => wrap(L, [T(s || '', bold)], z, w - pad * 2, 0, 0);
+    const val = (lines, x, w, y, h) => {
+      const sy = L.y;
+      L.y = y + (h - lines.length * lh) / 2;
+      drawLines(L, lines, x + pad, w - pad * 2, z, lh, false);
+      L.y = sy;
+    };
+    const lab = (x, w, y, h, s) => { const tw = L.w(s, 9, true); L.txt(x + (w - tw) / 2, y + h / 2 + 9 * 0.36, s, 9, true, 0.15); };
+    const role = (y, h, s) => { const rz = 10.5, rw = L.w(s, rz, true); L.txt(x0 + (cRole - rw) / 2, y + h / 2 + rz * 0.36, s, rz, true); };
+    for (const g of b.people) {
+      const hasPh = !!g.phone;
+      const nm = cell(g.name, hasPh ? cVal1 : valW), ph = hasPh ? cell(g.phone, cVal2) : [];
+      const ad = cell(g.addr, valW);
+      const hm = 21 + 3 * G;
+      const h1 = Math.max(hm, Math.max(1, nm.length, ph.length) * lh + 9), h2 = Math.max(hm, Math.max(1, ad.length) * lh + 9), H = h1 + h2;
+      L.need(H + 2);
+      const y0 = L.y;
+      L.rect(x0, y0, cRole, H, 0.93);
+      L.rect(xL, y0, cLab, H, 0.965);
+      if (hasPh) L.rect(xV + cVal1, y0, cLab2, h1, 0.965);
+      L.rect(x0, y0, CW, H, null, 0, 0.8);
+      L.line(xL, y0, xL, y0 + H, 0.6);
+      L.line(xV, y0, xV, y0 + H, 0.5);
+      L.line(xL, y0 + h1, x0 + CW, y0 + h1, 0.5);
+      if (hasPh) { L.line(xV + cVal1, y0, xV + cVal1, y0 + h1, 0.5); L.line(xV + cVal1 + cLab2, y0, xV + cVal1 + cLab2, y0 + h1, 0.5); }
+      role(y0, H, g.role);
+      lab(xL, cLab, y0, h1, g.lab);
+      lab(xL, cLab, y0 + h1, h2, '주소');
+      if (hasPh) lab(xV + cVal1, cLab2, y0, h1, '연락처');
+      val(nm, xV, hasPh ? cVal1 : valW, y0, h1);
+      if (hasPh) val(ph, xV + cVal1 + cLab2, cVal2, y0, h1);
+      val(ad, xV, valW, y0 + h1, h2);
+      L.y = y0 + H;
+    }
+    const sz = 11.5, slh = sz * 1.45;
+    const sl = wrap(L, [T(b.subject || '', true)], sz, CW - cRole - pad * 2, 0, 0);
+    const hS = Math.max(27 + 3 * G, Math.max(1, sl.length) * slh + 10);
+    L.need(hS + 2);
+    const y0 = L.y;
+    L.rect(x0, y0, cRole, hS, 0.93);
+    L.rect(x0, y0, CW, hS, null, 0, 0.8);
+    L.line(xL, y0, xL, y0 + hS, 0.6);
+    role(y0, hS, '제\u3000목');
+    L.y = y0 + (hS - sl.length * slh) / 2;
+    drawLines(L, sl, xL + pad, CW - cRole - pad * 2, sz, slh, false);
+    L.y = y0 + hS;
+  },
+  body(L, b) {
+    const BODY = L.fit.bz, LH = L.fit.lh, G = L.fit.g, lh = BODY * LH;
+    let numW = L.w('1.' + NB, BODY, false);         // 들여쓴 항목은 바로 앞 번호 문단의 글자 시작에 맞춘다
+    let lastInd = 0;
+    L.y += 16 * G;
+    b.items.forEach((it, i) => {
+      if (it.t === 'gap') { L.y += lh * 0.5; return; }
+      if (it.t === 'num') {
+        if (i > 0) L.y += 5 * G;
+        const mk = it.mk + NB, mw = L.w(mk, BODY, false);
+        const lines = wrap(L, [T(mk + it.s)], BODY, CW, 0, mw);
+        L.need(lh * Math.min(2, lines.length));
+        drawLines(L, lines, PG.L, CW, BODY, lh, true);
+        lastInd = numW = mw;
+      } else if (it.t === 'sub') {
+        const mk = it.mk + NB, i2 = numW + L.w(mk, BODY, false);
+        drawLines(L, wrap(L, [T(mk + it.s)], BODY, CW, numW, i2), PG.L, CW, BODY, lh, true);
+        lastInd = i2;
+      } else if (it.t === 'cont') {
+        drawLines(L, wrap(L, [T(it.s)], BODY, CW, lastInd, lastInd), PG.L, CW, BODY, lh, true);
+      } else {
+        if (i > 0) L.y += 3 * G;
+        drawLines(L, wrap(L, [T(it.s)], BODY, CW, 0, 0), PG.L, CW, BODY, lh, true);
+        lastInd = 0;
+      }
+    });
+  },
+  attach(L, b) {
+    const BODY = L.fit.bz, LH = L.fit.lh, G = L.fit.g, lh = BODY * LH;
+    L.y += 12 * G;
+    L.need(lh * Math.min(3, b.items.length + 1));
+    const head = '첨부', hw = L.w(head + NB + NB + NB, BODY, true);
+    L.txt(PG.L, L.y + (lh - BODY) / 2 + BODY * 0.86, head, BODY, true);
+    b.items.forEach((s, i) => {
+      const mk = b.items.length > 1 ? `${i + 1}.${NB}` : '';
+      drawLines(L, wrap(L, [T(mk + s)], BODY, CW, hw, hw + L.w(mk, BODY, false)), PG.L, CW, BODY, lh, false);
+    });
+  },
+  end(L, b) {
+    const G = L.fit.g, dz = 12, rowH = 34;
+    L.y += 24 * G;
+    L.need(dz * 1.5 + 18 * G + b.senders.length * rowH + 6);
+    const dl = wrap(L, [T(dOr(b.date))], dz, CW, 0, 0);
+    const sy = L.y;
+    drawLines(L, dl, PG.L + (CW - dl[0].w) / 2, CW, dz, dz * 1.5, false);
+    L.y = sy + dz * 1.5 + 18 * G;
+    b.senders.forEach((p, i) => {
+      const base = L.y + 22;
+      const ph = '(서명 또는 인)', pz = 9, pw = L.w(ph, pz, false);
+      const xSign = PG.L + CW - pw;
+      L.txt(xSign, base, ph, pz, false, 0.55);
+      signImage(L, 's' + i, xSign + pw / 2, base - 4);
+      const nm = trimS(p.name), nz = 13, nmT = nm ? spaced(nm) : '', nmW = nm ? L.w(nmT, nz, true) : 96;
+      const xn = xSign - 18 - nmW;
+      if (nm) L.txt(xn, base, nmT, nz, true); else L.line(xn, base + 3, xn + nmW, base + 3, 0.5);
+      const rz = 11, rl = '발신인';
+      L.txt(xn - 16 - L.w(rl, rz, true), base, rl, rz, true);
+      L.y += rowH;
+    });
+  }
+};
+
+/* 크기를 줄여 쪽 수가 줄어들 때만 줄인다 */
+function layoutDoc(doc, s) {
+  const face = s.font === 'sans' ? 'sans' : 'serif';
+  const run = fit => { const L = new Lay(face, fit); for (const b of doc.blocks) LAYOUT[b.k](L, b, s); return L; };
+  let best = run(FITS[0]);
+  for (let i = 1; i < FITS.length && best.pages.length > 1; i++) {
+    const t = run(FITS[i]);
+    if (t.pages.length < best.pages.length) best = t;
+  }
+  return { pages: best.pages, face, fit: best.fit };
+}
+
+/* ════════════════════════════════════════════════════════════
+   워드(docx) — Office Open XML. 줄 나누기는 워드·한글이 알아서 한다
+   여백은 PDF 와 같게(인터넷우체국 규격), 머리글·바닥글·쪽 번호는 넣지 않는다
+   ════════════════════════════════════════════════════════════ */
+function makeDOCX(doc, s) {
+  const serif = s.font !== 'sans';
+  const fontA = serif ? 'Batang' : 'Malgun Gothic', fontE = serif ? '바탕' : '맑은 고딕';
+  const TW = 20;                                   // pt → twip
+  const cw = Math.round(CW * TW);
+  const akey = fkey(serif ? 'serif' : 'sans', false);
+  const ptw = (str, z) => { let t = 0; for (const ch of str) t += adv(akey, ch); return t * z; };
+  const media = [];
+  const r = (text, o) => {
+    o = o || {};
+    // 워드는 속성 순서를 스키마대로 지켜야 연다 — b·color·spacing·sz·u
+    const pr = (o.b ? '<w:b/><w:bCs/>' : '') + (o.color ? `<w:color w:val="${o.color}"/>` : '') + (o.sp ? `<w:spacing w:val="${o.sp}"/>` : '') +
+      (o.sz ? `<w:sz w:val="${o.sz}"/><w:szCs w:val="${o.sz}"/>` : '') + (o.u ? '<w:u w:val="single"/>' : '');
+    return `<w:r>${pr ? `<w:rPr>${pr}</w:rPr>` : ''}<w:t xml:space="preserve">${xesc(text)}</w:t></w:r>`;
+  };
+  const TAB = '<w:r><w:tab/></w:r>';
+  const p = (inner, o) => {
+    o = o || {};
+    // 순서: keepNext · pageBreakBefore · spacing · ind · jc
+    const pr = (o.keep ? '<w:keepNext/>' : '') + (o.pb ? '<w:pageBreakBefore/>' : '') +
+      `<w:spacing w:before="${o.before || 0}" w:after="${o.after == null ? 60 : o.after}" w:line="${o.line || 336}" w:lineRule="auto"/>` +
+      (o.ind ? `<w:ind w:left="${o.ind[0]}" w:hanging="${o.ind[1]}"/>` : '') + (o.jc ? `<w:jc w:val="${o.jc}"/>` : '');
+    return `<w:p><w:pPr>${pr}</w:pPr>${inner}</w:p>`;
+  };
+  const cellX = (w, inner, o) => {
+    o = o || {};
+    const pr = `<w:tcW w:w="${w}" w:type="dxa"/>` + (o.span ? `<w:gridSpan w:val="${o.span}"/>` : '') + (o.vm ? `<w:vMerge${o.vm === 'r' ? ' w:val="restart"' : ''}/>` : '') +
+      (o.fill ? `<w:shd w:val="clear" w:color="auto" w:fill="${o.fill}"/>` : '') + `<w:vAlign w:val="center"/>`;
+    return `<w:tc><w:tcPr>${pr}</w:tcPr>${inner}</w:tc>`;
+  };
+  const cp = (text, o) => p(r(text, o), Object.assign({ after: 0, line: 264 }, o));
+  const tbl = (grid, rows) => {
+    const bd = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map(k => `<w:${k} w:val="single" w:sz="${k.startsWith('inside') ? 4 : 8}" w:space="0" w:color="000000"/>`).join('');
+    return `<w:tbl><w:tblPr><w:tblW w:w="${grid.reduce((a, b) => a + b, 0)}" w:type="dxa"/><w:tblBorders>${bd}</w:tblBorders><w:tblLayout w:type="fixed"/>` +
+      `<w:tblCellMar><w:top w:w="50" w:type="dxa"/><w:left w:w="110" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/><w:right w:w="110" w:type="dxa"/></w:tblCellMar></w:tblPr>` +
+      `<w:tblGrid>${grid.map(g => `<w:gridCol w:w="${g}"/>`).join('')}</w:tblGrid>${rows.join('')}</w:tbl>`;
+  };
+  const tr = cells => `<w:tr><w:trPr><w:cantSplit/></w:trPr>${cells.join('')}</w:tr>`;
+  const signRun = key => {
+    const sg = s.sign[key], im = SIGN_IMG.get(key);
+    if (!sg || !im || !sg.url) return '';
+    const k = Math.min(92 / sg.w, 42 / sg.h), wE = Math.round(sg.w * k * 12700), hE = Math.round(sg.h * k * 12700);
+    let m = media.find(x => x.key === key);
+    if (!m) { m = { key, rid: 'rIdImg' + (media.length + 1), name: `sign_${key}.png`, data: dataUrlBytes(sg.url) }; media.push(m); }
+    const id = media.indexOf(m) + 1;
+    return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${wE}" cy="${hE}"/><wp:docPr id="${id}" name="서명 ${id}"/>` +
+      `<wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">` +
+      `<pic:pic><pic:nvPicPr><pic:cNvPr id="${id}" name="${m.name}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${m.rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>` +
+      `<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${wE}" cy="${hE}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
+  };
+
+  const body = [];
+  body.push(p(r('내 용 증 명', { b: true, sz: 48, sp: 60 }), { jc: 'center', after: 360 }));
+  // 발신인·수신인 표 — 칸: 구분 · 이름표 · 값 · 연락처표 · 연락처
+  const g = [62, 48, 0, 48, 116].map(x => Math.round(x * TW));
+  g[2] = cw - g[0] - g[1] - g[3] - g[4];
+  const rows = [];
+  const roleP = t => p(r(t, { b: true, sz: 21 }), { jc: 'center', after: 0, line: 240 });
+  const labC = (w, t) => cellX(w, cp(t, { b: true, sz: 18, jc: 'center' }), { fill: 'F6F6F6' });
+  for (const x of doc.people) {
+    const row1 = [cellX(g[0], roleP(x.role), { vm: 'r', fill: 'EDEDED' }), labC(g[1], x.lab)];
+    if (x.phone) row1.push(cellX(g[2], cp(x.name, { sz: 21 })), labC(g[3], '연락처'), cellX(g[4], cp(x.phone, { sz: 21 })));
+    else row1.push(cellX(g[2] + g[3] + g[4], cp(x.name, { sz: 21 }), { span: 3 }));
+    rows.push(tr(row1));
+    rows.push(tr([cellX(g[0], cp(''), { vm: 'c', fill: 'EDEDED' }), labC(g[1], '주소'), cellX(g[2] + g[3] + g[4], cp(x.addr, { sz: 21 }), { span: 3 })]));
+  }
+  rows.push(tr([cellX(g[0], roleP('제\u3000목'), { fill: 'EDEDED' }), cellX(g[1] + g[2] + g[3] + g[4], cp(doc.subject, { b: true, sz: 23 }), { span: 4 })]));
+  body.push(tbl(g, rows));
+  body.push(p('', { after: 160 }));
+
+  // 본문 — 번호·항목은 내어쓰기 + 탭(내어쓰기 자리에 저절로 탭 멈춤이 생긴다)
+  const hangOf = mk => Math.round(Math.max(ptw(mk + NB, 11), 11 * 1.2) * TW) + 30;
+  let numW = hangOf('1.');
+  let lastInd = 0;
+  for (const it of parseBody(doc.body)) {
+    if (it.t === 'gap') { body.push(p('', { after: 0, line: 200 })); continue; }
+    if (it.t === 'num') {
+      const h = hangOf(it.mk);
+      body.push(p(r(it.mk) + TAB + r(it.s), { jc: 'both', before: 80, after: 40, ind: [h, h] }));
+      lastInd = numW = h;
+    } else if (it.t === 'sub') {
+      const h = hangOf(it.mk);
+      body.push(p(r(it.mk) + TAB + r(it.s), { jc: 'both', after: 40, ind: [numW + h, h] }));
+      lastInd = numW + h;
+    } else if (it.t === 'cont') body.push(p(r(it.s), { jc: 'both', after: 40, ind: [lastInd, 0] }));
+    else { body.push(p(r(it.s), { jc: 'both', before: 60, after: 40 })); lastInd = 0; }
+  }
+  if (doc.att.length) {
+    body.push(p(r('첨부', { b: true }), { before: 240, after: 20, keep: true }));
+    doc.att.forEach((x, i) => body.push(p(r(doc.att.length > 1 ? `${i + 1}. ${x}` : x), { after: 20, ind: [560, 0] })));
+  }
+  body.push(p(r(dOr(s.writeDate), { sz: 24 }), { jc: 'center', before: 520, after: 360, keep: true }));
+  s.senders.forEach((pp, i) => {
+    const nm = trimS(pp.name);
+    body.push(p(r('발신인', { b: true, sz: 22 }) + r('    ') + r(nm ? spaced(nm) : '\u3000\u3000\u3000\u3000\u3000\u3000', { b: true, sz: 26, u: !nm }) + r('    ') +
+      (signRun('s' + i) || r('(서명 또는 인)', { sz: 18, color: '777777' })), { jc: 'right', after: 160, keep: i < s.senders.length - 1 }));
+  });
+
+  const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ' +
+    'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" ' +
+    'xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"';
+  const mg = v => Math.round(v * TW);
+  const document = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:document ${NS}><w:body>${body.join('')}` +
+    `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="${mg(PG.T)}" w:right="${mg(PG.R)}" w:bottom="${mg(PG.B)}" w:left="${mg(PG.L)}" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">` +
+    `<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="${fontA}" w:hAnsi="${fontA}" w:eastAsia="${fontE}" w:cs="${fontA}"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:lang w:val="en-US" w:eastAsia="ko-KR"/></w:rPr></w:rPrDefault>` +
+    `<w:pPrDefault><w:pPr><w:wordWrap w:val="0"/><w:spacing w:after="60" w:line="336" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>` +
+    `<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>` +
+    `<w:style w:type="table" w:default="1" w:styleId="TableNormal"><w:name w:val="Normal Table"/><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style></w:styles>`;
+  const rels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">` +
+    `<Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>` +
+    media.map(m => `<Relationship Id="${m.rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/${m.name}"/>`).join('') + `</Relationships>`;
+  const ct = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">` +
+    `<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/>` +
+    `<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>` +
+    `<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>` +
+    `<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>` +
+    `<Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>`;
+  const root = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">` +
+    `<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>` +
+    `<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>` +
+    `<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>`;
+  const now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const core = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">` +
+    `<dc:title>${xesc(doc.subject ? '내용증명 - ' + doc.subject : '내용증명')}</dc:title><dc:creator>내용증명 작성기</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${now}</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">${now}</dcterms:modified></cp:coreProperties>`;
+  const app = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>certified_letter</Application></Properties>`;
+  const files = [
+    { name: '[Content_Types].xml', data: te.encode(ct) },
+    { name: '_rels/.rels', data: te.encode(root) },
+    { name: 'docProps/core.xml', data: te.encode(core) },
+    { name: 'docProps/app.xml', data: te.encode(app) },
+    { name: 'word/document.xml', data: te.encode(document) },
+    { name: 'word/styles.xml', data: te.encode(styles) },
+    { name: 'word/_rels/document.xml.rels', data: te.encode(rels) }
+  ];
+  for (const m of media) files.push({ name: 'word/media/' + m.name, data: m.data });
+  return new Blob([zipStore(files)], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+}
+/* ════════════════════════════════════════════════════════════
+   그리기 — 캔버스 (미리보기 · 이미지 · 인쇄)
+   ════════════════════════════════════════════════════════════ */
+const SIGN_IMG = new Map();
+/* 윤곽선(PDF 와 같은 글리프)을 Path2D 로 — 저장·인쇄용 그림은 이것으로 그린다.
+   바탕체는 작은 크기에서 글꼴 속 비트맵 글자를 꺼내 써서(24px 안팎) fillText 결과가 PDF 와 달라진다 */
+const _p2d = new Map();
+function glyphPath(key, ch) {
+  const k = key + '|' + ch;
+  let p = _p2d.get(k);
+  if (p === undefined) {
+    const g = traceGlyph(key, ch);
+    p = null;
+    if (g.path) {
+      p = new Path2D();
+      for (const ln of g.path.split(/\n/)) {
+        const a = ln.split(' ');
+        if (a.length === 3) { if (a[2] === 'm') p.moveTo(+a[0], -a[1]); else p.lineTo(+a[0], -a[1]); }
+        else if (ln === 'h') p.closePath();
+      }
+    }
+    _p2d.set(k, p);
+  }
+  return p;
+}
+const grayCss = v => { const k = Math.round(255 * (v || 0)); return `rgb(${k},${k},${k})`; };
+function paintPage(ctx, page, sc, face, vector) {
+  ctx.save();
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, PG.W * sc, PG.H * sc);
+  ctx.textBaseline = 'alphabetic';
+  ctx.lineCap = 'butt';
+  let font = '';
+  for (const op of page.ops) {
+    if (op.o === 't') {
+      const key = fkey(face, op.b), f = fcss(key, op.z * sc);
+      if (f !== font) { ctx.font = f; font = f; }
+      ctx.fillStyle = grayCss(op.c);
+      let x = op.x;
+      const gs = op.z * sc / 1000;
+      for (const ch of op.s) {
+        if (!/\s/.test(ch)) {
+          if (!vector) ctx.fillText(ch, x * sc, op.y * sc);
+          else { const p = glyphPath(key, ch); if (p) { ctx.save(); ctx.translate(x * sc, op.y * sc); ctx.scale(gs, gs); ctx.fill(p); ctx.restore(); } }
+        }
+        x += ch === ' ' && op.sp != null ? op.sp : adv(key, ch) * op.z;
+      }
+    } else if (op.o === 'l') {
+      ctx.strokeStyle = grayCss(op.c); ctx.lineWidth = Math.max(0.75, op.w * sc);
+      ctx.beginPath(); ctx.moveTo(op.x1 * sc, op.y1 * sc); ctx.lineTo(op.x2 * sc, op.y2 * sc); ctx.stroke();
+    } else if (op.o === 'r') {
+      if (op.f != null) { ctx.fillStyle = grayCss(op.f); ctx.fillRect(op.x * sc, op.y * sc, op.w * sc, op.h * sc); }
+      if (op.s != null) { ctx.strokeStyle = grayCss(op.s); ctx.lineWidth = Math.max(0.75, op.lw * sc); ctx.strokeRect(op.x * sc, op.y * sc, op.w * sc, op.h * sc); }
+    } else if (op.o === 'i') {
+      const im = SIGN_IMG.get(op.ref);
+      if (im && im.complete && im.naturalWidth) ctx.drawImage(im, op.x * sc, op.y * sc, op.w * sc, op.h * sc);
+    }
+  }
+  ctx.restore();
+}
+function pageCanvas(page, face, sc, vector) {
+  const cv = document.createElement('canvas');
+  cv.width = Math.round(PG.W * sc); cv.height = Math.round(PG.H * sc);
+  paintPage(cv.getContext('2d'), page, sc, face, vector);
+  return cv;
+}
+const canvasBlob = (cv, type, q) => new Promise((res, rej) => cv.toBlob(b => b ? res(b) : rej(new Error('toBlob')), type || 'image/png', q));
+
+/* 여러 쪽을 세로로 이은 한 장 — 카톡으로 보내기 좋게. iOS 캔버스 면적 한계(약 1,670만 화소) 아래로 */
+async function makeImage(lay) {
+  const pages = lay.pages;
+  const gapPt = 14;
+  let sc = 1654 / PG.W;                         // 200dpi
+  const area = s => Math.round(PG.W * s) * Math.round((PG.H * pages.length + gapPt * (pages.length - 1)) * s);
+  while (area(sc) > 14e6) sc *= 0.92;
+  const w = Math.round(PG.W * sc), ph = Math.round(PG.H * sc), gap = Math.round(gapPt * sc);
+  const cv = document.createElement('canvas');
+  cv.width = w; cv.height = ph * pages.length + gap * (pages.length - 1);
+  const ctx = cv.getContext('2d');
+  ctx.fillStyle = '#cfc8be'; ctx.fillRect(0, 0, cv.width, cv.height);
+  for (let i = 0; i < pages.length; i++) {
+    ctx.save(); ctx.translate(0, i * (ph + gap));
+    ctx.beginPath(); ctx.rect(0, 0, w, ph); ctx.clip();
+    paintPage(ctx, pages[i], sc, lay.face, true);
+    ctx.restore();
+    await yieldUI();
+  }
+  return canvasBlob(cv, 'image/png');
+}
+
+/* ════════════════════════════════════════════════════════════
+   PDF — 직접 쓴다 (글자는 Type3 윤곽선, 서명은 SMask 달린 이미지)
+   ════════════════════════════════════════════════════════════ */
+const te = new TextEncoder();
+const latin1 = s => { const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i) & 255; return u; };
+const pf = n => { const v = Math.round(n * 1000) / 1000; return Object.is(v, -0) ? '0' : String(v); };
+async function deflate(u8) {
+  if (typeof CompressionStream === 'undefined') return null;
+  try {
+    const st = new Blob([u8]).stream().pipeThrough(new CompressionStream('deflate'));
+    return new Uint8Array(await new Response(st).arrayBuffer());
+  } catch (e) { return null; }
+}
+async function pdfStream(dict, u8) {
+  const z = u8.length > 60 ? await deflate(u8) : null;
+  return z && z.length < u8.length ? { dict: dict + ' /Filter /FlateDecode', data: z } : { dict, data: u8 };
+}
+const utf16hex = s => { let h = 'FEFF'; for (let i = 0; i < s.length; i++) h += s.charCodeAt(i).toString(16).toUpperCase().padStart(4, '0'); return h; };
+class PdfW {
+  constructor() { this.objs = [null]; }
+  alloc() { this.objs.push(null); return this.objs.length - 1; }
+  set(n, body) { this.objs[n] = body; }
+  blob(root, info) {
+    const parts = [], offs = [];
+    let off = 0;
+    const push = u => { parts.push(u); off += u.length; };
+    push(latin1('%PDF-1.7\n%' + String.fromCharCode(226, 227, 207, 211) + '\n'));
+    for (let i = 1; i < this.objs.length; i++) {
+      offs[i] = off;
+      const o = this.objs[i];
+      if (o && o.data) {
+        push(latin1(`${i} 0 obj\n<< ${o.dict} /Length ${o.data.length} >>\nstream\n`)); push(o.data); push(latin1('\nendstream\nendobj\n'));
+      } else push(latin1(`${i} 0 obj\n${o == null ? 'null' : o}\nendobj\n`));
+    }
+    const xref = off;
+    let x = `xref\n0 ${this.objs.length}\n0000000000 65535 f \n`;
+    for (let i = 1; i < this.objs.length; i++) x += String(offs[i]).padStart(10, '0') + ' 00000 n \n';
+    let id = ''; for (let i = 0; i < 16; i++) id += Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    x += `trailer\n<< /Size ${this.objs.length} /Root ${root} 0 R /Info ${info} 0 R /ID [<${id}> <${id}>] >>\nstartxref\n${xref}\n%%EOF\n`;
+    push(latin1(x));
+    return new Blob(parts, { type: 'application/pdf' });
+  }
+}
+/* 새 글자용 Type3 글꼴 묶음 — 한 벌에 코드 223개(33~255, 32 는 띄어쓰기), 넘치면 다음 벌 */
+class Type3Set {
+  constructor() { this.byKey = new Map(); this.seq = 0; }
+  encode(key, text) {
+    let list = this.byKey.get(key);
+    if (!list) { list = []; this.byKey.set(key, list); }
+    const out = [];
+    let cur = null;
+    for (const ch of Array.from(text)) {
+      let chunk = null, code = 0;
+      if (ch === ' ') { chunk = (cur && cur.chunk) || list[list.length - 1] || this.newChunk(key, list); code = 32; }
+      else {
+        for (const c of list) { const v = c.codes.get(ch); if (v !== undefined) { chunk = c; code = v; break; } }
+        if (!chunk) {
+          chunk = list[list.length - 1];
+          if (!chunk || chunk.next > 255) chunk = this.newChunk(key, list);
+          code = chunk.next++;
+          chunk.codes.set(ch, code);
+        }
+      }
+      if (!cur || cur.chunk !== chunk) { cur = { chunk, codes: [], chars: [] }; out.push(cur); }
+      cur.codes.push(code); cur.chars.push(ch);
+    }
+    return out;
+  }
+  newChunk(key, list) { const c = { key, id: ++this.seq, codes: new Map([[' ', 32]]), next: 33, ref: 0 }; list.push(c); return c; }
+  count() { let n = 0; for (const list of this.byKey.values()) for (const c of list) n += c.codes.size; return n; }
+  async build(W, progress) {
+    const total = this.count(); let done = 0;
+    for (const [key, list] of this.byKey) {
+      for (const c of list) {
+        const fontRef = W.alloc();
+        c.ref = fontRef;
+        const procs = [], diffs = [], uni = [];
+        const widths = new Array(224).fill(0);
+        let bx0 = 0, by0 = 0, bx1 = 0, by1 = 0;
+        const entries = Array.from(c.codes.entries()).sort((a, b) => a[1] - b[1]);
+        for (const [ch, code] of entries) {
+          const g = traceGlyph(key, ch);
+          const body = `${g.adv} 0 ${g.bbox.join(' ')} d1\n${g.path}`;
+          const n = W.alloc();
+          W.set(n, await pdfStream('', te.encode(body)));
+          procs.push(`/g${code} ${n} 0 R`);
+          diffs.push(`${code} /g${code}`);
+          widths[code - 32] = g.adv;
+          bx0 = Math.min(bx0, g.bbox[0]); by0 = Math.min(by0, g.bbox[1]); bx1 = Math.max(bx1, g.bbox[2]); by1 = Math.max(by1, g.bbox[3]);
+          uni.push([code, ch]);
+          if (++done % 24 === 0) { if (progress) progress(done / total); await yieldUI(); }
+        }
+        const tu = W.alloc();
+        W.set(tu, await pdfStream('', te.encode(toUnicodeCMap(uni))));
+        W.set(fontRef, `<< /Type /Font /Subtype /Type3 /FontBBox [${bx0} ${by0} ${bx1} ${by1}] /FontMatrix [0.001 0 0 0.001 0 0] ` +
+          `/CharProcs << ${procs.join(' ')} >> /Encoding << /Type /Encoding /Differences [${diffs.join(' ')}] >> ` +
+          `/FirstChar 32 /LastChar 255 /Widths [${widths.join(' ')}] /Resources << /ProcSet [/PDF] >> /ToUnicode ${tu} 0 R >>`);
+      }
+    }
+  }
+}
+function toUnicodeCMap(pairs) {
+  const hx = (v, n) => v.toString(16).toUpperCase().padStart(n, '0');
+  let s = '/CIDInit /ProcSet findresource begin\n12 dict begin\nbegincmap\n/CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def\n' +
+    '/CMapName /Adobe-Identity-UCS def\n/CMapType 2 def\n1 begincodespacerange\n<00> <FF>\nendcodespacerange\n';
+  for (let i = 0; i < pairs.length; i += 100) {
+    const blk = pairs.slice(i, i + 100);
+    s += blk.length + ' beginbfchar\n';
+    for (const [code, ch] of blk) {
+      let u = '';
+      for (let k = 0; k < ch.length; k++) u += hx(ch.charCodeAt(k), 4);
+      s += '<' + hx(code, 2) + '> <' + u + '>\n';
+    }
+    s += 'endbfchar\n';
+  }
+  return s + 'endcmap\nCMapName currentdict /CMap defineresource pop\nend\nend\n';
+}
+async function pdfImage(W, im) {
+  let w = im.naturalWidth, h = im.naturalHeight;
+  const k = Math.min(1, 900 / w, 400 / h);
+  w = Math.max(1, Math.round(w * k)); h = Math.max(1, Math.round(h * k));
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  const x = cv.getContext('2d'); x.drawImage(im, 0, 0, w, h);
+  const d = x.getImageData(0, 0, w, h).data;
+  const n = w * h, rgb = new Uint8Array(n * 3), a = new Uint8Array(n);
+  for (let i = 0, j = 0, q = 0; i < n; i++, j += 4, q += 3) { rgb[q] = d[j]; rgb[q + 1] = d[j + 1]; rgb[q + 2] = d[j + 2]; a[i] = d[j + 3]; }
+  const sm = W.alloc();
+  W.set(sm, await pdfStream(`/Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceGray /BitsPerComponent 8`, a));
+  const io = W.alloc();
+  W.set(io, await pdfStream(`/Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /SMask ${sm} 0 R`, rgb));
+  return io;
+}
+async function makePDF(lay, title, progress) {
+  const W = new PdfW();
+  const cat = W.alloc(), pagesN = W.alloc(), info = W.alloc();
+  const t3 = new Type3Set();
+  const imgs = new Map();
+  let imgSeq = 0;
+  const contents = [];
+  for (const pg of lay.pages) {
+    const out = ['0 J 0 j'];
+    const fonts = new Set(), used = new Set();
+    let lastFill = -1;
+    const fill = g => { if (g !== lastFill) { out.push(pf(g) + ' g'); lastFill = g; } };
+    for (const op of pg.ops) {
+      if (op.o === 't') {
+        const key = fkey(lay.face, op.b);
+        fill(op.c || 0);
+        let x = op.x;
+        const y = PG.H - op.y;
+        const tw = op.sp != null ? op.sp - adv(key, ' ') * op.z : 0;     // 띄어쓰기 폭 보정(Tw 는 코드 32 에만 붙는다)
+        for (const sg of t3.encode(key, op.s)) {
+          fonts.add(sg.chunk);
+          let hex = '';
+          for (const cd of sg.codes) hex += cd.toString(16).padStart(2, '0');
+          out.push(`BT /T${sg.chunk.id} ${pf(op.z)} Tf ${pf(tw)} Tw ${pf(x)} ${pf(y)} Td <${hex}> Tj ET`);
+          for (const ch of sg.chars) x += ch === ' ' && op.sp != null ? op.sp : adv(key, ch) * op.z;
+        }
+      } else if (op.o === 'l') {
+        out.push(`${pf(op.w)} w ${pf(op.c || 0)} G ${pf(op.x1)} ${pf(PG.H - op.y1)} m ${pf(op.x2)} ${pf(PG.H - op.y2)} l S`);
+      } else if (op.o === 'r') {
+        if (op.f != null) { fill(op.f); out.push(`${pf(op.x)} ${pf(PG.H - op.y - op.h)} ${pf(op.w)} ${pf(op.h)} re f`); }
+        if (op.s != null) out.push(`${pf(op.lw)} w ${pf(op.s)} G ${pf(op.x)} ${pf(PG.H - op.y - op.h)} ${pf(op.w)} ${pf(op.h)} re S`);
+      } else if (op.o === 'i') {
+        const im = SIGN_IMG.get(op.ref);
+        if (!im || !im.naturalWidth) continue;
+        if (!imgs.has(op.ref)) imgs.set(op.ref, { id: ++imgSeq, n: await pdfImage(W, im) });
+        const e = imgs.get(op.ref);
+        used.add(op.ref);
+        out.push(`q ${pf(op.w)} 0 0 ${pf(op.h)} ${pf(op.x)} ${pf(PG.H - op.y - op.h)} cm /Im${e.id} Do Q`);
+      }
+    }
+    contents.push({ s: out.join('\n') + '\n', fonts, used });
+  }
+  await t3.build(W, progress);
+  const kids = [];
+  for (const ct of contents) {
+    const cn = W.alloc();
+    W.set(cn, await pdfStream('', latin1(ct.s)));
+    const fr = Array.from(ct.fonts).map(c => `/T${c.id} ${c.ref} 0 R`).join(' ');
+    const xr = Array.from(ct.used).map(r => `/Im${imgs.get(r).id} ${imgs.get(r).n} 0 R`).join(' ');
+    const pn = W.alloc();
+    W.set(pn, `<< /Type /Page /Parent ${pagesN} 0 R /MediaBox [0 0 ${pf(PG.W)} ${pf(PG.H)}] ` +
+      `/Resources << /ProcSet [/PDF /Text /ImageC] /Font << ${fr} >>${xr ? ` /XObject << ${xr} >>` : ''} >> /Contents ${cn} 0 R >>`);
+    kids.push(pn);
+  }
+  W.set(pagesN, `<< /Type /Pages /Kids [${kids.map(k => k + ' 0 R').join(' ')}] /Count ${kids.length} >>`);
+  W.set(cat, `<< /Type /Catalog /Pages ${pagesN} 0 R /ViewerPreferences << /DisplayDocTitle true >> >>`);
+  const t = new Date(), p2 = v => String(v).padStart(2, '0');
+  const ds = `${t.getFullYear()}${p2(t.getMonth() + 1)}${p2(t.getDate())}${p2(t.getHours())}${p2(t.getMinutes())}${p2(t.getSeconds())}`;
+  W.set(info, `<< /Title <${utf16hex(title)}> /Creator <${utf16hex('내용증명 작성기')}> /Producer (certified_letter) /CreationDate (D:${ds}) >>`);
+  return W.blob(cat, info);
+}
+const xesc = s => String(s).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '').replace(/[&<>"]/g, c => ESC[c]);
+/* 무압축(stored) zip — docx 는 이것으로 충분하다 */
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(u) { let c = 0xFFFFFFFF; for (let i = 0; i < u.length; i++) c = CRC_T[(c ^ u[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipStore(files) {
+  const d = new Date();
+  const dt = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate(), tm = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+  const parts = [], central = [];
+  let off = 0;
+  for (const f of files) {
+    const nm = te.encode(f.name), crc = crc32(f.data), sz = f.data.length;
+    const h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(8, 0, true);
+    h.setUint16(10, tm, true); h.setUint16(12, dt, true); h.setUint32(14, crc, true); h.setUint32(18, sz, true); h.setUint32(22, sz, true);
+    h.setUint16(26, nm.length, true); h.setUint16(28, 0, true);
+    parts.push(new Uint8Array(h.buffer), nm, f.data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint16(10, 0, true);
+    c.setUint16(12, tm, true); c.setUint16(14, dt, true); c.setUint32(16, crc, true); c.setUint32(20, sz, true); c.setUint32(24, sz, true);
+    c.setUint16(28, nm.length, true); c.setUint32(42, off, true);
+    central.push(new Uint8Array(c.buffer), nm);
+    off += 30 + nm.length + sz;
+  }
+  const cdSize = central.reduce((a, u) => a + u.length, 0);
+  const e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true);
+  e.setUint32(12, cdSize, true); e.setUint32(16, off, true);
+  const all = parts.concat(central, [new Uint8Array(e.buffer)]);
+  const out = new Uint8Array(all.reduce((a, u) => a + u.length, 0));
+  let p = 0; for (const u of all) { out.set(u, p); p += u.length; }
+  return out;
+}
+function dataUrlBytes(url) {
+  const b64 = String(url).split(',')[1] || '';
+  const bin = atob(b64); const u = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  return u;
+}
+function getK(path) { return path.split('.').reduce((o, k) => (o == null ? o : o[k]), S); }
+function setK(path, v) {
+  const ks = path.split('.'); let o = S;
+  for (let i = 0; i < ks.length - 1; i++) o = o[ks[i]];
+  o[ks[ks.length - 1]] = v;
+}
+function download(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+async function busy(btn, label, fn) {
+  if (btn.disabled) return;
+  const old = btn.innerHTML;
+  btn.disabled = true; btn.textContent = label;
+  try { await fn(); } catch (e) { console.error(e); toast('만드는 중 문제가 생겼습니다: ' + (e && e.message || e)); }
+  finally { btn.disabled = false; btn.innerHTML = old; }
+}
+function ensureCur() { clearTimeout(refreshT); refresh(); return CUR; }
+let pdfCache = null;
+async function buildPdfBlob(btn) {
+  const cur = ensureCur();
+  if (pdfCache && pdfCache.v === cur.v) return pdfCache.blob;
+  const blob = await makePDF(cur.lay, cur.doc.title, f => { if (btn) btn.textContent = `PDF 만드는 중 ${Math.round(f * 100)}%`; });
+  pdfCache = { v: cur.v, blob };
+  return blob;
+}
+/* ════════════════════════════════════════════════════════════
+   서명 창 — 손가락·마우스로 그리기, 또는 도장·서명 그림 불러오기(흰 바탕 → 투명)
+   ════════════════════════════════════════════════════════════ */
+const PAD = { key: null, ctx: null, drawing: false, last: null, dirty: false, dpr: 1 };
+function openSign(key) {
+  PAD.key = key;
+  const i = +String(key).slice(1), nm = String((S.senders[i] || {}).name || '').trim();
+  $('signTitle').textContent = `발신인${S.senders.length > 1 ? ' ' + (i + 1) : ''}${nm ? ' ' + nm : ''} 서명`;
+  $('signModal').classList.remove('hide');
+  const cv = $('pad');
+  const r = cv.getBoundingClientRect();
+  PAD.dpr = Math.min(3, window.devicePixelRatio || 1);
+  cv.width = Math.round(r.width * PAD.dpr); cv.height = Math.round(r.height * PAD.dpr);
+  PAD.ctx = cv.getContext('2d');
+  PAD.ctx.lineCap = 'round'; PAD.ctx.lineJoin = 'round';
+  PAD.dirty = false;
+  $('padHint').classList.remove('hide');
+}
+function closeSign() { $('signModal').classList.add('hide'); PAD.key = null; }
+function padPos(e) { const r = $('pad').getBoundingClientRect(); return { x: (e.clientX - r.left) * PAD.dpr, y: (e.clientY - r.top) * PAD.dpr, t: e.timeStamp }; }
+function padDown(e) {
+  e.preventDefault();
+  const cv = $('pad');
+  try { cv.setPointerCapture(e.pointerId); } catch (err) { /* 무시 */ }
+  PAD.drawing = true; PAD.last = padPos(e); PAD.lastW = 2.6 * PAD.dpr;
+  $('padHint').classList.add('hide');
+  const c = PAD.ctx; c.fillStyle = '#16120e';
+  c.beginPath(); c.arc(PAD.last.x, PAD.last.y, PAD.lastW / 2, 0, Math.PI * 2); c.fill();
+  PAD.dirty = true;
+}
+function padMove(e) {
+  if (!PAD.drawing) return;
+  e.preventDefault();
+  const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+  const c = PAD.ctx;
+  for (const ev of evs) {
+    const p = padPos(ev), q = PAD.last;
+    const dist = Math.hypot(p.x - q.x, p.y - q.y), dt = Math.max(1, p.t - q.t);
+    const speed = dist / dt / PAD.dpr;                       // px/ms
+    const target = clamp(3.4 - speed * 1.1, 1.6, 3.4) * PAD.dpr;
+    const w = PAD.lastW * 0.7 + target * 0.3;
+    c.strokeStyle = '#16120e'; c.lineWidth = w;
+    c.beginPath(); c.moveTo(q.x, q.y); c.lineTo(p.x, p.y); c.stroke();
+    PAD.last = p; PAD.lastW = w;
+  }
+}
+function padUp() { PAD.drawing = false; }
+function padClear() { const cv = $('pad'); PAD.ctx.clearRect(0, 0, cv.width, cv.height); PAD.dirty = false; $('padHint').classList.remove('hide'); }
+/* 그림을 불러와 흰 바탕을 투명하게 */
+async function padLoadFile(file) {
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  try {
+    const im = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => rej(new Error('그림을 열 수 없습니다')); i.src = url; });
+    const cv = $('pad'), c = PAD.ctx;
+    c.clearRect(0, 0, cv.width, cv.height);
+    const k = Math.min((cv.width - 20) / im.naturalWidth, (cv.height - 20) / im.naturalHeight, 4);
+    const w = im.naturalWidth * k, h = im.naturalHeight * k;
+    c.drawImage(im, (cv.width - w) / 2, (cv.height - h) / 2, w, h);
+    const d = c.getImageData(0, 0, cv.width, cv.height), a = d.data;
+    for (let i = 0; i < a.length; i += 4) {
+      const mn = Math.min(a[i], a[i + 1], a[i + 2]);
+      const ink = 255 - mn;                                  // 흰색에서 얼마나 먼가
+      const al = clamp((ink - 28) * 255 / 90, 0, 255);
+      a[i + 3] = Math.round(a[i + 3] * al / 255);
+    }
+    c.putImageData(d, 0, 0);
+    PAD.dirty = true;
+    $('padHint').classList.add('hide');
+  } catch (e) { toast(e.message || '그림을 열 수 없습니다'); }
+  finally { URL.revokeObjectURL(url); }
+}
+function padOk() {
+  const key = PAD.key;
+  if (!key) return;
+  if (!PAD.dirty) { closeSign(); return; }
+  const cv = $('pad');
+  const d = PAD.ctx.getImageData(0, 0, cv.width, cv.height).data;
+  let x0 = cv.width, y0 = cv.height, x1 = -1, y1 = -1;
+  for (let y = 0; y < cv.height; y++) for (let x = 0; x < cv.width; x++) {
+    if (d[(y * cv.width + x) * 4 + 3] > 10) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  }
+  if (x1 < 0) { closeSign(); return; }
+  const m = Math.round(4 * PAD.dpr);
+  x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(cv.width - 1, x1 + m); y1 = Math.min(cv.height - 1, y1 + m);
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  const k = Math.min(1, 720 / w, 320 / h);
+  const out = document.createElement('canvas');
+  out.width = Math.max(1, Math.round(w * k)); out.height = Math.max(1, Math.round(h * k));
+  out.getContext('2d').drawImage(cv, x0, y0, w, h, 0, 0, out.width, out.height);
+  S.sign[key] = { url: out.toDataURL('image/png'), w: out.width, h: out.height };
+  loadSignImages();
+  closeSign();
+  syncUI(); refreshSoon();
+  toast('서명을 넣었습니다. 미리보기에서 위치를 확인하세요.');
+}
+
+/* ── 크게 보기 ── */
+let viewZoom = 1;
+function openViewer() {
+  if (!CUR) return;
+  $('viewModal').classList.remove('hide');
+  drawViewer();
+}
+function drawViewer() {
+  const box = $('viewPages');
+  box.textContent = '';
+  const avail = Math.min(900, window.innerWidth - 28) * viewZoom;
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const sc = avail * dpr / PG.W;
+  for (const pg of CUR.lay.pages) {
+    const cv = pageCanvas(pg, CUR.lay.face, sc, true);
+    cv.style.width = avail + 'px';
+    box.appendChild(cv);
+  }
+  $('viewZoom').textContent = viewZoom > 1 ? '화면 맞춤' : '확대';
+}
+
+/* ── 인쇄 — 쪽 그림을 인쇄 전용 영역에 붙이고 나머지는 @media print 로 숨긴다.
+   copies 가 3이면 [1쪽, 2쪽] × 3 순서로 붙인다(원본 1 + 등본 2 를 한 번에, 장 순서가 섞이지 않게) ── */
+let printUrls = [];
+async function preparePrint(copies) {
+  const cur = ensureCur();
+  const pa = $('printArea');
+  pa.textContent = '';
+  const urls = [];
+  for (const pg of cur.lay.pages) {
+    const blob = await canvasBlob(pageCanvas(pg, cur.lay.face, 2.4, true), 'image/png');
+    urls.push(URL.createObjectURL(blob));
+    await yieldUI();
+  }
+  for (let k = 0; k < Math.max(1, copies || 1); k++) {
+    for (const u of urls) { const im = new Image(); im.src = u; im.alt = ''; pa.appendChild(im); }
+  }
+  await Promise.all(Array.from(pa.querySelectorAll('img')).map(im => im.decode ? im.decode().catch(() => 0) : 0));
+  printUrls = urls;
+}
+async function doPrint(copies) {
+  await preparePrint(copies);
+  const pa = $('printArea'), urls = printUrls;
+  const done = () => { pa.textContent = ''; urls.forEach(u => URL.revokeObjectURL(u)); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  window.print();
+  setTimeout(() => { if (pa.children.length) done(); }, 120000);
+}
+function bindMoneyInput(el, apply) {
+  el.addEventListener('input', () => {
+    const before = el.value, caret = el.selectionStart || 0;
+    const digitsBefore = digits(before.slice(0, caret)).length;
+    let d = digits(before).replace(/^0+(?=\d)/, '').slice(0, 13);
+    const v = d ? parseInt(d, 10) : 0;
+    const f = v ? won(v) : '';
+    el.value = f;
+    let pos = 0, seen = 0;
+    while (pos < f.length && seen < digitsBefore) { if (/\d/.test(f[pos])) seen++; pos++; }
+    try { el.setSelectionRange(pos, pos); } catch (e) { /* 무시 */ }
+    apply(v);
+  });
+}
+/* ════════════════════════════════════════════════════════════
+   화면
+   ════════════════════════════════════════════════════════════ */
+const SKEY = 'certified_letter.v1';
+function save() {
+  try { sessionStorage.setItem(SKEY, JSON.stringify(S)); } catch (e) { /* 용량 초과·사생활 모드 — 조용히 넘어간다 */ }
+}
+function mergeDeep(d, o) {
+  if (!o || typeof o !== 'object') return d;
+  for (const k of Object.keys(d)) {
+    if (o[k] === undefined) continue;
+    const dv = d[k], ov = o[k];
+    if (Array.isArray(dv)) continue;                           // 배열은 아래에서 따로 맞춘다
+    if (dv && typeof dv === 'object') d[k] = mergeDeep(dv, ov);
+    else if (dv === null || typeof dv === typeof ov) d[k] = ov;
+  }
+  return d;
+}
+function load() {
+  try {
+    const raw = sessionStorage.getItem(SKEY);
+    if (!raw) return false;
+    const o = JSON.parse(raw);
+    if (!o || o.v !== 1) return false;
+    const d = mergeDeep(defaults(), o);
+    d.custom = o.custom && typeof o.custom === 'object' ? o.custom : {};
+    d.senders = (Array.isArray(o.senders) && o.senders.length ? o.senders : [{}]).slice(0, 2).map(x => Object.assign(person(), x));
+    d.recips = (Array.isArray(o.recips) && o.recips.length ? o.recips : [{}]).slice(0, 3).map(x => Object.assign(recip(), x));
+    const it = o.damage && Array.isArray(o.damage.items) ? o.damage.items : [];
+    d.damage.items = [0, 1, 2].map(i => Object.assign({ name: i === 0 && !it.length ? '수리비' : '', amt: 0 }, it[i] || {}));
+    if (!TPL[d.tpl]) d.tpl = 'loan';
+    S = d;
+    return true;
+  } catch (e) { return false; }
+}
+function loadSignImages() {
+  SIGN_IMG.clear();
+  for (const k of ['s0', 's1']) {
+    const sg = S.sign[k];
+    if (!sg || !sg.url) continue;
+    const im = new Image();
+    im.onload = () => refreshSoon();
+    im.src = sg.url;
+    SIGN_IMG.set(k, im);
+  }
+}
+
+/* ── 보내는 사람 · 받는 사람 칸 ── */
+function partyHTML(kind, i, p) {
+  const k = `${kind}.${i}`;
+  const snd = kind === 'senders', n = snd ? S.senders.length : S.recips.length;
+  const title = snd ? '보내는 사람' : '받는 사람';
+  const head = `<div class="ph">${title}${n > 1 ? ' ' + (i + 1) : ''} <em>${snd ? '발신인' : '수신인'}</em>` +
+    (n > 1 ? `<button class="rm" type="button" data-rm="${k}">✕ 삭제</button>` : '') + '</div>';
+  const addr = `<div class="grid2"><div class="wide"><input type="text" data-k="${k}.addr" maxlength="90" placeholder="주소 (봉투에 쓸 주소와 똑같이)" autocomplete="off" aria-label="${title} 주소"></div></div>`;
+  if (snd) {
+    return `<div class="party">${head}<div class="grid2"><div><input type="text" data-k="${k}.name" maxlength="30" placeholder="이름" autocomplete="off" aria-label="${title} 이름"></div>` +
+      `<div><input type="tel" data-k="${k}.phone" maxlength="20" placeholder="연락처 (선택)" autocomplete="off" aria-label="${title} 연락처"></div></div>${addr}</div>`;
+  }
+  const co = p.kind === 'company';
+  return `<div class="party">${head}<div class="seg" data-seg="${k}.kind"><button type="button" data-v="person">개인</button><button type="button" data-v="company">회사·가게</button></div>` +
+    `<div class="grid2"><div><input type="text" data-k="${k}.name" maxlength="40" placeholder="${co ? '상호 (예: 주식회사 ○○)' : '이름'}" autocomplete="off" aria-label="${title} ${co ? '상호' : '이름'}"></div>` +
+    (co ? `<div><input type="text" data-k="${k}.rep" maxlength="20" placeholder="대표자 이름 (선택)" autocomplete="off" aria-label="대표자 이름"></div>` : '') + `</div>${addr}</div>`;
+}
+function renderParties(force) {
+  const sig = S.senders.length + '|' + S.recips.map(r => r.kind).join(',');
+  const a = $('senders'), b = $('recips');
+  if (!force && a.dataset.sig === sig) return;
+  a.dataset.sig = sig;
+  a.innerHTML = S.senders.map((p, i) => partyHTML('senders', i, p)).join('');
+  b.innerHTML = S.recips.map((p, i) => partyHTML('recips', i, p)).join('');
+  $('addSender').classList.toggle('hide', S.senders.length >= 2);
+  $('addRecip').classList.toggle('hide', S.recips.length >= 3);
+}
+function renderDmgItems() {
+  const ph = ['예: 천장 수리비', '예: 도배 비용', '예: 그 밖의 비용'];
+  $('dmgItems').innerHTML = [0, 1, 2].map(i => `<div class="itemrow"><input type="text" data-k="damage.items.${i}.name" maxlength="24" placeholder="${ph[i]}" autocomplete="off" aria-label="손해 항목 ${i + 1}">` +
+    `<div class="unit"><input type="text" inputmode="numeric" class="money" data-money="damage.items.${i}.amt" placeholder="0" autocomplete="off" aria-label="손해 금액 ${i + 1}"><span>원</span></div></div>`).join('');
+}
+
+/* 입력칸 ← 상태 (지금 쓰고 있는 칸은 건드리지 않는다) */
+function segValue(path) { const v = getK(path); return typeof v === 'boolean' ? (v ? '1' : '0') : String(v); }
+function fillValues() {
+  document.querySelectorAll('[data-k]').forEach(el => {
+    if (el === document.activeElement) return;
+    const v = getK(el.dataset.k);
+    if (el.type === 'checkbox') { if (el.checked !== !!v) el.checked = !!v; }
+    else { const t = v == null ? '' : String(v); if (el.value !== t) el.value = t; }
+  });
+  document.querySelectorAll('[data-money]').forEach(el => {
+    if (el === document.activeElement) return;
+    const v = getK(el.dataset.money);
+    const t = v > 0 ? won(v) : '';
+    if (el.value !== t) el.value = t;
+  });
+  document.querySelectorAll('[data-seg]').forEach(seg => {
+    const v = segValue(seg.dataset.seg);
+    seg.querySelectorAll('button[data-v]').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  });
+  const dl = $('deadline');
+  if (dl !== document.activeElement && dl.value !== (S.deadline || '')) dl.value = S.deadline || '';
+}
+const hide = (id, on) => $(id).classList.toggle('hide', !!on);
+function syncUI() {
+  renderParties(false);
+  fillValues();
+  const tpl = S.tpl;
+  document.querySelectorAll('.tpl').forEach(b => b.classList.toggle('on', b.dataset.tpl === tpl));
+  document.querySelectorAll('[data-for]').forEach(el => el.classList.toggle('hide', el.dataset.for !== tpl));
+  $('sitTitle').textContent = TPL[tpl].sit;
+
+  // 빌려준 돈
+  const L = S.loan;
+  hide('loanDueBox', L.dueType === 'none');
+  hide('loanRateBox', !L.rateOn);
+  $('loanRemain').innerHTML = L.amount > 0 && L.repaid > 0 ? `남은 돈 <b>${won(Math.max(0, L.amount - L.repaid))}원</b>` : '';
+  // 보증금
+  const D = S.deposit;
+  hide('depMovedBox', D.status !== 'ended');
+  hide('depRenewBox', !(D.status === 'implied' && D.kind !== 'shop'));
+  hide('depMoveBox', !(D.status === 'expire' || (D.status === 'ended' && D.moved)));
+  $('depMoveLab').textContent = D.status === 'expire' ? '이사 예정일' : '이사한 날';
+  $('depEndHint').textContent = D.status === 'expire' && D.kind !== 'shop' && parseD(D.end) ? `통지 기한 ${kDate(addMonths(D.end, -2))}` : '';
+  // 대금
+  const Y = S.payment;
+  $('payDescLab').textContent = { goods: '무엇을 납품했나요', work: '어떤 공사를 했나요', service: '어떤 작업을 했나요' }[Y.kind];
+  $('payDesc').placeholder = { goods: '예: 사무용 의자 20개', work: '예: 욕실 리모델링 공사', service: '예: 쇼핑몰 상세페이지 디자인 작업' }[Y.kind];
+  $('payDoneLab').textContent = { goods: '납품한 날', work: '공사를 마친 날', service: '작업을 마친 날' }[Y.kind];
+  $('payRemain').innerHTML = Y.total > 0 && Y.paid > 0 ? `받을 돈 <b>${won(Math.max(0, Y.total - Y.paid))}원</b>` : '';
+  // 환불
+  const R = S.refund;
+  $('refStartLab').textContent = { ongoing: '이용 시작일', online: '물건 받은 날', visit: '계약서 받은 날' }[R.basis];
+  hide('refAmtBox', R.basis !== 'ongoing');
+  $('refService').placeholder = R.basis === 'ongoing' ? '예: ○○피트니스 12개월 회원권' : '예: ○○ 겨울 패딩(검정, L)';
+  $('refReason').placeholder = R.basis === 'ongoing' ? '예: 이사로 더 다닐 수 없음' : '예: 광고 사진과 색상이 다름';
+  // 월세
+  const M = S.rent;
+  const n = M.rent > 0 && M.unpaid > 0 ? M.unpaid / M.rent : 0;
+  $('rentLine').innerHTML = n > 0 ? `월세의 <b>${fmtN(n)}개월분</b> · 해지 기준은 <b>${M.kind === 'shop' ? 3 : 2}개월분</b> 이상` : '';
+  hide('rentDeductChk', M.mode !== 'terminate');
+  // 손해배상
+  const tot = dmgItems(S.damage).reduce((a, it) => a + it.amt, 0);
+  $('dmgTotal').innerHTML = tot > 0 ? `합계 <b>${won(tot)}원</b> · ${esc(shortWon(tot))}` : '';
+
+  // 기한 · 계좌 · 조치
+  hide('dlBox', !needsDeadline(S));
+  hide('acctBox', !needsAcct(S));
+  hide('actBox', tpl === 'free');
+  hide('greetChk', tpl === 'free');
+  $('demandTitle').textContent = tpl === 'free' ? '연락처 · 첨부 서류' : [needsDeadline(S) && '기한', needsAcct(S) && '받을 계좌', '조치'].filter(Boolean).join(' · ');
+  $('attachBox').placeholder = '예: ' + ({ loan: '차용증 사본', deposit: '임대차계약서 사본', payment: '거래명세서 사본', refund: '결제 영수증 사본', rent: '임대차계약서 사본', damage: '수리 견적서 사본' }[tpl] || '관련 서류 사본') + ' 1부';
+  $('dlLab').textContent = ({ loan: '갚을 기한', deposit: '돌려받을 기한', payment: '지급 기한', refund: '환급 기한', rent: M.mode === 'terminate' ? '집을 비울 기한' : '지급 기한', damage: '배상 기한' })[tpl] || '기한';
+  const gap = parseD(S.deadline) && parseD(S.writeDate) ? daysBetween(S.writeDate, S.deadline) : NaN;
+  $('dlHint').textContent = isFinite(gap) ? `작성일부터 ${gap}일` : '';
+  $('dlChips').querySelectorAll('button').forEach(b => b.classList.toggle('on', S.dlDays != null && +b.dataset.d === S.dlDays));
+  document.querySelectorAll('[data-kor]').forEach(el => {
+    const v = getK(el.dataset.kor);
+    el.innerHTML = v > 0 ? `${esc(amountPhrase(v, 'hangul').replace(/\(.*$/, ''))} <small>· ${esc(shortWon(v))}</small>` : '';
+  });
+  hide('serifHint', SERIF_OK || S.font !== 'serif');
+  const nR = S.recips.length;
+  $('copiesN').textContent = `${nR + 2}부`;
+  $('copiesS').textContent = nR > 1 ? `원본 ${nR} + 등본 2` : '원본 + 등본 2';
+  syncText();
+  renderSignList();
+}
+function syncText() {
+  const t = curText(S);
+  const se = $('subject'), be = $('bodyEdit');
+  if (document.activeElement !== se && se.value !== t.subject) se.value = t.subject;
+  fitSubject();
+  if (document.activeElement !== be && be.value !== t.body) be.value = t.body;
+  se.placeholder = S.tpl === 'free' ? '예: 물건 반환 요청의 건' : t.autoSubject;
+  const sh = $('subjHint');
+  const html = S.tpl === 'free' ? '직접 적으세요' : t.subjEdited ? '<button type="button" class="linkbtn" id="subjReset">↺ 자동 제목으로</button>' : '상황에 맞춰 자동으로 채워집니다';
+  if (sh.dataset.h !== html) { sh.innerHTML = html; sh.dataset.h = html; }
+  hide('editedBar', !(t.bodyEdited && S.tpl !== 'free'));
+}
+/* 제목은 한 줄 글이지만 휴대폰 폭에서 잘리지 않게 여러 줄로 늘어나는 칸에 담는다 */
+function fitSubject() {
+  const se = $('subject');
+  if (!se.offsetParent) return;
+  se.style.height = 'auto';
+  se.style.height = (se.scrollHeight + 2) + 'px';
+}
+function setCustom(field, value, auto) {
+  const c = S.custom[S.tpl] || { subject: null, body: null };
+  c[field] = value === auto ? null : value;
+  if (c.subject == null && c.body == null) delete S.custom[S.tpl]; else S.custom[S.tpl] = c;
+}
+
+function renderSignList() {
+  const html = S.senders.map((p, i) => {
+    const k = 's' + i, sg = S.sign[k], nm = trimS(p.name);
+    return `<div class="sg"><div class="who">보내는 사람${S.senders.length > 1 ? ' ' + (i + 1) : ''} <small>발신인${nm ? ' · ' + esc(nm) : ''}</small></div>` +
+      `<div class="th">${sg && sg.url ? `<img alt="서명" src="${sg.url}">` : '<span>비어 있음</span>'}</div>` +
+      `<div class="bt"><button class="mini" type="button" data-sign="${k}">✍️ ${sg ? '다시' : '서명'}</button>${sg ? `<button class="mini" type="button" data-unsign="${k}">지우기</button>` : ''}</div></div>`;
+  }).join('');
+  const box = $('signList');
+  if (box.dataset.h !== html) { box.innerHTML = html; box.dataset.h = html; }
+}
+
+/* ── 새로 그리기 ── */
+let CUR = null, refreshT = 0, version = 0;
+function refreshSoon() { clearTimeout(refreshT); refreshT = setTimeout(refresh, 90); }
+function refresh() {
+  const doc = buildDoc(S);
+  const lay = layoutDoc(doc, S);
+  CUR = { doc, lay, v: ++version };
+  renderPreview(lay);
+  const pages = lay.pages.length;
+  const ck = checks(S, { body: doc.body, subject: doc.subject, pages, bodyEdited: doc.text.bodyEdited });
+  $('checks').innerHTML = ck.map(x => `<li class="${x.lv}">${x.h}</li>`).join('');
+  const nb = ck.filter(x => x.lv === 'bad').length, nw = ck.filter(x => x.lv === 'warn').length;
+  $('chkInfo').textContent = nb ? `확인 필요 ${nb}${nw ? ' · 주의 ' + nw : ''}` : nw ? `주의 ${nw}` : '문제 없음';
+  const f = feeCalc(pages, S.recips.length, S.dlv, S.express);
+  renderFee(f);
+  $('mbarTxt').textContent = `내용증명 · A4 ${pages}쪽 · 발송 약 ${won(f.total)}원${nb ? ' · 확인 필요 ' + nb : ''}`;
+  updateMbar();
+  save();
+}
+/* 휴대폰: 입력칸을 내려가는 동안 미리보기가 화면 밖에 있으면 아래 바를 띄운다 */
+function updateMbar() {
+  const r = $('pvCard').getBoundingClientRect();
+  $('mbar').classList.toggle('on', $('form').getBoundingClientRect().top < 0 && r.top > window.innerHeight);
+}
+function renderFee(f) {
+  const n = f.nR, mul = n > 1 ? ` <small>× ${n}명</small>` : '';
+  const rows = [
+    [`우편요금 <small>(약 ${f.w}g)</small>${mul}`, f.post * n],
+    [`등기 수수료${mul}`, f.reg * n],
+    [`내용증명 수수료 <small>(${f.pages}장${n > 1 ? ' · 동문 ' + n + '명' : ''})</small>`, f.cert]
+  ];
+  if (f.dl) rows.push([`배달증명 <small>(회송 요금 포함)</small>${mul}`, f.dl * n]);
+  if (f.ex) rows.push([`익일특급${mul}`, f.ex * n]);
+  $('fee').innerHTML = rows.map(([k, v]) => `<div><span>${k}</span><b>${won(v)}원</b></div>`).join('') +
+    `<div class="tot"><span>우체국 창구 합계</span><b>${won(f.total)}원</b></div>`;
+}
+/* 미리보기도 PDF 와 같은 윤곽선 글자로 그린다. 아직 윤곽선을 따지 않은 글자가 있으면
+   우선 fillText 로 바로 보여 주고, 뒤에서 조금씩 따 둔 다음 다시 그린다(처음 한 번만 걸린다) */
+let traceJob = 0;
+function missingGlyphs(lay) {
+  const out = [], seen = new Set();
+  for (const pg of lay.pages) for (const op of pg.ops) {
+    if (op.o !== 't') continue;
+    const key = fkey(lay.face, op.b);
+    for (const ch of op.s) {
+      if (/\s/.test(ch)) continue;
+      const k = key + '|' + ch;
+      if (!_trace.has(k) && !seen.has(k)) { seen.add(k); out.push([key, ch]); }
+    }
+  }
+  return out;
+}
+async function traceLater(lay, todo, job) {
+  for (let i = 0; i < todo.length; i++) {
+    if (job !== traceJob) return;
+    traceGlyph(todo[i][0], todo[i][1]);
+    if (i % 12 === 11) await yieldUI();
+  }
+  if (job === traceJob && CUR && CUR.lay === lay) renderPreview(lay);
+}
+function renderPreview(lay) {
+  const box = $('pvPages');
+  const w = Math.max(200, box.clientWidth - 24);
+  const dpr = Math.min(3, window.devicePixelRatio || 1);
+  const sc = w * dpr / PG.W;
+  const todo = missingGlyphs(lay);
+  const vector = todo.length === 0;
+  while (box.children.length > lay.pages.length) box.lastChild.remove();
+  lay.pages.forEach((pg, i) => {
+    let cv = box.children[i];
+    if (!cv) { cv = document.createElement('canvas'); cv.setAttribute('role', 'img'); box.appendChild(cv); }
+    cv.setAttribute('aria-label', `미리보기 ${i + 1}쪽`);
+    const W = Math.round(PG.W * sc), H = Math.round(PG.H * sc);
+    if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; }
+    paintPage(cv.getContext('2d'), pg, sc, lay.face, vector);
+  });
+  $('pvInfo').textContent = `A4 · ${lay.pages.length}쪽`;
+  const job = ++traceJob;
+  if (!vector) traceLater(lay, todo, job);
+}
+
+/* ── 저장 ── */
+function fileBase() {
+  const nm = trimS((S.recips[0] || {}).name).replace(/[\\/:*?"<>|\s]+/g, '');
+  const d = (parseD(S.writeDate) ? S.writeDate : todayISO()).replace(/-/g, '');
+  return `내용증명${nm ? '_' + nm : ''}_${d}`;
+}
+
+/* ── 예시 ── */
+function sample() {
+  const t = parseD(S.writeDate) ? S.writeDate : todayISO();
+  const d = defaults();
+  d.tpl = S.tpl; d.font = S.font; d.writeDate = t; d.deadline = addDays(t, 14); d.dlDays = 14;
+  d.senders = [{ name: '홍길동', phone: '010-0000-0000', addr: '서울특별시 ○○구 ○○로 00, 000호' }];
+  d.recips = [{ kind: 'person', name: '임꺽정', rep: '', addr: '경기도 ○○시 ○○구 ○○로 00, 000동 000호' }];
+  d.bank = '○○은행'; d.acct = '000-000000-00-000'; d.holder = '홍길동';
+  switch (S.tpl) {
+    case 'loan':
+      Object.assign(d.loan, { lendDate: addMonths(t, -8), amount: 5000000, dueType: 'date', dueDate: addMonths(t, -2), repaid: 1000000 });
+      d.loan.ev = { iou: true, bank: true, msg: true, rec: false };
+      break;
+    case 'deposit':
+      Object.assign(d.deposit, { kind: 'home', status: 'expire', addr: '서울특별시 ○○구 ○○로 00, 000동 000호', contractDate: addDays(addMonths(t, -21), -20),
+        start: addMonths(t, -21), end: addMonths(t, 3), deposit: 150000000, rent: 0, moveDate: addMonths(t, 3) });
+      d.senders[0].addr = d.deposit.addr;
+      d.deadline = ''; d.dlDays = null;
+      break;
+    case 'payment':
+      Object.assign(d.payment, { kind: 'work', desc: '욕실 리모델링 공사', doneDate: addMonths(t, -3), dueDate: addMonths(t, -2), total: 8800000, paid: 5000000 });
+      d.payment.ev = { contract: true, estimate: true, invoice: false, statement: false, msg: true };
+      break;
+    case 'refund':
+      d.recips = [{ kind: 'company', name: '주식회사 ○○피트니스', rep: '임꺽정', addr: '서울특별시 ○○구 ○○로 00, 0층' }];
+      Object.assign(d.refund, { basis: 'ongoing', service: '○○피트니스 12개월 회원권', contractDate: addMonths(t, -2), startDate: addMonths(t, -2), paid: 780000, payMethod: 'card', reason: '이사로 더 다닐 수 없음' });
+      d.bank = ''; d.acct = ''; d.holder = '';
+      break;
+    case 'rent':
+      d.recips[0].addr = '서울특별시 ○○구 ○○로 00, 000호';
+      Object.assign(d.rent, { kind: 'home', mode: 'demand', addr: d.recips[0].addr, start: addMonths(t, -14), end: addMonths(t, 10), deposit: 10000000, rent: 650000, payDay: '25', unpaid: 1950000 });
+      break;
+    case 'damage':
+      d.senders[0].addr = '서울특별시 ○○구 ○○로 00, 000동 000호';
+      d.recips[0].addr = '서울특별시 ○○구 ○○로 00, 000동 000호';
+      Object.assign(d.damage, { date: addDays(t, -20), place: '발신인의 집(○○아파트 000동 000호)', basis: 'tort',
+        what: '수신인이 사는 바로 위층 집 욕실 배관에서 물이 새어 발신인 집 욕실 천장과 벽지가 젖었습니다',
+        items: [{ name: '천장 누수 수리비', amt: 1200000 }, { name: '욕실 도배 비용', amt: 450000 }, { name: '', amt: 0 }] });
+      break;
+    case 'free': {
+      const lent = addMonths(t, -3), due = addMonths(t, -2);
+      d.custom = { free: { subject: '빌려준 물건 반환 요청의 건', body:
+        `1. 귀하의 건승을 기원합니다.\n2. 발신인은 ${kDate(lent)} 수신인에게 캠핑 장비(텐트 1동, 접이식 의자 4개)를 빌려주었고, 수신인은 ${kDate(due)}까지 돌려주기로 약속하였습니다.\n` +
+        `3. 그러나 수신인은 약속한 날이 지난 지금까지 위 물건을 돌려주지 않고 있습니다.\n4. 이에 발신인은 수신인에게 위 물건을 ${kDate(addDays(t, 14))}까지 발신인의 주소로 돌려줄 것을 요구합니다.\n` +
+        '5. 기한까지 돌려주지 않으시면 물건값에 해당하는 손해배상 청구 등 법적 절차를 밟을 수밖에 없음을 알려 드립니다.' } };
+      break;
+    }
+  }
+  S = d;
+  SIGN_IMG.clear();
+  renderParties(true); syncUI(); refresh();
+  toast('예시(홍길동·임꺽정)로 채웠습니다. 실제 내용으로 바꿔 쓰세요.', 3000);
+}
+function resetAll() {
+  if (!confirm('입력한 내용과 서명을 모두 지울까요?')) return;
+  const f = S.font, tpl = S.tpl;
+  S = defaults(); S.font = f; S.tpl = tpl;
+  SIGN_IMG.clear();
+  try { sessionStorage.removeItem(SKEY); } catch (e) { /* 무시 */ }
+  renderParties(true); syncUI(); refresh();
+  toast('처음 상태로 돌렸습니다.');
+}
+
+/* ════════════════════════════════════════════════════════════
+   이벤트
+   ════════════════════════════════════════════════════════════ */
+function onChanged(k) {
+  if (k === 'writeDate' && S.dlDays != null && parseD(S.writeDate)) S.deadline = addDays(S.writeDate, S.dlDays);
+  if (/^recips\.\d+\.kind$/.test(k)) renderParties(true);
+  syncUI();
+  refreshSoon();
+}
+function init() {
+  SERIF_OK = detectSerif();
+  const restored = load();
+  if (!S.font) S.font = SERIF_OK ? 'serif' : 'sans';
+  loadSignImages();
+  renderDmgItems();
+  renderParties(true);
+
+  const onField = e => {
+    const el = e.target;
+    if (!el || !el.matches || !el.matches('[data-k]')) return;
+    if (e.type === 'change' && el.type !== 'checkbox' && el.type !== 'date') return;
+    setK(el.dataset.k, el.type === 'checkbox' ? el.checked : el.value);
+    onChanged(el.dataset.k);
+  };
+  document.addEventListener('input', onField);
+  document.addEventListener('change', onField);
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-seg] button[data-v]');
+    if (!b) return;
+    const path = b.closest('[data-seg]').dataset.seg;
+    setK(path, typeof getK(path) === 'boolean' ? b.dataset.v === '1' : b.dataset.v);
+    onChanged(path);
+  });
+  document.querySelectorAll('[data-money]').forEach(el => bindMoneyInput(el, v => { setK(el.dataset.money, v); onChanged(el.dataset.money); }));
+
+  $('tpls').addEventListener('click', e => {
+    const b = e.target.closest('[data-tpl]');
+    if (!b || b.dataset.tpl === S.tpl) return;
+    S.tpl = b.dataset.tpl;
+    if (needsDeadline(S) && !parseD(S.deadline)) { S.dlDays = 14; S.deadline = addDays(parseD(S.writeDate) ? S.writeDate : todayISO(), 14); }
+    syncUI(); refreshSoon();
+  });
+  $('deadline').addEventListener('input', () => { S.deadline = $('deadline').value; S.dlDays = null; syncUI(); refreshSoon(); });
+  $('deadline').addEventListener('change', () => { S.deadline = $('deadline').value; S.dlDays = null; syncUI(); refreshSoon(); });
+  $('dlChips').addEventListener('click', e => {
+    const b = e.target.closest('button[data-d]'); if (!b) return;
+    S.dlDays = +b.dataset.d;
+    S.deadline = addDays(parseD(S.writeDate) ? S.writeDate : todayISO(), S.dlDays);
+    syncUI(); refreshSoon();
+  });
+  $('addSender').addEventListener('click', () => { if (S.senders.length < 2) { S.senders.push(person()); syncUI(); refreshSoon(); } });
+  $('addRecip').addEventListener('click', () => { if (S.recips.length < 3) { S.recips.push(recip()); syncUI(); refreshSoon(); } });
+  $('form').addEventListener('click', e => {
+    const rm = e.target.closest('[data-rm]');
+    if (!rm) return;
+    const [kind, idx] = rm.dataset.rm.split('.'), i = +idx;
+    S[kind].splice(i, 1);
+    if (kind === 'senders') { if (i === 0) S.sign.s0 = S.sign.s1; S.sign.s1 = null; loadSignImages(); }
+    renderParties(true); syncUI(); refreshSoon();
+  });
+
+  $('subject').addEventListener('keydown', e => { if (e.key === 'Enter') e.preventDefault(); });
+  $('subject').addEventListener('input', () => {
+    const se = $('subject');
+    if (/\n/.test(se.value)) { const p = se.selectionStart; se.value = se.value.replace(/\s*\n+\s*/g, ' '); try { se.setSelectionRange(p, p); } catch (err) { /* 무시 */ } }
+    setCustom('subject', se.value, autoSubject(S)); syncText(); refreshSoon();
+  });
+  $('bodyEdit').addEventListener('input', () => { setCustom('body', $('bodyEdit').value, autoBody(S)); syncText(); refreshSoon(); });
+  $('bodyReset').addEventListener('click', () => { setCustom('body', autoBody(S), autoBody(S)); syncText(); refreshSoon(); toast('입력칸에 맞춘 자동 문장으로 되돌렸습니다.'); });
+  $('subjHint').addEventListener('click', e => { if (e.target.closest('#subjReset')) { setCustom('subject', autoSubject(S), autoSubject(S)); syncText(); refreshSoon(); } });
+
+  $('signList').addEventListener('click', e => {
+    const a = e.target.closest('[data-sign]'), u = e.target.closest('[data-unsign]');
+    if (a) openSign(a.dataset.sign);
+    if (u) { S.sign[u.dataset.unsign] = null; loadSignImages(); syncUI(); refreshSoon(); }
+  });
+  const pad = $('pad');
+  pad.addEventListener('pointerdown', padDown);
+  pad.addEventListener('pointermove', padMove);
+  pad.addEventListener('pointerup', padUp);
+  pad.addEventListener('pointercancel', padUp);
+  $('padClear').addEventListener('click', padClear);
+  $('padLoad').addEventListener('click', () => $('padFile').click());
+  $('padFile').addEventListener('change', e => { padLoadFile(e.target.files[0]); e.target.value = ''; });
+  $('padOk').addEventListener('click', padOk);
+  $('signClose').addEventListener('click', closeSign);
+  $('signModal').addEventListener('click', e => { if (e.target === $('signModal')) closeSign(); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (!$('signModal').classList.contains('hide')) closeSign();
+    if (!$('viewModal').classList.contains('hide')) $('viewModal').classList.add('hide');
+  });
+
+  $('pvPages').addEventListener('click', openViewer);
+  $('viewClose').addEventListener('click', () => $('viewModal').classList.add('hide'));
+  $('viewZoom').addEventListener('click', () => { viewZoom = viewZoom > 1 ? 1 : 2; drawViewer(); });
+  $('gtabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-g]'); if (!b) return;
+    $('gtabs').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('#guide > div[data-g]').forEach(x => x.classList.toggle('hide', x.dataset.g !== b.dataset.g));
+  });
+
+  $('btnSample').addEventListener('click', sample);
+  $('btnReset').addEventListener('click', resetAll);
+  $('btnPdf').addEventListener('click', e => busy(e.currentTarget, 'PDF 만드는 중…', async () => {
+    const blob = await buildPdfBlob($('btnPdf'));
+    download(blob, fileBase() + '.pdf');
+    toast(`PDF를 저장했습니다 (${CUR.lay.pages.length}쪽 · ${Math.max(1, Math.round(blob.size / 1024))}KB)`);
+  }));
+  $('btnImg').addEventListener('click', e => busy(e.currentTarget, '그리는 중…', async () => {
+    const cur = ensureCur();
+    const blob = await makeImage(cur.lay);
+    download(blob, fileBase() + '.png');
+    toast(cur.lay.pages.length > 1 ? `${cur.lay.pages.length}쪽을 이어 붙인 한 장으로 저장했습니다` : '이미지를 저장했습니다');
+  }));
+  $('btnDocx').addEventListener('click', e => busy(e.currentTarget, '만드는 중…', async () => {
+    const cur = ensureCur();
+    download(makeDOCX(cur.doc, S), fileBase() + '.docx');
+    toast('워드 파일을 저장했습니다. 한글에서도 열 수 있습니다.');
+  }));
+  $('btnPrint').addEventListener('click', e => busy(e.currentTarget, '준비 중…', () => doPrint(S.copies === '1' ? 1 : S.recips.length + 2)));
+  try {
+    const probe = new File([new Uint8Array(1)], 'a.pdf', { type: 'application/pdf' });
+    if (navigator.canShare && navigator.share && navigator.canShare({ files: [probe] })) $('btnShare').classList.remove('hide');
+  } catch (e) { /* 공유 미지원 */ }
+  $('btnShare').addEventListener('click', e => {
+    const btn = e.currentTarget;
+    const cur = ensureCur();
+    const ready = pdfCache && pdfCache.v === cur.v;
+    const go = blob => navigator.share({ files: [new File([blob], fileBase() + '.pdf', { type: 'application/pdf' })], title: '내용증명' })
+      .catch(err => { if (err && err.name === 'NotAllowedError') toast('PDF가 준비됐습니다. 공유를 한 번 더 눌러 주세요.'); });
+    if (ready) { go(pdfCache.blob); return; }
+    busy(btn, 'PDF 만드는 중…', async () => { const blob = await buildPdfBlob(btn); await go(blob); });
+  });
+
+  window.addEventListener('scroll', updateMbar, { passive: true });
+  window.addEventListener('resize', () => { updateMbar(); fitSubject(); if (CUR) renderPreview(CUR.lay); }, { passive: true });
+  $('mbarGo').addEventListener('click', () => $('pvCard').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+
+  syncUI();
+  refresh();
+  if (restored) toast('이 탭에서 쓰던 내용을 불러왔습니다.');
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+</script>
+</body>
+</html>
