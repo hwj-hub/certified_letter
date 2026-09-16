@@ -837,6 +837,10 @@ footer b{color:var(--fg)}
     <p class="fine">PDF·워드는 <b>인터넷우체국 여백 규격</b>(위 20·아래 40·좌우 15mm 이상, 쪽 번호 없음)에 맞췄습니다. 우체국 창구에 낼 때는 <b>한 면만 3부</b> 인쇄하세요.</p>
   </section>
 
+  <!-- 광고 자리 · 본문 중간 — 입력이 다 끝난 자리에 둔다(입력 중에는 광고를 띄우지 않는다는 애드핏 조항)
+     모바일·PC 모두 320×100 — 둘이 같이 뜨지 않으니 단위 ID 하나면 된다 -->
+  <div class="ad-slot" id="ad-mid"></div>
+
   <!-- 저장 완료 카드 · 광고 자리 ③ — 저장을 누른 다음에 펼쳐지고, 화면을 덮지 않습니다 -->
   <section class="card hide" id="doneCard">
     <h2><span>저장했습니다</span><button class="mini" id="doneHide" type="button">닫기</button></h2>
@@ -864,10 +868,6 @@ footer b{color:var(--fg)}
   </section>
 </aside>
 </div>
-
-<!-- 광고 자리 · 본문 중간 — 입력이 다 끝난 자리에 둔다(입력 중에는 광고를 띄우지 않는다는 애드핏 조항)
-     모바일·PC 모두 320×100 — 둘이 같이 뜨지 않으니 단위 ID 하나면 된다 -->
-<div class="ad-slot" id="ad-mid"></div>
 
 <!-- 보내는 법 -->
 <section class="card" id="guide">
